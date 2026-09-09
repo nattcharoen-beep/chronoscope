@@ -5510,7 +5510,7 @@
         <!-- Search Input -->
         <div class="relative flex items-center">
           <span class="absolute left-3.5 text-slate-400 text-sm">🔍</span>
-          <input type="text" id="glossary-search-input" oninput="filterGlossary()" placeholder="Search terms, keywords, definitions in English or ภาษาไทย... (e.g. Polis, Westphalia, สัญญาประชาคม, MAD)" class="w-full pl-9 pr-8 py-2 bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+          <input type="text" id="glossary-search-input" oninput="filterGlossary()" placeholder="Search terms, concepts, definitions (e.g. Polis, Westphalia, Social Contract, MAD)..." class="w-full pl-9 pr-8 py-2 bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
           <button id="glossary-search-clear" onclick="clearGlossarySearch()" class="hidden absolute right-3 w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-500 dark:text-slate-400 text-[10px] items-center justify-center font-bold cursor-pointer">
             ✕
           </button>
@@ -5520,41 +5520,41 @@
         <div class="flex flex-wrap items-center gap-1.5 text-xs font-sans">
           <span class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mr-1">Era:</span>
           <button onclick="setGlossaryEra('all')" id="glossary-era-all" class="glossary-era-pill active px-2.5 py-0.5 rounded-md font-medium text-xs bg-amber-600 text-white dark:bg-amber-500 dark:text-slate-950 transition-all cursor-pointer">
-            ทั้งหมด (53)
+            All (53)
           </button>
           <button onclick="setGlossaryEra(1)" id="glossary-era-1" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            1. กรีก (6)
+            1. Greece (6)
           </button>
           <button onclick="setGlossaryEra(2)" id="glossary-era-2" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
             2. Roman Empire (6)
           </button>
           <button onclick="setGlossaryEra(3)" id="glossary-era-3" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            3. The Middle Ages (6)
+            3. Middle Ages (6)
           </button>
           <button onclick="setGlossaryEra(4)" id="glossary-era-4" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            4. เรเนซองส์ (7)
+            4. Renaissance (7)
           </button>
           <button onclick="setGlossaryEra(5)" id="glossary-era-5" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            5. ประชาธิปไตย (5)
+            5. Revolutions (5)
           </button>
           <button onclick="setGlossaryEra(6)" id="glossary-era-6" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            6. อุตสาหกรรม (5)
+            6. Industrial (5)
           </button>
           <button onclick="setGlossaryEra(7)" id="glossary-era-7" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            7. สงครามโลก 1 (4)
+            7. World War I (4)
           </button>
           <button onclick="setGlossaryEra(8)" id="glossary-era-8" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            8. สงครามโลก 2 (6)
+            8. World War II (6)
           </button>
           <button onclick="setGlossaryEra(9)" id="glossary-era-9" class="glossary-era-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
-            9. สงครามเย็น (8)
+            9. Cold War (8)
           </button>
         </div>
 
         <div class="flex flex-wrap items-center gap-1.5 text-xs font-sans pt-1.5 border-t border-slate-200/60 dark:border-slate-800/60">
           <span class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mr-1">Domain:</span>
           <button onclick="setGlossaryCategory('all')" id="glossary-cat-all" class="glossary-cat-pill active px-2.5 py-0.5 rounded-md font-medium text-xs bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-900 transition-all cursor-pointer">
-            ทุกหมวดหมู่
+            All Domains
           </button>
           <button onclick="setGlossaryCategory('Politics & Statecraft')" id="glossary-cat-politics" class="glossary-cat-pill px-2.5 py-0.5 rounded-md font-medium text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer">
             🏛️ Politics & Statecraft
@@ -5895,8 +5895,8 @@
         html += '  <div class="flex flex-wrap items-start justify-between gap-2">';
         html += '    <div class="space-y-1">';
         html += '      <div class="flex items-center gap-2 flex-wrap">';
-        html += '        <h3 class="text-lg sm:text-xl font-serif font-bold text-slate-900 dark:text-white tracking-tight cursor-pointer hover:text-amber-600 dark:hover:text-amber-400 transition-colors" onclick="copyGlossaryTerm(\'' + item.term_th.replace(/'/g, "\\'") + '\')" title="Click to copy term">' + item.term_th + '</h3>';
-        html += '        <span class="text-sm sm:text-base font-serif font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-md border border-amber-200/70 dark:border-amber-800/60">' + item.term_en + '</span>';
+        html += '        <h3 class="text-lg sm:text-xl font-serif font-bold text-slate-900 dark:text-white tracking-tight cursor-pointer hover:text-amber-600 dark:hover:text-amber-400 transition-colors" onclick="copyGlossaryTerm(\'' + item.term_en.replace(/'/g, "\\'") + '\')" title="Click to copy term">' + item.term_en + '</h3>';
+        html += '        <span class="text-sm sm:text-base font-serif font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-md border border-amber-200/70 dark:border-amber-800/60">' + item.term_th + '</span>';
         html += '      </div>';
         if (item.etymology) {
           html += '      <p class="text-[11px] font-mono text-slate-400 dark:text-slate-500 italic">' + item.etymology + '</p>';
@@ -5904,29 +5904,29 @@
         html += '    </div>';
         
         html += '    <div class="flex items-center gap-1.5 shrink-0">';
-        html += '      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">ยุคที่ ' + item.era_id + '</span>';
-        html += '      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">' + (item.category_th || item.category) + '</span>';
-        html += '      <button onclick="copyGlossaryTerm(\'' + item.term_th.replace(/'/g, "\\'") + '\')" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 text-xs cursor-pointer" title="Copy term">📋</button>';
+        html += '      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Era ' + item.era_id + '</span>';
+        html += '      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">' + item.category + '</span>';
+        html += '      <button onclick="copyGlossaryTerm(\'' + item.term_en.replace(/'/g, "\\'") + '\')" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 text-xs cursor-pointer" title="Copy term">📋</button>';
         html += '    </div>';
         html += '  </div>';
 
-        // Definitions Box: Dual Language Side-by-side or stacked
+        // Definitions Box: Dual Language Side-by-side or stacked (English first)
         html += '  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800/80 text-xs sm:text-sm leading-relaxed">';
         html += '    <div class="space-y-1 border-b md:border-b-0 md:border-r border-slate-200/60 dark:border-slate-800 pb-2 md:pb-0 md:pr-3">';
-        html += '      <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider"><span class="text-xs">🇹🇭</span> คำจำกัดความภาษาไทย</div>';
-        html += '      <p class="text-slate-700 dark:text-slate-200">' + item.definition_th + '</p>';
+        html += '      <div class="flex items-center gap-1 text-[11px] font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider"><span class="text-xs">🇬🇧</span> English Definition</div>';
+        html += '      <p class="text-slate-700 dark:text-slate-200">' + item.definition_en + '</p>';
         html += '    </div>';
         html += '    <div class="space-y-1 md:pl-1">';
-        html += '      <div class="flex items-center gap-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider"><span class="text-xs">🇬🇧</span> English Definition</div>';
-        html += '      <p class="text-slate-700 dark:text-slate-200">' + item.definition_en + '</p>';
+        html += '      <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider"><span class="text-xs">🇹🇭</span> Thai Translation / นิยามภาษาไทย</div>';
+        html += '      <p class="text-slate-700 dark:text-slate-200">' + item.definition_th + '</p>';
         html += '    </div>';
         html += '  </div>';
 
-        // Historical Application / Context Box
+        // Historical Application / Context Box (EN first)
         html += '  <div class="p-3 rounded-lg bg-amber-500/5 border border-amber-500/15 text-xs text-slate-600 dark:text-slate-300 space-y-1.5">';
         html += '    <div class="font-semibold text-[11px] text-amber-700 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1.5"><span>🏛️</span> Historical Application & Significance</div>';
-        html += '    <p class="leading-relaxed"><strong class="text-slate-800 dark:text-white">ไทย:</strong> ' + item.historical_context_th + '</p>';
         html += '    <p class="leading-relaxed"><strong class="text-slate-800 dark:text-white">EN:</strong> ' + item.historical_context_en + '</p>';
+        html += '    <p class="leading-relaxed"><strong class="text-slate-800 dark:text-white">TH:</strong> ' + item.historical_context_th + '</p>';
         html += '  </div>';
 
         // Related Topics / Links
@@ -6850,12 +6850,12 @@
             id: item.id,
             title_th: item.term_th,
             title_en: item.term_en,
-            era: 'ยุคที่ ' + item.era_id + ': ' + item.era_name_th,
-            meta: 'หมวดหมู่: ' + (item.category_th || item.category) + (item.etymology ? ' • ' + item.etymology : ''),
+            era: 'Era ' + item.era_id + ': ' + (item.era_name_en || item.era_name_th),
+            meta: 'Domain: ' + item.category + (item.etymology ? ' • ' + item.etymology : ''),
             icon: '📖',
             content: (item.term_en + ' ' + item.term_th + ' ' + item.category + ' ' + (item.category_th || '') + ' ' + (item.etymology || '') + ' ' + rawContent + ' ' + (item.related_topics || []).join(' ')).toLowerCase(),
             rawContent: rawContent,
-            snippet: item.definition_th + ' — ' + item.definition_en
+            snippet: item.definition_en + ' — ' + item.definition_th
           });
         });
       }
