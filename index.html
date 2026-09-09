@@ -11451,9 +11451,11 @@ function toggleLectureTimerWidget() {
   var isOpening = widget.classList.contains('hidden');
   widget.classList.toggle('hidden');
   if (isOpening && !widget.dataset.userMoved) {
-    widget.style.top = '50%';
-    widget.style.left = '50%';
-    widget.style.transform = 'translate(-50%, -50%)';
+    widget.style.top = '48%';
+    widget.style.right = '1rem';
+    widget.style.left = 'auto';
+    widget.style.bottom = 'auto';
+    widget.style.transform = 'translateY(-50%)';
   }
 }
 
@@ -12128,7 +12130,7 @@ function openSlideQRModal() {
   var qrApiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(currentUrl);
 
   img.src = qrApiUrl;
-  if (caption) caption.textContent = 'สแกนเพื่อเปิดสไลด์ที่ ' + (currentSlide + 1) + ' (' + slideMetadataList[currentSlide].title + ')';
+  if (caption) caption.textContent = 'สแกนเพื่ออ่าน Slide';
   if (urlEl) urlEl.textContent = currentUrl;
 
   modal.classList.remove('hidden');
@@ -12586,7 +12588,7 @@ function closeMythMiniQuizModal() {
     </div>
 
     <!-- ==================== TEACHING TOOLS: FLOATING LECTURE TIMER ==================== -->
-    <div id="lecture-timer-widget" class="hidden fixed z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-64 font-sans select-none touch-none" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div id="lecture-timer-widget" class="hidden fixed z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-64 font-sans select-none touch-none" style="top: 48%; right: 1rem; transform: translateY(-50%);">
       <!-- Draggable Header -->
       <div id="lecture-timer-drag-header" class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 cursor-grab active:cursor-grabbing hover:bg-slate-50/50 dark:hover:bg-slate-800/50 -mx-2 px-2 rounded-t-xl transition-colors" title="คลิกค้างแล้วลากย้ายตำแหน่งได้ทุกที่บนหน้าจอ">
         <div class="flex items-center gap-1.5 font-bold text-xs text-slate-800 dark:text-slate-200 pointer-events-none">
@@ -12597,9 +12599,8 @@ function closeMythMiniQuizModal() {
       </div>
 
       <!-- Count-up Stopwatch Clock Display -->
-      <div class="py-3.5 text-center">
+      <div class="py-3 text-center">
         <div id="lecture-timer-clock" class="text-4xl font-bold font-mono tracking-tight text-slate-900 dark:text-white">00:00</div>
-        <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">เวลาที่ใช้สอนไปแล้ว</div>
       </div>
 
       <!-- Control Buttons (Start/Pause, Reset) -->
@@ -12624,7 +12625,7 @@ function closeMythMiniQuizModal() {
         <div class="bg-white p-4 rounded-xl inline-block border border-slate-200 shadow-xs mb-3">
           <img id="slide-qr-img" src="" alt="QR Code" class="w-48 h-48 mx-auto" />
         </div>
-        <p id="slide-qr-caption" class="text-xs text-slate-600 dark:text-slate-400 font-medium mb-1">สแกนเพื่อเปิดสไลด์ปัจจุบันบนสมาร์ตโฟน</p>
+        <p id="slide-qr-caption" class="text-xs text-slate-600 dark:text-slate-400 font-medium mb-1">สแกนเพื่ออ่าน Slide</p>
         <p id="slide-qr-url" class="text-[11px] font-mono text-slate-400 truncate max-w-xs mx-auto mb-4"></p>
         <button onclick="closeSlideQRModal()" class="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 transition cursor-pointer">
           ปิดหน้าต่าง
