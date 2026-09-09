@@ -8593,7 +8593,12 @@
       if (modal) {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
+        modal.classList.remove('split-mode');
         document.body.style.overflow = '';
+      }
+      var drawer = document.getElementById('hybrid-map-drawer');
+      if (drawer) {
+        drawer.classList.remove('split-mode');
       }
     }
 
@@ -13981,9 +13986,22 @@ function closeMythMiniQuizModal() {
         function openMapFromCurrentArticle() {
       if (!window.currentReadingArticleKey) return;
       var key = window.currentReadingArticleKey;
-      var modal = document.getElementById('articleModal');
-      if (modal) modal.classList.add('hidden');
-      openLocationMap(key);
+      
+      var articleModal = document.getElementById('articleModal');
+      var drawer = document.getElementById('hybrid-map-drawer');
+      
+      // Put both into split-screen mode so article stays on left and map opens on right!
+      if (articleModal) {
+        articleModal.classList.add('split-mode');
+        articleModal.classList.remove('hidden');
+        articleModal.classList.add('flex');
+      }
+      if (drawer) {
+        drawer.classList.add('split-mode');
+      }
+      
+      // Open location map in split mode (true = keep article visible)
+      openLocationMap(key, true);
     }
 
     // Hook into openDeepDive to remember active article key and show/hide map button
