@@ -4146,26 +4146,32 @@
       </div>
 
       <!-- Slide Bottom Control Bar (Quarto Clean Style) -->
-      <div class="h-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 flex items-center justify-between text-xs font-sans flex-shrink-0 z-20">
-        <div class="flex items-center gap-1.5 sm:gap-2">
-          <button onclick="firstSlide()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-colors font-sans" title="ไปหน้าแรก (Home)">
+      <div class="h-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 sm:px-6 flex items-center justify-between text-xs font-sans flex-shrink-0 z-20">
+        <!-- 1. LEFT: First Slide Button -->
+        <div class="flex items-center justify-start flex-1 min-w-0">
+          <button onclick="firstSlide()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 transition-all shadow-xs font-sans font-medium hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer" title="ไปหน้าแรก (Home)">
             <span>⇤ หน้าแรก</span>
           </button>
-          <button onclick="prevSlide()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-colors font-sans" title="สไลด์ก่อนหน้า (Left Arrow)">
-            <span>&larr; ก่อนหน้า</span>
-          </button>
-          <button onclick="nextSlide()" class="px-2.5 py-1 rounded bg-[#107895] hover:bg-[#0b5e75] text-white font-medium flex items-center gap-1 transition-colors shadow-sm font-sans" title="สไลด์ถัดไป (Right Arrow / Space)">
-            <span>ถัดไป &rarr;</span>
-          </button>
-          <button onclick="lastSlide()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-colors font-sans" title="ไปหน้าสุดท้าย (End)">
-            <span>หน้าสุดท้าย ⇥</span>
-          </button>
-          <span class="text-slate-400 dark:text-slate-500 hidden md:inline ml-2 font-sans">[ลูกศร ซ้าย/ขวา, Spacebar, Home, End]</span>
         </div>
 
-        <div class="flex items-center gap-3">
-          <span id="slide-indicator" class="text-slate-600 dark:text-slate-400 font-semibold font-mono">สไลด์ 01 / 20</span>
-          <button onclick="toggleFullscreen()" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-colors" title="เต็มจอ (F)">
+        <!-- 2. CENTER: Prev & Next Buttons with hint -->
+        <div class="flex items-center justify-center gap-2 shrink-0">
+          <button onclick="prevSlide()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-all shadow-xs font-sans font-medium hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer" title="สไลด์ก่อนหน้า (Left Arrow)">
+            <span>&larr; ก่อนหน้า</span>
+          </button>
+          <button onclick="nextSlide()" class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-[#107895] hover:bg-[#0b5e75] text-white font-medium flex items-center gap-1 transition-all shadow-xs font-sans cursor-pointer" title="สไลด์ถัดไป (Right Arrow / Space)">
+            <span>ถัดไป &rarr;</span>
+          </button>
+          <span class="text-slate-400 dark:text-slate-500 hidden md:inline ml-1.5 font-sans text-[11px]">[ลูกศร ซ้าย/ขวา หรือ Spacebar]</span>
+        </div>
+
+        <!-- 3. RIGHT: Last Slide Button + Slide Indicator + Fullscreen -->
+        <div class="flex items-center justify-end gap-2 sm:gap-3 flex-1 min-w-0">
+          <button onclick="lastSlide()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 transition-all shadow-xs font-sans font-medium hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer" title="ไปหน้าสุดท้าย (End)">
+            <span>หน้าสุดท้าย ⇥</span>
+          </button>
+          <span id="slide-indicator" class="text-slate-600 dark:text-slate-400 font-semibold font-mono text-xs whitespace-nowrap">สไลด์ 01 / 20</span>
+          <button onclick="toggleFullscreen()" class="px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all shadow-xs cursor-pointer" title="เต็มจอ (F)">
             <span>⛶</span>
           </button>
         </div>
