@@ -935,57 +935,86 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">4 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('greek-trojan-war')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1180 ปีก่อน ค.ศ.</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🏛️ สงครามกรุงทรอย & โบราณคดีไมซีนี
+            </div>
+          </div>
+          <div onclick="openDeepDive('greek-persian-wars')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">490–479 ปีก่อน ค.ศ.</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ⚔️ สงครามเปอร์เซีย: มาราธอน สู่ซาลามิส
+            </div>
+          </div>
+          <div onclick="openDeepDive('greek-golden-age-peloponnesian')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">431–404 ปีก่อน ค.ศ.</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🎭 ยุคทองเอเธนส์ สู่สงครามเพโลพอนนีเซียน
+            </div>
+          </div>
+          <div onclick="openDeepDive('greek-alexander-hellenistic')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">336–323 ปีก่อน ค.ศ.</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🐎 อเล็กซานเดอร์มหาราช & ยุคเฮลเลนิสติก
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('greek-trojan-war')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">~1200–1180 BCE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🏛️ สงครามกรุงทรอย, มหากาพย์โฮเมอร์ และการล่มสลายยุคสำริด
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇨🇳 จีน (ยุคชุนชิว-จั้นกั๋ว & ขงจื๊อ):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ขงจื๊อ (551–479 BC) มีชีวิตอยู่ในช่วงเดียวกับโสกราตีสและสงครามเปอร์เซีย! จิ๋นซีฮ่องเต้รวมแผ่นดินจีนสร้างกำแพงเมืองจีน (~221 BC)</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇮🇳 อินเดีย (พุทธกาล & ศิลปะคันธาระ):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">พระพุทธเจ้าปรินิพพาน (~500s BC) / อเล็กซานเดอร์รบกับพระเจ้าโปรุส ก่อให้เกิดศิลปะคันธาระ พระพุทธรูปหน้ากรีกองค์แรกของโลก</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('greek-persian-wars')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">499–449 BCE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🛡️ สงครามเปอร์เซีย: มาราธอน, เธอร์โมพีลี, ซาลามิส
-          </div>
-        </div>
-        <div onclick="openDeepDive('greek-golden-age-peloponnesian')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">449–404 BCE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🎭 ยุคทองของเอเธนส์, เพริคลีส และสงครามเพโลพอนนีเซียน
-          </div>
-        </div>
-        <div onclick="openDeepDive('greek-alexander-hellenistic')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">336–323 BCE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚡ พระเจ้าอเล็กซานเดอร์มหาราช และการผสานอารยธรรมเฮลเลนิสติก
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">6 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -1058,13 +1087,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">5 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div onclick="openDeepDive('greek-trojan-war', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -1266,57 +1295,86 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">4 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('rome-republic-fall')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">133–44 ปีก่อน ค.ศ.</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🏛️ การล่มสลายของสาธารณรัฐโรมัน & ซีซาร์
+            </div>
+          </div>
+          <div onclick="openDeepDive('christianity-rome')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 30–313</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ✝️ ประวัติศาสตร์พระเยซู & คริสตจักรยุคแรก
+            </div>
+          </div>
+          <div onclick="openDeepDive('rome-pax-romana-emperors')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">27 ปีก่อน ค.ศ. – ค.ศ. 180</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ⚔️ สันติภาพโรมัน: ออกุสตุส ขนมปัง & การละเล่น
+            </div>
+          </div>
+          <div onclick="openDeepDive('rome-christianity-state-fall')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 312–476</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🦅 คอนสแตนติน & การล่มสลายของโรม
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('rome-republic-fall')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">133–44 BCE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🏛️ การล่มสลายของสาธารณรัฐโรมัน: มาริอุส, ซุลลา และซีซาร์
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇨🇳 จีน (ราชวงศ์ฮั่น & เส้นทางสายไหม 202 BC – 220 AD):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ยุคทองราชวงศ์ฮั่นคู่ขนานกับสันติภาพโรมัน คาราวานค้าผ้าไหมเชื่อมตะวันออกสู่กรุงโรม สู่ยุคสามก๊ก (220–280 AD)</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇮🇳 อินเดีย (จักรวรรดิโมริยะ & พระเจ้าอโศกมหาราช 268–232 BC):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">พระเจ้าอโศกหันมารับพระพุทธศาสนาหลังสงครามกาลิงคะ ส่งสมณทูตไปเผยแผ่ถึงดินแดนเฮลเลนิสติกและสุวรรณภูมิ</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('christianity-rome')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">30–313 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ✝️ ประวัติศาสตร์พระเยซู, การตรึงกางเขน และคริสตจักรยุคแรก
-          </div>
-        </div>
-        <div onclick="openDeepDive('rome-pax-romana-emperors')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">27 BCE–180 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚔️ สันติภาพโรมัน: ออกุสตุส, ขนมปังและการละเล่น
-          </div>
-        </div>
-        <div onclick="openDeepDive('rome-christianity-state-fall')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">312–476 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🦅 คอนสแตนติน, การสังคายนาไนเซีย และการล่มสลายของโรม
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">6 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -1389,13 +1447,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">5 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div onclick="openDeepDive('rome-republic-fall', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -1597,57 +1655,86 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">4 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('middle-ages-feudalism-inquisition')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 476–1453</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🏰 ระบบฟิวดัล อัศวิน & การไต่สวนศรัทธา
+            </div>
+          </div>
+          <div onclick="openDeepDive('crusades-jerusalem')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1095–1291</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ⚔️ สงครามครูเสด: ศึกชิงนครศักดิ์สิทธิ์
+            </div>
+          </div>
+          <div onclick="openDeepDive('black-death-impact')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1347–1351</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              💀 กาฬโรคระบาดใหญ่ (Black Death)
+            </div>
+          </div>
+          <div onclick="openDeepDive('fall-of-constantinople-1453')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1453</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              💥 การล่มสลายของคอนสแตนติโนเปิล
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('middle-ages-feudalism-inquisition')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">476–1300 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🏰 ระบบศักดินา, วิถีอาราม และการไต่สวนศรัทธาในยุคกลาง
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇲🇳 จักรวรรดิมองโกล (เจงกิสข่าน & กุบไลข่าน ค.ศ. 1206–1368):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">พิชิตดินแดนใหญ่ที่สุดในประวัติศาสตร์ เชื่อมยุโรปกับเอเชียด้วยสันติภาพมองโกล (Pax Mongolica) มาร์โค โปโล เดินทางเยือนจีน</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇹🇭 สยาม (กำเนิดอาณาจักรสุโขทัย & อยุธยา ค.ศ. 1238–1350):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">พ่อขุนรามคำแหงประดิษฐ์อักษรไทย (1283) และพระเจ้าอู่ทองสถาปนากรุงศรีอยุธยา (1350) ช่วงเดียวกับกาฬโรคระบาดในยุโรป!</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('crusades-jerusalem')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1095–1291 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚔️ สงครามครูเสด: พระสันตะปาปาเออร์บันที่ 2, อัศวินเทมพลาร์ และศอลาฮุดดีน
-          </div>
-        </div>
-        <div onclick="openDeepDive('black-death-impact')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1347–1351 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            💀 กาฬโรคระบาดใหญ่ (Black Death) และการพังทลายของระบบศักดินา
-          </div>
-        </div>
-        <div onclick="openDeepDive('fall-of-constantinople-1453')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1453 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            💥 การล่มสลายของคอนสแตนติโนเปิล: สุลต่านเมห์เหม็ดที่ 2 และจุดสิ้นสุดของโรม
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">5 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -1709,13 +1796,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">4 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -1917,57 +2004,86 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">4 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('renaissance-medici-art')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ศตวรรษที่ 14–17</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🎨 ยุคฟื้นฟูศิลปวิทยาการ & เมดิชี
+            </div>
+          </div>
+          <div onclick="openDeepDive('reformation-martin-luther')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1517</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ✝️ การปฏิรูปศาสนา & มาร์ติน ลูเธอร์
+            </div>
+          </div>
+          <div onclick="openDeepDive('colonialism-voc-stock')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1602</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🚢 บรรษัท VOC & ตลาดหุ้นตัวแรกของโลก
+            </div>
+          </div>
+          <div onclick="openDeepDive('scientific-revolution')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1543–1687</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🔭 การปฏิวัติวิทยาศาสตร์: สู่ยุคนิวตัน
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('renaissance-medici-art')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">14th–16th C.</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🎨 ยุคเรเนซองส์อิตาลี: ระบบธนาคารเมดิชีและมนุษยนิยม
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇯🇵 ญี่ปุ่น (ยุคเซ็นโกคุ สู่โชกุนโทกูงาวะ ค.ศ. 1467–1603):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">โนบูนางะ ฮิเดโยชิ และอิเอยาซุ รวมแผ่นดินญี่ปุ่น ฝรั่งโปรตุเกสนำปืนไฟและศาสนาคริสต์เข้ามา ก่อนโชกุนสั่งปิดประเทศ (ซาโกกุ)</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇹🇭 สยาม (สมเด็จพระนเรศวร & สมเด็จพระนารายณ์ ค.ศ. 1590–1688):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ศึกยุทธหัตถี (1592) ยุคทองการค้าอยุธยากับฮอลันดา (VOC) และราชทูตโกษาปานเดินทางไปเจริญสัมพันธไมตรีกับพระเจ้าหลุยส์ที่ 14 ณ พระราชวังแวร์ซายส์!</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('reformation-martin-luther')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1517–1648 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            📜 การปฏิรูปศาสนาโปรเตสแตนต์: มาร์ติน ลูเธอร์ และแท่นพิมพ์
-          </div>
-        </div>
-        <div onclick="openDeepDive('dutch-voc-capitalism')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1602–1799 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🚢 บริษัทอินเดียตะวันออกของเนเธอร์แลนด์ (VOC) และทุนนิยมสมัยใหม่
-          </div>
-        </div>
-        <div onclick="openDeepDive('scientific-revolution-newton')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1543–1687 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🔭 การปฏิวัติวิทยาศาสตร์: จากโคเปอร์นิคัสสู่นิวตัน
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">6 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -2040,13 +2156,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">4 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div onclick="openDeepDive('reformation-martin-luther', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -2248,57 +2364,86 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">4 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('boston-tea-party-deep')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1773</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ☕ งานเลี้ยงน้ำชาบอสตัน & ประกาศอิสรภาพ
+            </div>
+          </div>
+          <div onclick="openDeepDive('us-constitution-founding')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1787</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              📜 กำเนิดรัฐธรรมนูญอเมริกา & บิดาผู้ก่อตั้ง
+            </div>
+          </div>
+          <div onclick="openDeepDive('revenant-frontier')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1823</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🌲 ยุคบุกเบิกแดนตะวันตก & The Revenant
+            </div>
+          </div>
+          <div onclick="openDeepDive('civil-war-slavery-lincoln')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1861–1865</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ⚔️ สงครามกลางเมืองอเมริกา & การเลิกทาส
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('enlightenment-social-contract')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1689–1789 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            💡 ยุคเรืองปัญญา: ล็อก, มงแต็สกีเยอ, รุสโซ และสัญญาประชาคม
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇫🇷 ฝรั่งเศส (การปฏิวัติฝรั่งเศส & นโปเลียน ค.ศ. 1789–1815):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ทลายคุกบาสตีย์ ประหารพระเจ้าหลุยส์ที่ 16 ด้วยกิโยติน ยุคก่อการร้าย สู่การผงาดขึ้นของจักรพรรดินโปเลียน โบนาปาร์ต แผ่อิทธิพลทั่วยุโรป</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇹🇭 สยาม (กำเนิดกรุงรัตนโกสินทร์ ค.ศ. 1782–1868):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ร.1 สถาปนากรุงเทพฯ (1782) ช่วงเดียวกับสงครามประกาศอิสรภาพอเมริกา! ร.4 เริ่มเปิดรับวิทยาการตะวันตกและทำสนธิสัญญาเบาว์ริง (1855)</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('american-revolution-independence')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1775–1783 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🗽 การปฏิวัติอเมริกันและคำประกาศอิสรภาพ 1776
-          </div>
-        </div>
-        <div onclick="openDeepDive('american-constitution-federalist')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1787–1791 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            📜 รัฐธรรมนูญสหรัฐอเมริกา, The Federalist และบทบัญญัติสิทธิ
-          </div>
-        </div>
-        <div onclick="openDeepDive('american-civil-war-slavery')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1861–1865 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚔️ สงครามกลางเมืองอเมริกา: ลินคอล์น, การเลิกทาส และการรักษาชาติ
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">6 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -2371,13 +2516,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">2 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -2579,57 +2724,86 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">4 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('industrial-steam-factory')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1760–1840</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ⚙️ ปฏิวัติอุตสาหกรรม: เครื่องจักรไอน้ำ & ถ่านหิน
+            </div>
+          </div>
+          <div onclick="openDeepDive('industrial-labor-capitalism-marx')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1848</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🏭 วิถีชีวิตแรงงาน สู่ทุนนิยม vs มาร์กซิสม์
+            </div>
+          </div>
+          <div onclick="openDeepDive('industrial-second-electricity')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1870–1914</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ⚡ ปฏิวัติอุตสาหกรรมระลอก 2: ไฟฟ้า & น้ำมัน
+            </div>
+          </div>
+          <div onclick="openDeepDive('scramble-for-africa-imperialism')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1884–1914</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🌍 การแย่งชิงแอฟริกา & ลัทธิจักรวรรดินิยม
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('industrial-revolution-steam')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1760–1850 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚙️ การปฏิวัติอุตสาหกรรม: พลังไอน้ำ, ถ่านหิน และโรงงานทอผ้า
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇨🇳 จีน (สงครามฝิ่น & จุดเริ่มต้น 100 ปีแห่งความอัปยศ ค.ศ. 1839–1900):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">อังกฤษทำสงครามฝิ่นบีบจีนเซ็นสนธิสัญญานานกิง เสียเกาะฮ่องกง สู่กบฏไท่ผิงและกบฏนักมวย ราชวงศ์ชิงเริ่มเสื่อมสลาย</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇹🇭 สยาม (การปฏิรูปแผ่นดิน ร.5 & วิกฤตการณ์ ร.ศ. 112 ค.ศ. 1868–1910):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ร.5 ทรงเลิกทาส สร้างรถไฟ ไปรษณีย์ และเผชิญวิกฤตการณ์ ร.ศ. 112 (1893) เรือรบฝรั่งเศสปิดปากอ่าว ยอมเสียดินแดนเพื่อรักษาเอกราช</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('second-industrial-revolution')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1870–1914 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚡ การปฏิวัติอุตสาหกรรมระลอกที่สอง: เหล็กกล้า, ไฟฟ้า และปิโตรเลียม
-          </div>
-        </div>
-        <div onclick="openDeepDive('marxism-capital-critique')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1848–1883 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            📕 คาร์ล มาร์กซ์, Das Kapital และการวิพากษ์ทุนนิยม
-          </div>
-        </div>
-        <div onclick="openDeepDive('scramble-for-africa-imperialism')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1884–1914 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🌍 การแย่งชิงดินแดนในแอฟริกา (Scramble for Africa) และการประชุมเบอร์ลิน
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">6 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -2702,13 +2876,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">4 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div onclick="openDeepDive('industrial-steam-factory', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -2910,66 +3084,99 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">5 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('ww1-causes-assassination')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1914</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              💣 ซาราเยโว สู่โดมิโนวิกฤตการณ์กรกฎาคม
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww1-trench-warfare')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1914–1918</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🪖 นรกในสนามเพลาะ: ยุทธการซอมม์ & ก๊าซพิษ
+            </div>
+          </div>
+          <div onclick="openDeepDive('russian-revolution-czar')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1917</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              👑 การปฏิวัติรัสเซีย 1917 สู่จุดจบโรมานอฟ
+            </div>
+          </div>
+          <div onclick="openDeepDive('versailles-league-of-nations')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1919</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              📜 สนธิสัญญาแวร์ซายส์ & 4 จักรวรรดิล่มสลาย
+            </div>
+          </div>
+          <div onclick="openDeepDive('chinese-revolution-puyi-last-emperor')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1911</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🐉 การปฏิวัติซินไฮ่ 1911 & จักรพรรดิองค์สุดท้าย
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('ww1-origins-july-crisis')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1914 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🔥 ต้นกำเนิดสงครามโลกครั้งที่ 1: วิกฤตการณ์ซาราเยโว และวิกฤตเดือนกรกฎาคม
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇨🇳 จีน (ขบวนการ 4 พฤษภาคม ค.ศ. 1919):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ปัญญาชนและนักศึกษาจีนประท้วงใหญ่ต่อต้านผลการประชุมแวร์ซายส์ที่ยกดินแดนซานตงให้ญี่ปุ่น จุดประกายขบวนการวัฒนธรรมใหม่และกำเนิดพรรคคอมมิวนิสต์จีน 1921</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇹🇷 ออตโตมัน (ยุทธการกัลลิโปลี & การกบฏอาหรับ ค.ศ. 1915–1918):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">มุสตาฟา เคมาล ป้องกันช่องแคบดาร์ดะเนลส์ / ลอว์เรนซ์แห่งอาระเบียปลุกระดมชาวอาหรับโค่นออตโตมัน นำไปสู่ข้อตกลงลับไซก์ส-ปิโกต์แบ่งแดนตะวันออกกลาง</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇹🇭 สยาม (กองทหารอาสาสยามไปรบที่ยุโรป ค.ศ. 1917–1919):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ร.6 ทรงตัดสินพระทัยส่งกองทหารอาสาสยามเข้าร่วมกับฝ่ายสัมพันธมิตร ได้เดินสวนสนามใต้ประตูชัยปารีส และแก้ไขสนธิสัญญาที่ไม่เป็นธรรมสำเร็จ!</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('ww1-western-front-trench')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1914–1918 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🪖 สงครามสนามเพลาะแนวรบด้านตะวันตก: ยุทธการแวร์เดิง และแม่น้ำซอมม์
-          </div>
-        </div>
-        <div onclick="openDeepDive('russian-revolution-1917')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1917 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🚩 การปฏิวัติรัสเซีย 1917: การล่มสลายของราชวงศ์โรมานอฟ และการขึ้นสู่อำนาจของเลนิน
-          </div>
-        </div>
-        <div onclick="openDeepDive('ww1-versailles-treaty-consequences')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1919 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚖️ สนธิสัญญาแวร์ซาย 1919: สันนิบาตชาติ และเมล็ดพันธุ์แห่งสงครามโลกครั้งใหม่
-          </div>
-        </div>
-        <div onclick="openDeepDive('fall-of-qing-dynasty-1911')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1911–1912 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🐉 การล่มสลายของราชวงศ์ชิง: ดร.ซุนยัตเซ็น และการปฏิวัติซินไฮ่ 1911
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">6 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -3042,13 +3249,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">4 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div onclick="openDeepDive('ww1-causes-assassination', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -3250,75 +3457,108 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">6 บทความวิจัย</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('ww2-blitzkrieg-dunkirk')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1939–1940</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🚢 สงครามสายฟ้าแลบ & ปาฏิหาริย์ดันเคิร์ก
+            </div>
+          </div>
+          <div onclick="openDeepDive('nanking-massacre-1937')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1937–1938</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🩸 โศกนาฏกรรมสังหารหมู่ที่นานกิง
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww2-holocaust-pianist')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1939–1945</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🕯️ โศกนาฏกรรมโฮโลคอสต์ & วอร์ซอเก็ตโต
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww2-stalingrad-turning-point')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1942–1943</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ❄️ ยุทธการสตาลินกราด & จุดพลิกผันสงคราม
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww2-dday-manhattan')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1944–1945</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              💥 วันดีเดย์ (D-Day) สู่โครงการแมนฮัตตัน
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww2-pacific-war')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1941–1945</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              ⚓ สมรภูมิแปซิฟิก สู่ปาฏิหาริย์เศรษฐกิจญี่ปุ่น
+            </div>
+          </div>
+          </div>
         </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('ww2-origins-appeasement')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1933–1939 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚠️ ต้นกำเนิดสงครามโลกครั้งที่ 2: การผงาดของฟาสซิสต์ และนโยบายประนีประนอมยอมความ
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇨🇳 จีน (สงครามต่อต้านญี่ปุ่น & แนวร่วมที่สอง ค.ศ. 1937–1945):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ก๊กมินตั๋งและคอมมิวนิสต์จับมือสู้ศึก ตรึงทหารญี่ปุ่นกว่าล้านนายในแผ่นดินใหญ่จีน สร้างคุณูปการมหาศาลต่อชัยชนะของฝ่ายสัมพันธมิตร</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">💻 วิทยาการ & คอมพิวเตอร์เครื่องแรก (Enigma & Colossus):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">แอลัน ทัวริง สร้างเครื่องจักร Bombe ถอดรหัสลับอินิกมาของเยอรมนี ณ Bletchley Park วางรากฐานวิทยาการคอมพิวเตอร์โลก</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇹🇭 สยาม (ขบวนการเสรีไทย & สงครามมหาเอเชียบูรพา):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ญี่ปุ่นยกพลขึ้นบกในไทย เกิดขบวนการเสรีไทยนำโดยนายปรีดี พนมยงค์ ประสานงานสัมพันธมิตรจนไทยไม่ตกเป็นฝ่ายแพ้สงคราม</p>
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('ww2-european-theater-fall-france')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1939–1940 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ⚡ สงครามในยุโรป: สงครามสายฟ้าแลบ และการล่มสลายของฝรั่งเศส
-          </div>
-        </div>
-        <div onclick="openDeepDive('ww2-eastern-front-stalingrad')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1941–1943 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            ❄️ แนวรบด้านตะวันออก: ปฏิบัติการบาร์บารอสซา และยุทธการสตาลินกราด
-          </div>
-        </div>
-        <div onclick="openDeepDive('ww2-holocaust-auschwitz-nuremberg')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1941–1945 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🕯️ ฮอโลคอสต์: การแก้ปัญหาขั้นสุดท้าย, ค่ายเอาช์วิทซ์ และการพิจารณาคดีเนือร์นแบร์ก
-          </div>
-        </div>
-        <div onclick="openDeepDive('ww2-pacific-theater-midway')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1941–1945 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🌊 สมรภูมิแปซิฟิก: เพิร์ลฮาร์เบอร์, ยุทธนาวีมิดเวย์ และยุทธวิธีเกาะกระโดด
-          </div>
-        </div>
-        <div onclick="openDeepDive('ww2-atomic-bomb-hiroshima')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1945 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            💥 ระเบิดปรมาณู: โครงการแมนฮัตตัน, ฮิโรชิมา และนางาซากิ
-          </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">11 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -3446,13 +3686,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">5 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div onclick="openDeepDive('ww2-blitzkrieg-dunkirk', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -3654,66 +3894,85 @@
 
     <!-- Two-Column Academic Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-3.5 flex-1 min-h-0">
-      <!-- Left: Research Articles -->
-      <div class="flex flex-col lg:col-span-3 min-h-0">
-        <div class="flex items-center gap-1.5 ">
-          <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
-        </div>
-        <div class="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
-          
-        <div onclick="openDeepDive('cold-war-origins-iron-curtain')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1945–1953 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+      <!-- Left: Research Articles & Parallel Context -->
+      <div class="flex flex-col justify-between lg:col-span-3 min-h-0">
+        <!-- Top Section: Research Articles -->
+        <div class="flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#107895] dark:bg-[#38bdf8]"></span>
+              <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">คลังบทความวิจัยประวัติศาสตร์</span>
+            </div>
+            <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border border-sky-200 dark:border-sky-800">3 บทความวิจัย</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🌐 ต้นกำเนิดสงครามเย็น: ม่านเหล็ก, หลักการทรูแมน และแผนมาร์แชลล์
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 content-start">
+          <div onclick="openDeepDive('israel-founding-1948')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1948</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🇮🇱 การกำเนิดประเทศอิสราเอล ค.ศ. 1948
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('cold-war-cuban-missile-crisis')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1962 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+          <div onclick="openDeepDive('chinese-communist-revolution-1949')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1949</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🚩 มหาการปฏิวัติคอมมิวนิสต์จีน & เหมา เจ๋อตง
+            </div>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🚀 วิกฤตการณ์ขีปนาวุธคิวบา 1962: 13 วันบนขอบเหวสงครามนิวเคลียร์
+          <div onclick="openDeepDive('soviet-collapse-1991')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-0.5">
+              <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">ค.ศ. 1985–1991</span>
+              <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+            </div>
+            <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
+              🚩 การล่มสลายของสหภาพโซเวียต ค.ศ. 1991
+            </div>
           </div>
-        </div>
-        <div onclick="openDeepDive('cold-war-vietnam-quagmire')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1955–1975 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🌴 สงครามเวียดนาม: สงครามตัวแทนยุคสงครามเย็น และทฤษฎีโดมิโน
-          </div>
-        </div>
-        <div onclick="openDeepDive('chinese-communist-revolution-1949')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1949–1976 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
-          </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🚩 เหมาเจ๋อตง, การปฏิวัติจีน 1949 และการปฏิวัติวัฒนธรรม
           </div>
         </div>
-        <div onclick="openDeepDive('cold-war-berlin-wall-fall')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs">
-          <div class="flex items-center justify-between gap-2 mb-0.5">
-            <span class="font-mono text-[11px] font-semibold text-[#9a2515] dark:text-[#f87171]">1989–1991 CE</span>
-            <span class="text-[10px] text-slate-400 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] font-mono transition-colors">&rarr;</span>
+
+        <!-- Bottom Section: Parallel Context -->
+        <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800 flex flex-col min-h-0">
+          <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono text-xs uppercase font-bold text-[#107895] dark:text-[#38bdf8] truncate">🌐 บริบทคู่ขนาน & จุดเปลี่ยนโลก (Parallel Lines)</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 font-medium shrink-0">บริบทสำคัญ</span>
           </div>
-          <div class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-[#107895] dark:group-hover:text-[#38bdf8] leading-snug transition-colors truncate">
-            🧱 การล่มสลายของกำแพงเบอร์ลิน 1989 และอวสานสหภาพโซเวียต 1991
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇨🇳 จีน (ก้าวกระโดดไกล สู่การปฏิวัติวัฒนธรรม ค.ศ. 1958–1976):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">นโยบายหลอมเหล็กและคอมมูนประชาชน (Great Leap Forward) ความอดอยากครั้งใหญ่ สู่มรสุมเรดการ์ดกวาดล้างสิ่งโบราณ ก่อนเติ้ง เสี่ยวผิง ปฏิรูปเปิดประเทศ 1978</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🇯🇵 การอัดฉีดเงินฟื้นฟูญี่ปุ่น & ลาภลอยสงครามเกาหลี (Tokuju ค.ศ. 1950–1953):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">สหรัฐฯ อัดฉีดเงินช่วยเหลือ แผนดอดจ์ และคำสั่งซื้อพิเศษสงครามเกาหลี 3.5 พันล้านดอลลาร์ พลิกฟื้นเศรษฐกิจญี่ปุ่นก้าวกระโดดสู่รถไฟชินคันเซ็นและมหาอำนาจโลก</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🚀 การแข่งขันอวกาศ & วิกฤตการณ์ขีปนาวุธคิวบา (ค.ศ. 1957–1969):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ดาวเทียมสปุตนิก สู่การเหยียบดวงจันทร์ของอพอลโล 11 และ 13 วันวิกฤตนิวเคลียร์เฉียดสงครามล้างโลกคิวบา 1962</p>
+            </div>
+            <div class="p-2.5 bg-amber-50/40 dark:bg-slate-800/60 border-l-2 border-[#107895] dark:border-[#38bdf8] border border-slate-200 dark:border-slate-700/70 rounded-r-lg shadow-xs">
+              <div class="font-sans font-semibold text-[#107895] dark:text-[#38bdf8] text-xs truncate">🧱 การพังทลายของกำแพงเบอร์ลิน & การรวมชาติเยอรมนี (ค.ศ. 1989–1990):</div>
+              <p class="text-slate-600 dark:text-slate-300 text-[11px] mt-1 leading-relaxed font-sans line-clamp-3">ประชาชนเยอรมันตะวันออกทะลักข้ามจุดตรวจสู่การทุบทำลายกำแพงเบอร์ลิน 9 พ.ย. 1989 สิ้นสุดม่านเหล็กและรวมสองเยอรมนีเป็นหนึ่งเดียว</p>
+            </div>
           </div>
-        </div>
         </div>
       </div>
+
       <!-- Right: Historical Films -->
       <div class="flex flex-col lg:col-span-1 min-h-0">
-        <div class="flex items-center gap-1.5 mb-2">
-          <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
-          <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:bg-[#f87171]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์</span>
+          </div>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-800">3 เรื่อง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
@@ -3753,13 +4012,13 @@
         </div>
       </div>
       <!-- Column 3: Historical Myths (Compact) -->
-      <div class="flex flex-col min-w-0">
-        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex flex-col lg:col-span-1 min-h-0">
+        <div class="flex items-center justify-between h-7 mb-2 shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+            <span class="w-2 h-2 rounded-full bg-[#e65100] dark:bg-[#fb923c]"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ & FAKE NEWS</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+          <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800">3 เรื่องจริง</span>
         </div>
         <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           <div onclick="openDeepDive('soviet-collapse-1991', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
@@ -7718,6 +7977,35 @@
     }
 
     function openDeepDive(articleKey, scrollSelector) {
+      var articleAliases = {
+        'dutch-voc-capitalism': 'colonialism-voc-stock',
+        'scientific-revolution-newton': 'scientific-revolution',
+        'enlightenment-social-contract': 'revenant-frontier',
+        'american-revolution-independence': 'boston-tea-party-deep',
+        'american-constitution-federalist': 'us-constitution-founding',
+        'american-civil-war-slavery': 'civil-war-slavery-lincoln',
+        'industrial-revolution-steam': 'industrial-steam-factory',
+        'second-industrial-revolution': 'industrial-second-electricity',
+        'marxism-capital-critique': 'industrial-labor-capitalism-marx',
+        'ww1-origins-july-crisis': 'ww1-causes-assassination',
+        'ww1-western-front-trench': 'ww1-trench-warfare',
+        'russian-revolution-1917': 'russian-revolution-czar',
+        'ww1-versailles-treaty-consequences': 'versailles-league-of-nations',
+        'fall-of-qing-dynasty-1911': 'chinese-revolution-puyi-last-emperor',
+        'ww2-origins-appeasement': 'nanking-massacre-1937',
+        'ww2-european-theater-fall-france': 'ww2-blitzkrieg-dunkirk',
+        'ww2-eastern-front-stalingrad': 'ww2-stalingrad-turning-point',
+        'ww2-holocaust-auschwitz-nuremberg': 'ww2-holocaust-pianist',
+        'ww2-pacific-theater-midway': 'ww2-pacific-war',
+        'ww2-atomic-bomb-hiroshima': 'ww2-dday-manhattan',
+        'cold-war-origins-iron-curtain': 'israel-founding-1948',
+        'cold-war-cuban-missile-crisis': 'soviet-collapse-1991',
+        'cold-war-vietnam-quagmire': 'chinese-communist-revolution-1949',
+        'cold-war-berlin-wall-fall': 'soviet-collapse-1991'
+      };
+      if (articleAliases[articleKey]) {
+        articleKey = articleAliases[articleKey];
+      }
       var art = deepDiveArticles[articleKey];
       var modal = document.getElementById('articleModal');
       var content = document.getElementById('articleModalContent');
