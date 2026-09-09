@@ -4136,14 +4136,20 @@
 
       <!-- Slide Bottom Control Bar (Quarto Clean Style) -->
       <div class="h-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 flex items-center justify-between text-xs font-sans flex-shrink-0 z-20">
-        <div class="flex items-center gap-2">
-          <button onclick="prevSlide()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-colors font-sans">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <button onclick="firstSlide()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-colors font-sans" title="First Slide (Home)">
+            <span>⇤ First</span>
+          </button>
+          <button onclick="prevSlide()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-colors font-sans" title="Previous Slide (Left Arrow)">
             <span>&larr; Prev</span>
           </button>
-          <button onclick="nextSlide()" class="px-2.5 py-1 rounded bg-[#107895] hover:bg-[#0b5e75] text-white font-medium flex items-center gap-1 transition-colors shadow-sm font-sans">
+          <button onclick="nextSlide()" class="px-2.5 py-1 rounded bg-[#107895] hover:bg-[#0b5e75] text-white font-medium flex items-center gap-1 transition-colors shadow-sm font-sans" title="Next Slide (Right Arrow / Space)">
             <span>Next &rarr;</span>
           </button>
-          <span class="text-slate-400 dark:text-slate-500 hidden sm:inline ml-2 font-sans">[Arrow Left / Right or Spacebar to change slides]</span>
+          <button onclick="lastSlide()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition-colors font-sans" title="Last Slide (End)">
+            <span>Last ⇥</span>
+          </button>
+          <span class="text-slate-400 dark:text-slate-500 hidden md:inline ml-2 font-sans">[Arrow Left/Right, Spacebar, Home, End]</span>
         </div>
 
         <div class="flex items-center gap-3">
@@ -7621,6 +7627,20 @@
       }
     }
 
+    function firstSlide() {
+      if (currentSlide !== 0) {
+        currentSlide = 0;
+        updateSlide();
+      }
+    }
+
+    function lastSlide() {
+      if (currentSlide !== totalSlides - 1) {
+        currentSlide = totalSlides - 1;
+        updateSlide();
+      }
+    }
+
     function goToSlide(index) {
       if (index >= 0 && index < totalSlides) {
         currentSlide = index;
@@ -8094,6 +8114,12 @@
         } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
           e.preventDefault();
           prevSlide();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          firstSlide();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          lastSlide();
         } else if (e.key === 'f' || e.key === 'F') {
           e.preventDefault();
           toggleFullscreen();
