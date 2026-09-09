@@ -655,6 +655,33 @@
       word-break: normal;
     }
 
+  
+    /* Split-Screen Dual Pane Mode: Article on Left + Map on Right */
+    #articleModal.split-mode {
+      justify-content: flex-start !important;
+      padding: 8px !important;
+      background-color: rgba(0, 0, 0, 0.45) !important;
+    }
+    @media (min-width: 768px) {
+      #articleModal.split-mode {
+        width: 50% !important;
+        right: auto !important;
+        z-index: 99998 !important;
+        padding: 12px 6px 12px 12px !important;
+      }
+      #articleModal.split-mode #articleModalCard {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 96vh !important;
+        max-height: 96vh !important;
+      }
+      #hybrid-map-drawer.split-mode {
+        width: 50% !important;
+        max-width: 50% !important;
+        z-index: 99999 !important;
+        border-left: 2px solid rgba(16, 120, 149, 0.4) !important;
+      }
+    }
   </style>
 
 <style>
@@ -7520,7 +7547,7 @@
        MODAL 1: ACADEMIC READING ROOM (DEEP DIVE ARTICLE)
        ==================================================== -->
   <div id="articleModal" class="fixed inset-0 z-[99999] bg-black/70 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+    <div id="articleModalCard" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto transition-all duration-300">
       <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
         <div class="flex items-center gap-2">
           <span class="text-lg">📖</span>
@@ -12935,6 +12962,34 @@ function closeMythMiniQuizModal() {
         </div>
         <button type="button" onclick="closeHybridMap()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-2xl font-bold p-1 cursor-pointer leading-none" title="ปิด (Esc)">&times;</button>
       </div>
+      <!-- Dual Dropdown Selector Bar: Era & Location/Article -->
+      <div class="px-4 py-2.5 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center gap-2 shrink-0 text-xs">
+        <!-- Era Dropdown -->
+        <div class="w-2/5 min-w-0">
+          <label for="map-era-select" class="block text-[9.5px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-0.5">ยุคสมัย</label>
+          <select id="map-era-select" onchange="onMapEraSelectChange(this.value)" class="w-full text-xs font-semibold py-1.5 px-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-hidden focus:ring-1 focus:ring-[#107895] cursor-pointer truncate">
+            <option value="overview">🌍 ภาพรวมโลก (World Overview)</option>
+            <option value="greece">ยุคที่ 1: กรีกโบราณ</option>
+            <option value="rome">ยุคที่ 2: จักรวรรดิโรมัน</option>
+            <option value="middleages">ยุคที่ 3: ยุคกลาง & ครูเสด</option>
+            <option value="renaissance">ยุคที่ 4: เรเนซองส์ & ปฏิรูปศาสนา</option>
+            <option value="enlightenment">ยุคที่ 5: ภูมิธรรม & การปฏิวัติ</option>
+            <option value="industrial">ยุคที่ 6: ปฏิวัติอุตสาหกรรม</option>
+            <option value="ww1">ยุคที่ 7: สงครามโลกครั้งที่ 1</option>
+            <option value="ww2">ยุคที่ 8: สงครามโลกครั้งที่ 2</option>
+            <option value="coldwar">ยุคที่ 9: สงครามเย็น & โลกาภิวัตน์</option>
+          </select>
+        </div>
+
+        <!-- Topic/Article Dropdown -->
+        <div class="w-3/5 min-w-0">
+          <label for="map-topic-select" class="block text-[9.5px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-0.5">จุดยุทธศาสตร์ / บทความ</label>
+          <select id="map-topic-select" onchange="onMapTopicSelectChange(this.value)" class="w-full text-xs font-semibold py-1.5 px-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-[#107895] dark:text-[#38bdf8] focus:outline-hidden focus:ring-1 focus:ring-[#107895] cursor-pointer truncate">
+            <!-- Populated dynamically based on era -->
+          </select>
+        </div>
+      </div>
+
 
       <!-- Drawer Body: Interactive Map + Historical Intel Dossier -->
       <div class="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans">
@@ -13017,6 +13072,22 @@ function closeMythMiniQuizModal() {
   <!-- ==================== JAVASCRIPT CONTROLLER: OPTION 4 HYBRID MAP ==================== -->
   <script>
     var geopoliticalMapData = {
+  "world_overview": {
+    "era": "overview",
+    "eraName": "ภาพรวมประวัติศาสตร์โลก",
+    "title": "🌍 ภูมิรัฐศาสตร์โลก: เส้นทาง 9 ยุคสมัยแห่งมนุษยชาติ",
+    "lat": 32.0,
+    "lng": 25.0,
+    "zoom": 3,
+    "coords": "Global Geopolitics",
+    "ancientName": "9 ยุคสมัยแห่งการเปลี่ยนแปลงของมนุษยชาติ (1200 BC – ปัจจุบัน)",
+    "modernName": "38 จุดยุทธศาสตร์ทางประวัติศาสตร์และภูมิรัฐศาสตร์โลก",
+    "chokepoint": "ภูมิศาสตร์คือเวทีที่ประวัติศาสตร์โลกร่ายรำ ตั้งแต่ช่องแคบดาร์ดาเนลส์ในสงครามกรุงทรอย ทะเลเมดิเตอร์เรเนียนของโรม คลองสุเอซที่เปลี่ยนเส้นทางเดินเรือโลก สู่แนวกำแพงเบอร์ลินในยุคสงครามเย็น ชัยภูมิทางกายภาพเป็นปัจจัยชี้ขาดความรุ่งโรจน์และการล่มสลายของอารยธรรมมนุษย์มาโดยตลอด เลือกยุคสมัยและเหตุการณ์จากเมนูด้านบน เพื่อสำรวจเจาะลึก",
+    "terrainType": "แผนที่ภูมิรัฐศาสตร์และเส้นทางอารยธรรมโลก",
+    "strategicImpact": "ความเข้าใจเชิงพื้นที่เชื่อมโยง 9 ยุคสมัย จากยุคโบราณสู่ระเบียบโลกปัจจุบัน",
+    "articleKey": null
+  },
+
   "greek-trojan-war": {
     "era": "greece",
     "eraName": "ยุคกรีกโบราณ",
@@ -13678,10 +13749,9 @@ function closeMythMiniQuizModal() {
       }).setView([39.957, 26.238], 5);
 
       // CartoDB Voyager tiles (historic, elegant & high performance)
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; CartoDB & OpenStreetMap',
-        maxZoom: 18,
-        subdomains: 'abcd'
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri & OpenStreetMap contributors',
+        maxZoom: 18
       }).addTo(hybridLeafletMap);
     }
 
@@ -13708,6 +13778,10 @@ function closeMythMiniQuizModal() {
     }
 
     function openEraMap(eraId, defaultLocKey) {
+      if (eraId === 'overview' || !eraId) {
+        openLocationMap('world_overview');
+        return;
+      }
       if (eraId === 'revolutions') eraId = 'enlightenment';
 
       // Find all locations belonging to this era
@@ -13728,13 +13802,67 @@ function closeMythMiniQuizModal() {
       openLocationMap(targetKey);
     }
 
-    function openLocationMap(locKey) {
-      // Normalize key (hyphens to underscore)
+    function updateMapTopicDropdown(eraId, selectedKey) {
+      var topicSelect = document.getElementById('map-topic-select');
+      if (!topicSelect) return;
+      topicSelect.innerHTML = '';
+
+      if (eraId === 'overview') {
+        var opt = document.createElement('option');
+        opt.value = 'world_overview';
+        opt.textContent = '🌍 ภาพรวมภูมิรัฐศาสตร์โลก';
+        topicSelect.appendChild(opt);
+        return;
+      }
+
+      var canonicalKeys = Object.keys(geopoliticalMapData).filter(function(k) {
+        var item = geopoliticalMapData[k];
+        // filter out aliases and overview
+        return item.era === eraId && item.articleKey === k;
+      });
+
+      canonicalKeys.forEach(function(k) {
+        var item = geopoliticalMapData[k];
+        var opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = item.title.replace(/^[🏛️⚔️🏰🎨☕⚙️💣🚢🇮🇱🚩🐉🩸❄️💥⚓s]+/, '');
+        if (k === selectedKey) opt.selected = true;
+        topicSelect.appendChild(opt);
+      });
+    }
+
+    function onMapEraSelectChange(eraId) {
+      if (eraId === 'overview') {
+        openLocationMap('world_overview');
+      } else {
+        openEraMap(eraId);
+      }
+    }
+
+    function onMapTopicSelectChange(locKey) {
+      var isSplit = document.getElementById('hybrid-map-drawer') && document.getElementById('hybrid-map-drawer').classList.contains('split-mode');
+      openLocationMap(locKey, isSplit);
+    }
+
+    function openLocationMap(locKey, isSplitFromArticle) {
       var d = geopoliticalMapData[locKey] || geopoliticalMapData[locKey.replace(/-/g, '_')] || geopoliticalMapData[locKey.replace(/_/g, '-')];
       if (!d) return;
 
       var resolvedKey = geopoliticalMapData[locKey] ? locKey : (geopoliticalMapData[locKey.replace(/-/g, '_')] ? locKey.replace(/-/g, '_') : locKey.replace(/_/g, '-'));
       currentActiveLocationKey = resolvedKey;
+
+      // Sync Era Select
+      var eraSelect = document.getElementById('map-era-select');
+      if (eraSelect) {
+        eraSelect.value = d.era || 'overview';
+      }
+
+      // Sync Topic Select
+      updateMapTopicDropdown(d.era, resolvedKey);
+      var topicSelect = document.getElementById('map-topic-select');
+      if (topicSelect) {
+        topicSelect.value = resolvedKey;
+      }
 
       // Populate text details
       document.getElementById('hybrid-map-era-badge').textContent = d.eraName;
@@ -13752,7 +13880,6 @@ function closeMythMiniQuizModal() {
       if (d.articleKey) {
         artContainer.classList.remove('hidden');
         artBtn.onclick = function() {
-          closeHybridMap();
           if (typeof openDeepDive === 'function') {
             openDeepDive(d.articleKey);
           }
@@ -13764,43 +13891,91 @@ function closeMythMiniQuizModal() {
       // Show drawer & backdrop
       var backdrop = document.getElementById('hybrid-map-backdrop');
       var drawer = document.getElementById('hybrid-map-drawer');
-      backdrop.classList.remove('hidden');
+      if (!isSplitFromArticle && backdrop) {
+        backdrop.classList.remove('hidden');
+      } else if (backdrop) {
+        backdrop.classList.add('hidden');
+      }
       drawer.classList.remove('translate-x-full');
 
-      // Initialize map if needed
+      // Initialize map & fly to location
       setTimeout(function() {
         initHybridLeafletMap();
         if (hybridLeafletMap) {
           hybridLeafletMap.invalidateSize();
           
-          // Fly to location
           hybridLeafletMap.flyTo([d.lat, d.lng], d.zoom, {
             duration: 1.2
           });
 
-          // Remove old marker
+          // Remove old markers
           if (hybridMapMarker) {
             hybridLeafletMap.removeLayer(hybridMapMarker);
+            hybridMapMarker = null;
           }
+          if (window.hybridMapOverviewMarkers && window.hybridMapOverviewMarkers.length > 0) {
+            window.hybridMapOverviewMarkers.forEach(function(m) {
+              hybridLeafletMap.removeLayer(m);
+            });
+          }
+          window.hybridMapOverviewMarkers = [];
 
-          // Add pulsing marker
-          var pulseIcon = L.divIcon({
-            className: 'leaflet-custom-pulse-pin',
-            iconSize: [16, 16],
-            iconAnchor: [8, 8]
-          });
+          if (locKey === 'world_overview') {
+            // Add 9 era focal points on the world map
+            var eraFocalPoints = [
+              { name: 'ยุคที่ 1: กรีกโบราณ (กรุงทรอย)', key: 'greek-trojan-war', lat: 39.957, lng: 26.238 },
+              { name: 'ยุคที่ 2: จักรวรรดิโรมัน (กรุงโรม)', key: 'rome-republic-fall', lat: 41.902, lng: 12.496 },
+              { name: 'ยุคที่ 3: ยุคกลาง (คอนสแตนติโนเปิล)', key: 'fall-of-constantinople-1453', lat: 41.018, lng: 28.922 },
+              { name: 'ยุคที่ 4: เรเนซองส์ (ฟลอเรนซ์)', key: 'renaissance-medici-art', lat: 43.769, lng: 11.255 },
+              { name: 'ยุคที่ 5: ภูมิธรรม & การปฏิวัติ (บอสตัน)', key: 'boston-tea-party-deep', lat: 42.352, lng: -71.050 },
+              { name: 'ยุคที่ 6: ปฏิวัติอุตสาหกรรม (คลองสุเอซ)', key: 'scramble-for-africa-imperialism', lat: 30.585, lng: 32.265 },
+              { name: 'ยุคที่ 7: สงครามโลกครั้งที่ 1 (ซาราเยโว)', key: 'ww1-causes-assassination', lat: 43.856, lng: 18.413 },
+              { name: 'ยุคที่ 8: สงครามโลกครั้งที่ 2 (นอร์มังดี)', key: 'ww2-dday-manhattan', lat: 49.370, lng: -0.880 },
+              { name: 'ยุคที่ 9: สงครามเย็น (กำแพงเบอร์ลิน)', key: 'soviet-collapse-1991', lat: 52.507, lng: 13.390 }
+            ];
 
-          hybridMapMarker = L.marker([d.lat, d.lng], { icon: pulseIcon }).addTo(hybridLeafletMap);
-          hybridMapMarker.bindPopup('<strong style="font-family: Prompt, sans-serif; font-size: 13px;">' + d.ancientName + '</strong><br><span style="font-size: 11px; color: #64748b;">' + d.modernName + '</span>').openPopup();
+            eraFocalPoints.forEach(function(pt) {
+              var m = L.marker([pt.lat, pt.lng]).addTo(hybridLeafletMap);
+              m.bindTooltip('<strong>' + pt.name + '</strong>', { permanent: false, direction: 'top' });
+              m.on('click', function() {
+                openLocationMap(pt.key);
+              });
+              window.hybridMapOverviewMarkers.push(m);
+            });
+          } else {
+            // Add pulsing marker for single hotspot
+            var pulseIcon = L.divIcon({
+              className: 'leaflet-custom-pulse-pin',
+              iconSize: [16, 16],
+              iconAnchor: [8, 8]
+            });
+
+            hybridMapMarker = L.marker([d.lat, d.lng], { icon: pulseIcon }).addTo(hybridLeafletMap);
+            hybridMapMarker.bindPopup('<strong style="font-family: Prompt, sans-serif; font-size: 13px;">' + d.ancientName + '</strong><br><span style="font-size: 11px; color: #64748b;">' + d.modernName + '</span>').openPopup();
+          }
         }
       }, 150);
+
+      setTimeout(function() {
+        if (hybridLeafletMap) hybridLeafletMap.invalidateSize();
+      }, 350);
     }
 
     function closeHybridMap() {
       var backdrop = document.getElementById('hybrid-map-backdrop');
       var drawer = document.getElementById('hybrid-map-drawer');
-      if (drawer) drawer.classList.add('translate-x-full');
+      var articleModal = document.getElementById('articleModal');
+
+      if (drawer) {
+        drawer.classList.add('translate-x-full');
+        drawer.classList.remove('split-mode');
+      }
       if (backdrop) backdrop.classList.add('hidden');
+
+      // If article was in split mode, restore it to centered full-screen modal
+      if (articleModal) {
+        articleModal.classList.remove('split-mode');
+      }
     }
 
         function openMapFromCurrentArticle() {
