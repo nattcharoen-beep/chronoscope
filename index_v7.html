@@ -667,19 +667,48 @@
         width: 50% !important;
         right: auto !important;
         z-index: 99998 !important;
-        padding: 12px 6px 12px 12px !important;
+        padding: 2vh 6px 2vh 12px !important;
       }
       #articleModal.split-mode #articleModalCard {
         max-width: 100% !important;
         width: 100% !important;
         height: 96vh !important;
         max-height: 96vh !important;
+        border-radius: 1rem !important; /* rounded-2xl */
+        overflow: hidden !important;
       }
       #hybrid-map-drawer.split-mode {
-        width: 50% !important;
-        max-width: 50% !important;
+        width: calc(50% - 18px) !important;
+        max-width: calc(50% - 18px) !important;
+        top: 2vh !important;
+        bottom: 2vh !important;
+        right: 12px !important;
+        height: 96vh !important;
+        max-height: 96vh !important;
+        border-radius: 1rem !important; /* rounded-2xl exactly like article */
+        overflow: hidden !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+        border: 1px solid rgba(226, 232, 240, 0.9) !important;
         z-index: 99999 !important;
-        border-left: 2px solid rgba(16, 120, 149, 0.4) !important;
+      }
+      .dark #hybrid-map-drawer.split-mode {
+        border-color: rgba(51, 65, 85, 0.9) !important;
+      }
+    }
+
+    /* Floating Rounded Map Drawer for Single Mode */
+    @media (min-width: 640px) {
+      #hybrid-map-drawer:not(.split-mode) {
+        top: 12px !important;
+        bottom: 12px !important;
+        right: 12px !important;
+        height: calc(100vh - 24px) !important;
+        border-radius: 1rem !important; /* rounded-2xl */
+        overflow: hidden !important;
+        border: 1px solid rgba(226, 232, 240, 0.9) !important;
+      }
+      .dark #hybrid-map-drawer:not(.split-mode) {
+        border-color: rgba(51, 65, 85, 0.9) !important;
       }
     }
   </style>
