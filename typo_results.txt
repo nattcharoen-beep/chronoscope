@@ -1,0 +1,2 @@
+index.html:8145 found ยุโรปป -> should be ยุโรป
+deep_dive_articles.json:110 found ยุโรปป -> should be ยุโรป

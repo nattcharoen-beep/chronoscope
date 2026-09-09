@@ -1,0 +1,7 @@
+index.html: BCE=0, CE=0, BC=281, AD=196
+index_en.html: BCE=0, CE=0, BC=261, AD=501
+deep_dive_articles.json: BCE=0, CE=0, BC=23, AD=4
+history_literature.json: BCE=0, CE=0, BC=5, AD=2
+history_movies.json: BCE=0, CE=0, BC=15, AD=0
+history_quiz_sets.json: BCE=0, CE=0, BC=8, AD=0
+history_glossary.json: BCE=0, CE=0, BC=22, AD=15

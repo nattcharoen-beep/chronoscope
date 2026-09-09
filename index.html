@@ -897,7 +897,7 @@
         </div>
         
         <!-- NAV TABS -->
-        <nav class="hidden md:flex items-center gap-1 shrink-0">
+        <nav class="hidden md:flex items-center gap-1 shrink-0 overflow-x-auto">
           <!-- GROUP 1: CORE PRESENTATION MODES (เนื้อหาเดียวกัน นำเสนอ 3 รูปแบบ) -->
           <div class="core-view-group flex items-center p-1 rounded-xl border gap-1 shrink-0" title="โหมดการสำรวจประวัติศาสตร์ 9 ยุคสมัย (สไลด์ / ไทม์ไลน์ / เมโทร / แผนที่)">
             <button id="tab-slides" onclick="switchView('slides')" class="px-2.5 py-1.5 rounded-lg text-xs sm:text-[13px] font-sans font-medium bg-[#107895] text-white transition-all shadow-sm flex items-center gap-1 whitespace-nowrap shrink-0 cursor-pointer">
@@ -5079,7 +5079,7 @@
                   </div>
                   <div class="text-[10px] leading-snug space-y-0.5 font-sans mt-0.5">
                     <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> กษัตริย์ลีโอไนดัสและ 300 สปาร์ตัน ยืนหยัดสู้รบและตายที่ช่องเขาเพียงลำพัง 300 คนโดยไม่มีใครช่วย</div>
-                    <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> มีกองทัพพันธมิตรกรีกกว่า 7,000 นายร่วมรบ และในวันสุดท้ายยังมีชาวเธสเปีย (Thespians) ราว 700 นาย สมัครใจอยู่สู้จนตัวตายเคียงบ่าเคียงไหล่กับสปาร์ตัน</div>
+                    <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> มีกองทัพพันธมิตรกรีกกว่า 7,000 นายร่วมรบ และในวันสุดท้ายยังมีชาวเธสเปีย (Thespians) ราว 700 นาย และชาวธีบส์ (Thebans) อีกราว 400 นาย สมัครใจอยู่สู้จนตัวตายเคียงบ่าเคียงไหล่กับสปาร์ตัน</div>
                   </div>
                 </div>
                 
@@ -12616,40 +12616,9 @@ window.addEventListener('mousemove', function(e) {
 // -------------------------------------------------------------
 // TEACHING TOOLS: FONT SIZE SCALER & MENU TOGGLE
 // -------------------------------------------------------------
-var slideFontSizeScale = 100;
 
-function toggleTeacherToolsMenu() {
-  var menu = document.getElementById('teacher-tools-menu');
-  if (menu) menu.classList.toggle('hidden');
-}
-
-document.addEventListener('click', function(e) {
-  var container = document.getElementById('classroom-tools-container');
-  var menu = document.getElementById('teacher-tools-menu');
-  if (container && menu && !container.contains(e.target)) {
-    menu.classList.add('hidden');
-  }
-});
-
-function changeSlideFontSize(delta) {
-  slideFontSizeScale += (delta * 10);
-  if (slideFontSizeScale < 80) slideFontSizeScale = 80;
-  if (slideFontSizeScale > 140) slideFontSizeScale = 140;
-  applySlideFontSize();
-}
-
-function resetSlideFontSize() {
-  slideFontSizeScale = 100;
-  applySlideFontSize();
-}
-
-function applySlideFontSize() {
-  var viewport = document.getElementById('presentation-viewport');
-  if (viewport) {
-    viewport.style.fontSize = (slideFontSizeScale / 100) + 'em';
-  }
-  showToast('ขนาดฟอนต์สไลด์: ' + slideFontSizeScale + '%');
-}
+/* [REMOVED] Dead code: toggleTeacherToolsMenu, changeSlideFontSize, resetSlideFontSize, applySlideFontSize
+   These functions referenced UI elements (teacher-tools-menu, classroom-tools-container) that were removed. */
 
 // -------------------------------------------------------------
 // TEACHING TOOLS: SLIDE INSTANT QR CODE
@@ -12751,28 +12720,7 @@ function closeBookmarksModal() {
   if (modal) modal.classList.add('hidden');
 }
 
-// -------------------------------------------------------------
-// CITATION EXPORT & TOAST NOTIFICATION
-// -------------------------------------------------------------
-function copyCitation(articleId, format) {
-  var article = (typeof articlesData !== 'undefined' && articlesData[articleId]) ? articlesData[articleId] : null;
-  var title = article ? article.title : 'Chronoscope Research Dossier';
-  var author = 'Chronoscope Editorial Board';
-  var year = '2026';
-  var citationText = '';
-
-  if (format === 'APA') {
-    citationText = author + '. (' + year + '). ' + title + '. In Chronoscope: 9 Eras of World History (Academic Edition). World History Research Center.';
-  } else if (format === 'Chicago') {
-    citationText = author + '. "' + title + '." Chronoscope: 9 Eras of World History. Last modified 2026. World History Research Center.';
-  }
-
-  navigator.clipboard.writeText(citationText).then(function() {
-    showToast('📋 คัดลอกการอ้างอิงแบบ ' + format + ' ไปยังคลิปบอร์ดแล้ว');
-  }).catch(function() {
-    showToast('คัดลอก: ' + citationText);
-  });
-}
+/* [REMOVED] Dead code: copyCitation — was never called from any button or UI element */
 
 function showToast(msg) {
   var toast = document.getElementById('v6-toast');
@@ -12787,12 +12735,7 @@ function showToast(msg) {
   }, 2800);
 }
 
-// -------------------------------------------------------------
-// PRINT SUMMARY HANDOUT
-// -------------------------------------------------------------
-function printSummaryHandout() {
-  window.print();
-}
+/* [REMOVED] Dead code: printSummaryHandout — was never called from any button or UI element */
 
 // -------------------------------------------------------------
 // KEYBOARD SHORTCUTS FOR TEACHER
@@ -12831,44 +12774,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 
-// -------------------------------------------------------------
-// TEACHING TOOLS: INTERACTIVE MYTH FLIP MODE
-// -------------------------------------------------------------
-var isMythsLectureMode = false;
-
-function toggleAllMythsLectureMode() {
-  isMythsLectureMode = !isMythsLectureMode;
-  var menuText = document.getElementById('myths-mode-menu-text');
-  if (menuText) {
-    menuText.textContent = isMythsLectureMode ? 'กลับสู่โหมดอ่านปกติ (แสดงเฉลย)' : 'สลับโหมดทายผลมายาคติ';
-  }
-  
-  // Find all myth cards and toggle truth visibility
-  var mythCards = document.querySelectorAll('.myth-card-container');
-  mythCards.forEach(function(card) {
-    var truthDiv = card.querySelector('.myth-truth-block');
-    var guessBox = card.querySelector('.myth-guess-action');
-    if (isMythsLectureMode) {
-      if (truthDiv) truthDiv.classList.add('hidden');
-      if (guessBox) guessBox.classList.remove('hidden');
-    } else {
-      if (truthDiv) truthDiv.classList.remove('hidden');
-      if (guessBox) guessBox.classList.add('hidden');
-    }
-  });
-
-  showToast(isMythsLectureMode ? '👁️ เปิดโหมดทายผลมายาคติ (ซ่อนข้อเท็จจริงเพื่อให้นักศึกษาทาย)' : '👁️ กลับสู่โหมดแสดงข้อเท็จจริง');
-}
-
-function revealSingleMythTruth(btn) {
-  var card = btn.closest('.myth-card-container');
-  if (!card) return;
-  var truthDiv = card.querySelector('.myth-truth-block');
-  var guessBox = card.querySelector('.myth-guess-action');
-  if (truthDiv) truthDiv.classList.remove('hidden');
-  if (guessBox) guessBox.classList.add('hidden');
-  playChimeSound();
-}
+/* [REMOVED] Dead code: toggleAllMythsLectureMode, revealSingleMythTruth
+   Referenced UI elements (myths-mode-menu-text, myth-card-container, myth-truth-block, myth-guess-action)
+   that don't exist in current HTML. The myth system now uses the mini-quiz modal instead. */
 
 
 
@@ -13151,7 +13059,7 @@ function closeMythMiniQuizModal() {
     </div>
 
         <!-- ==================== TEACHING TOOLS: 20-SLIDE JUMP GRID MODAL (ผังสไลด์) ==================== -->
-    <div id="slide-grid-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 select-none" onclick="if(event.target === this) closeSlideGridModal()">
+    <div id="slide-grid-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-200 flex items-center justify-center p-4 sm:p-6 select-none" onclick="if(event.target === this) closeSlideGridModal()">
       <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-5xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800 font-sans overflow-hidden animate-in fade-in zoom-in-95 duration-150">
         <!-- Header -->
         <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-800/40">
@@ -13213,7 +13121,7 @@ function closeMythMiniQuizModal() {
 
     <!-- ==================== VIRTUAL LASER POINTER & SPOTLIGHT ELEMENTS ==================== -->
     <div id="virtual-laser-dot" class="hidden fixed pointer-events-none z-[9999] w-4 h-4 rounded-full bg-red-600 shadow-[0_0_12px_4px_rgba(239,68,68,0.9)] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"></div>
-    <div id="virtual-spotlight-mask" class="hidden fixed inset-0 pointer-events-none z-[9998] transition-opacity duration-200"></div>
+    <div id="virtual-spotlight-mask" class="hidden fixed inset-0 pointer-events-none z-[100000] transition-opacity duration-200"></div>
 
     <!-- ==================== TOAST NOTIFICATION ==================== -->
     <div id="v6-toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-slate-900/90 text-white dark:bg-white/90 dark:text-slate-900 px-4 py-2 rounded-xl text-xs font-sans font-medium shadow-xl backdrop-blur-sm flex items-center gap-2">
@@ -13222,7 +13130,7 @@ function closeMythMiniQuizModal() {
 
 
     <!-- ==================== FLOATING TEACHER TOOLS & LIVE QR DOCK ==================== -->
-    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-30 flex flex-col items-center gap-2 select-none pointer-events-auto">
+    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-[99999] flex flex-col items-center gap-2 select-none pointer-events-auto">
       
       <!-- ก้อนที่ 1 (อยู่ข้างบนของ QR): เครื่องมือช่วยสอน (⏱️ จับเวลา, 🔴 เลเซอร์, 🔦 สปอตไลท์) -->
       <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl flex flex-col gap-1.5 w-[96px] text-center">
@@ -13260,7 +13168,7 @@ function closeMythMiniQuizModal() {
     </div>
 
     <!-- ==================== MYTH MINI-QUIZ MODAL ==================== -->
-    <div id="myth-mini-quiz-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div id="myth-mini-quiz-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-200 flex items-center justify-center p-4">
       <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 font-sans animate-in fade-in zoom-in-95 duration-150">
         <!-- Header -->
         <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 dark:border-slate-800">
@@ -13312,7 +13220,7 @@ function closeMythMiniQuizModal() {
           </div>
 
           <div class="flex items-center justify-between gap-2 pt-2">
-            <button id="myth-quiz-article-btn" onclick="" class="px-3.5 py-1.5 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-semibold shadow-xs transition cursor-pointer flex items-center gap-1.5">
+            <button id="myth-quiz-article-btn" class="px-3.5 py-1.5 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-semibold shadow-xs transition cursor-pointer flex items-center gap-1.5">
               <span>📖 อ่านบทวิจัยฉบับเต็ม</span>
             </button>
             <button type="button" onclick="closeMythMiniQuizModal()" class="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition cursor-pointer">
@@ -13450,7 +13358,7 @@ function closeMythMiniQuizModal() {
 
           <!-- Quick Deep Dive Link Button -->
           <div id="hybrid-map-article-container" class="pt-1">
-            <button id="hybrid-map-article-btn" type="button" onclick="" class="w-full py-2.5 px-4 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-xs cursor-pointer">
+            <button id="hybrid-map-article-btn" type="button" class="w-full py-2.5 px-4 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-xs cursor-pointer">
               <span>📖</span>
               <span id="hybrid-map-article-title">อ่านบทความวิจัยเจาะลึกที่เกี่ยวข้อง</span>
               <span>&rarr;</span>

@@ -1,0 +1,7 @@
+index.html: พ.ศ.=0, ค.ศ.=898, BCE=0, CE=919, BC=283, AD=276
+index_en.html: พ.ศ.=0, ค.ศ.=44, BCE=0, CE=2621, BC=267, AD=1152
+deep_dive_articles.json: พ.ศ.=0, ค.ศ.=90, BCE=0, CE=71, BC=23, AD=12
+history_literature.json: พ.ศ.=0, ค.ศ.=181, BCE=0, CE=70, BC=5, AD=10
+history_movies.json: พ.ศ.=0, ค.ศ.=65, BCE=0, CE=41, BC=17, AD=10
+history_quiz_sets.json: พ.ศ.=0, ค.ศ.=59, BCE=0, CE=10, BC=8, AD=4
+history_glossary.json: พ.ศ.=0, ค.ศ.=64, BCE=0, CE=85, BC=22, AD=27

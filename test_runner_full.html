@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<iframe id="index-frame" src="index.html" style="width:1440px;height:900px;"></iframe>
+<iframe id="mobile-frame" src="mobile.html" style="width:390px;height:844px;"></iframe>
+
+<script>
+window.testResults = {
+  desktopMyths: [],
+  mobileMyths: [],
+  timerTests: {}
+};
+
+window.addEventListener('message', function(e) {});
+
+async function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
+async function runDesktopTests() {
+  const frame = document.getElementById('index-frame');
+  const doc = frame.contentDocument || frame.contentWindow.document;
+  const win = frame.contentWindow;
+
+  console.log("Starting desktop tests...");
+  
+  // 1. Test Timer
+  const timerBtn = doc.getElementById('btn-screen-timer');
+  const timerWidget = doc.getElementById('lecture-timer-widget');
+  const timerClock = doc.getElementById('lecture-timer-clock');
+  const timerLabel = timerWidget ? timerWidget.querySelector('.py-3.5 .text-[11px]') : null;
+
+  // Toggle timer
+  win.toggleLectureTimerWidget();
+  await sleep(100);
+
+  const isTimerVisible = timerWidget && !timerWidget.classList.contains('hidden');
+  const timerRect = timerWidget ? timerWidget.getBoundingClientRect() : null;
+  const labelText = timerLabel ? timerLabel.textContent.trim() : '';
+
+  // Test start/stop and count-up
+  win.startStopLectureTimer();
+  await sleep(1100);
+  const runningSeconds = win.lectureTimer ? win.lectureTimer.elapsedSeconds : -1;
+  const clockTextRunning = timerClock ? timerClock.textContent.trim() : '';
+  win.resetLectureTimer();
+  const resetSeconds = win.lectureTimer ? win.lectureTimer.elapsedSeconds : -1;
+
+  window.testResults.timerTests = {
+    isTimerVisible: isTimerVisible,
+    timerRect: timerRect ? { left: Math.round(timerRect.left), top: Math.round(timerRect.top), width: Math.round(timerRect.width), height: Math.round(timerRect.height) } : null,
+    isCentered: timerRect ? (timerRect.left > 400 && timerRect.left < 800 && timerRect.top > 200 && timerRect.top < 600) : false,
+    labelText: labelText,
+    hasNoCountUpText: !labelText.includes('นับขึ้น'),
+    runningSeconds: runningSeconds,
+    clockTextRunning: clockTextRunning,
+    resetSeconds: resetSeconds
+  };
+
+  // Close timer widget
+  win.toggleLectureTimerWidget();
+
+  // 2. Test All 45 Myth Cards
+  const cards = doc.querySelectorAll("[onclick*='openMythById']");
+  console.log("Found " + cards.length + " desktop cards");
+
+  for (let i = 0; i < cards.length; i++) {
+    const card = cards[i];
+    const oc = card.getAttribute('onclick');
+    const mythIdMatch = oc.match(/openMythById\('([^']+)'\)/);
+    const mythId = mythIdMatch ? mythIdMatch[1] : 'unknown';
+
+    // Click card
+    let clickErr = null;
+    try {
+      card.click();
+    } catch(err) {
+      clickErr = err.toString();
+    }
+
+    await sleep(30);
+
+    const modal = doc.getElementById('myth-mini-quiz-modal');
+    const isModalOpen = modal && !modal.classList.contains('hidden');
+    const modalTitle = doc.getElementById('myth-quiz-title') ? doc.getElementById('myth-quiz-title').textContent.trim() : '';
+    const claim = doc.getElementById('myth-quiz-claim') ? doc.getElementById('myth-quiz-claim').textContent.trim() : '';
+
+    // Click answer button to test reveal
+    win.answerMythQuiz(true);
+    await sleep(20);
+    const factText = doc.getElementById('myth-quiz-fact-text') ? doc.getElementById('myth-quiz-fact-text').textContent.trim() : '';
+
+    // Close modal
+    win.closeMythMiniQuizModal();
+
+    window.testResults.desktopMyths.push({
+      index: i + 1,
+      mythId: mythId,
+      isModalOpen: isModalOpen,
+      modalTitle: modalTitle,
+      hasFact: factText.length > 5,
+      clickErr: clickErr
+    });
+  }
+}
+
+async function runMobileTests() {
+  const frame = document.getElementById('mobile-frame');
+  const doc = frame.contentDocument || frame.contentWindow.document;
+  const win = frame.contentWindow;
+
+  console.log("Starting mobile tests...");
+
+  const cards = doc.querySelectorAll("[onclick*='openMobileMythById']");
+  console.log("Found " + cards.length + " mobile cards");
+
+  for (let i = 0; i < cards.length; i++) {
+    const card = cards[i];
+    const oc = card.getAttribute('onclick');
+    const mythIdMatch = oc.match(/openMobileMythById\('([^']+)'\)/);
+    const mythId = mythIdMatch ? mythIdMatch[1] : 'unknown';
+
+    let clickErr = null;
+    try {
+      card.click();
+    } catch(err) {
+      clickErr = err.toString();
+    }
+
+    await sleep(30);
+
+    const modal = doc.getElementById('mobile-myth-modal');
+    const isModalOpen = modal && !modal.classList.contains('hidden');
+    const modalTitle = doc.getElementById('mobile-myth-title') ? doc.getElementById('mobile-myth-title').textContent.trim() : '';
+
+    // Answer to reveal
+    win.answerMobileMyth(true);
+    await sleep(20);
+    const factText = doc.getElementById('mobile-myth-fact') ? doc.getElementById('mobile-myth-fact').textContent.trim() : '';
+
+    // Close
+    win.closeMobileMythModal();
+
+    window.testResults.mobileMyths.push({
+      index: i + 1,
+      mythId: mythId,
+      isModalOpen: isModalOpen,
+      modalTitle: modalTitle,
+      hasFact: factText.length > 5,
+      clickErr: clickErr
+    });
+  }
+}
+
+window.onload = async function() {
+  await sleep(1500); // allow iframes to load
+  await runDesktopTests();
+  await runMobileTests();
+
+  console.log("===FULL_TEST_RESULTS_START===");
+  console.log(JSON.stringify(window.testResults, null, 2));
+  console.log("===FULL_TEST_RESULTS_END===");
+};
+</script>
+</body>
+</html>
