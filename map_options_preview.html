@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="th" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronoscope: พรีวิวระบบแผนที่ประวัติศาสตร์ 3 รูปแบบ (Interactive Map Options)</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: '#107895',
+            'brand-dark': '#0b5e75'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Sarabun & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS & JS for Option 2 -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <style>
+    body { font-family: 'Sarabun', sans-serif; }
+    .font-mono { font-family: 'Space Grotesk', monospace; }
+    .vintage-map-container {
+      filter: sepia(0.25) contrast(1.05) brightness(0.97);
+    }
+    @keyframes pulseGlow {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    .pulse-pin {
+      animation: pulseGlow 1.8s infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 dark:bg-[#0d1117] text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Top Navigation & Option Switcher -->
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 py-3.5 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🗺️</span>
+          <h1 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white">ระบบแผนที่ประวัติศาสตร์ (Historical Map Lab)</h1>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300">Design Prototype</span>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          เปรียบเทียบหน้าตาและการใช้งาน 3 ตัวเลือก เมื่อผู้เรียนกดดูเหตุการณ์ประวัติศาสตร์
+        </p>
+      </div>
+
+      <!-- Option Switcher Tabs -->
+      <div class="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-x-auto max-w-full">
+        <button onclick="switchOption(1)" id="tab-opt-1" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-brand text-white shadow-xs whitespace-nowrap">
+          <span>🎯 Option 1:</span>
+          <span>Chokepoint Radar (Drawer)</span>
+        </button>
+        <button onclick="switchOption(2)" id="tab-opt-2" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white whitespace-nowrap">
+          <span>📜 Option 2:</span>
+          <span>GIS Vintage Map (Leaflet)</span>
+        </button>
+        <button onclick="switchOption(3)" id="tab-opt-3" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white whitespace-nowrap">
+          <span>⚔️ Option 3:</span>
+          <span>Empire Borders Overlay (SVG)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 space-y-6">
+
+    <!-- ==================================================================== -->
+    <!-- OPTION 1: CHOKEPOINT GEOPOLITICS RADAR (DRAWER PANEL) -->
+    <!-- ==================================================================== -->
+    <section id="view-opt-1" class="space-y-4">
+      <!-- Description Banner -->
+      <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-wider">
+            <span>⭐ แนะนำสำหรับการสอนในห้องเรียน</span>
+          </div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white mt-0.5">Option 1: Chokepoint Geopolitics Radar (Quick Side Drawer)</h2>
+          <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+            เมื่อกดที่เหตุการณ์ จะมี Drawer แผนที่สไลด์ออกมาจากด้านข้าง ไม่บดบังสไลด์หลัก โหลดเร็วทันใจ (< 0.1 วินาที) เน้นเปรียบเทียบ "อดีต vs ปัจจุบัน" และวิเคราะห์จุดยุทธศาสตร์คอขวดทางภูมิศาสตร์
+          </p>
+        </div>
+        <span class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold shrink-0">
+          ⚡ โหลดเร็ว ไม่ต้องใช้ API Key
+        </span>
+      </div>
+
+      <!-- Sample Interactive Event Cards -->
+      <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+        <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">ลองแตะเลือกเหตุการณ์เพื่อเปิดแผนที่เรดาร์ภูมิรัฐศาสตร์:</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          
+          <!-- Event 1: Troy -->
+          <div onclick="openRadar('troy')" class="group p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand bg-slate-50/50 dark:bg-slate-800/40 cursor-pointer transition shadow-2xs">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-mono text-amber-600 font-bold">~1184 BC • ERA 01</span>
+              <span class="text-[10px] text-brand font-semibold group-hover:underline">📍 เปิดแผนที่ &rarr;</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand">สงครามกรุงทรอย & การค้าช่องแคบ</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">การแย่งชิงสิทธิ์ควบคุมช่องแคบดาร์ดาเนลส์ (Dardanelles) สู่ทะเลดำ</p>
+          </div>
+
+          <!-- Event 2: Salamis -->
+          <div onclick="openRadar('salamis')" class="group p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand bg-slate-50/50 dark:bg-slate-800/40 cursor-pointer transition shadow-2xs">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-mono text-amber-600 font-bold">480 BC • ERA 01</span>
+              <span class="text-[10px] text-brand font-semibold group-hover:underline">📍 เปิดแผนที่ &rarr;</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand">ยุทธการทางเรือซาลามิส</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">การล่อกองเรือมหึมาของเปอร์เซียเข้าสู่ช่องแคบระหว่างเกาะซาลามิสกับแผ่นดินใหญ่</p>
+          </div>
+
+          <!-- Event 3: Constantinople -->
+          <div onclick="openRadar('constantinople')" class="group p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand bg-slate-50/50 dark:bg-slate-800/40 cursor-pointer transition shadow-2xs">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-mono text-amber-600 font-bold">1453 • ERA 03</span>
+              <span class="text-[10px] text-brand font-semibold group-hover:underline">📍 เปิดแผนที่ &rarr;</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand">การเสียกรุงคอนสแตนติโนเปิล</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">ช่องแคบบอสฟอรัส จุดตัดเชื่อม 2 ทวีป ยุโรป-เอเชีย และทะเลดำ-เมดิเตอร์เรเนียน</p>
+          </div>
+
+          <!-- Event 4: Wittenberg -->
+          <div onclick="openRadar('wittenberg')" class="group p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand bg-slate-50/50 dark:bg-slate-800/40 cursor-pointer transition shadow-2xs">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-mono text-amber-600 font-bold">1517 • ERA 04</span>
+              <span class="text-[10px] text-brand font-semibold group-hover:underline">📍 เปิดแผนที่ &rarr;</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand">ญัตติ 95 ข้อแห่งวิทเทนแบร์ก</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">ศูนย์กลางแคว้นแซกโซนีในเยอรมนี จุดปะทุการปฏิรูปศาสนาทั่วยุโรป</p>
+          </div>
+
+          <!-- Event 5: Suez -->
+          <div onclick="openRadar('suez')" class="group p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand bg-slate-50/50 dark:bg-slate-800/40 cursor-pointer transition shadow-2xs">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-mono text-amber-600 font-bold">1956 • ERA 09</span>
+              <span class="text-[10px] text-brand font-semibold group-hover:underline">📍 เปิดแผนที่ &rarr;</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand">วิกฤตการณ์คลองสุเอซ</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">คอขวดคุมเส้นทางเดินเรือเชื่อมทะเลเมดิเตอร์เรเนียนสู่ทะเลแดงและมหาสมุทรอินเดีย</p>
+          </div>
+
+          <!-- Event 6: Cuba -->
+          <div onclick="openRadar('cuba')" class="group p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-brand bg-slate-50/50 dark:bg-slate-800/40 cursor-pointer transition shadow-2xs">
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-mono text-amber-600 font-bold">1962 • ERA 09</span>
+              <span class="text-[10px] text-brand font-semibold group-hover:underline">📍 เปิดแผนที่ &rarr;</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand">วิกฤตขีปนาวุธคิวบา</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">ฐานยิงขีปนาวุธโซเวียตห่างจากชายฝั่งฟลอริดาเพียง 140 กม.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Radar Side Drawer Modal for Option 1 -->
+    <div id="radar-drawer-backdrop" onclick="closeRadar()" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-xs transition-opacity"></div>
+    <div id="radar-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl border-l border-slate-200 dark:border-slate-800 transform translate-x-full transition-transform duration-300 flex flex-col font-sans">
+      <!-- Drawer Header -->
+      <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🛰️</span>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-brand">Geopolitical Radar Intelligence</div>
+            <div id="radar-event-title" class="text-sm font-bold text-slate-900 dark:text-white leading-tight"></div>
+          </div>
+        </div>
+        <button onclick="closeRadar()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xl font-bold p-1 cursor-pointer">&times;</button>
+      </div>
+
+      <!-- Drawer Content -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4">
+        <!-- Interactive Static Map Visual / Satellite Mockup -->
+        <div class="relative rounded-2xl overflow-hidden border border-slate-300 dark:border-slate-700 shadow-sm bg-slate-900 aspect-video flex items-center justify-center">
+          <img id="radar-map-img" src="" alt="Satellite Map" class="w-full h-full object-cover opacity-85" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+          
+          <!-- Pulsing Target Pin -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none">
+            <div class="w-4 h-4 rounded-full bg-rose-500 border-2 border-white pulse-pin"></div>
+            <div id="radar-pin-label" class="mt-1 px-2 py-0.5 rounded bg-black/80 text-white font-mono text-[10px] font-bold backdrop-blur-xs border border-white/20"></div>
+          </div>
+
+          <!-- Lat/Long HUD overlay -->
+          <div class="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] font-mono text-slate-300">
+            <span id="radar-coordinates"></span>
+            <span id="radar-region-badge" class="px-1.5 py-0.2 rounded bg-brand/80 text-white"></span>
+          </div>
+        </div>
+
+        <!-- Then vs Now Comparison Card -->
+        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2">
+          <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">🗺️ การเปรียบเทียบพิกัด: อดีต vs ปัจจุบัน</div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+              <span class="text-[10px] text-slate-400 block font-medium">ชื่อในบันทึกประวัติศาสตร์:</span>
+              <strong id="radar-ancient-name" class="text-slate-800 dark:text-slate-100 text-xs mt-0.5 block"></strong>
+            </div>
+            <div class="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+              <span class="text-[10px] text-emerald-600 block font-medium">ชื่อประเทศ/เมืองปัจจุบัน:</span>
+              <strong id="radar-modern-name" class="text-emerald-700 dark:text-emerald-300 text-xs mt-0.5 block"></strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Geopolitical Chokepoint Analysis -->
+        <div class="p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 space-y-1.5 text-xs">
+          <div class="flex items-center gap-1.5 font-bold text-amber-800 dark:text-amber-300 text-xs">
+            <span>⚡</span>
+            <span>ทำไมจุดนี้จึงเป็น Chokepoint สำคัญ? (Geopolitical Bottleneck)</span>
+          </div>
+          <p id="radar-chokepoint-text" class="text-slate-700 dark:text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <!-- Geographic Metrics Table -->
+        <div class="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden text-xs">
+          <table class="w-full text-left">
+            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+              <tr class="bg-slate-50/60 dark:bg-slate-800/40">
+                <td class="p-2.5 font-semibold text-slate-500 w-1/3">ประเภทชัยภูมิ</td>
+                <td id="radar-terrain-type" class="p-2.5 text-slate-800 dark:text-slate-200 font-medium"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-semibold text-slate-500">ผลสะเทือนยุทธศาสตร์</td>
+                <td id="radar-strategic-impact" class="p-2.5 text-slate-800 dark:text-slate-200"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Drawer Footer -->
+      <div class="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 flex items-center justify-between">
+        <button onclick="closeRadar()" class="w-full py-2 rounded-xl bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer">
+          ปิดหน้าต่างเรดาร์
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- OPTION 2: INTERACTIVE GIS VINTAGE MAP (LEAFLET.JS ANTIQUE) -->
+    <!-- ==================================================================== -->
+    <section id="view-opt-2" class="hidden space-y-4">
+      <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white">Option 2: Interactive GIS Vintage Map (แผนที่โบราณด้วย Leaflet.js)</h2>
+          <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+            แผนที่ GIS แบบอินเทอร์แอคทีฟเต็มรูปแบบ ซูมเข้า-ออก ลากเลื่อนอิสระ เมื่อกดปุ่มเหตุการณ์ แผนที่จะบิน (FlyTo) ไปยังจุดเกิดเหตุพร้อมหมุดกะพริบและป๊อปอัปเฉลย
+          </p>
+        </div>
+        <span class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold shrink-0">
+          🌐 ซูมเข้า-ออก หมุนดูโลกได้อิสระ
+        </span>
+      </div>
+
+      <!-- Leaflet Map Container & Quick Fly Bar -->
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+        <!-- Quick Fly Event Buttons -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+          <span class="font-bold text-slate-500 whitespace-nowrap mr-1">บินไปยังพิกัด:</span>
+          <button onclick="flyToCity('troy')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand hover:text-white font-medium whitespace-nowrap transition cursor-pointer">🏛️ ทรอย (~1184 BC)</button>
+          <button onclick="flyToCity('rome')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand hover:text-white font-medium whitespace-nowrap transition cursor-pointer">🏛️ กรุงโรม (753 BC)</button>
+          <button onclick="flyToCity('constantinople')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand hover:text-white font-medium whitespace-nowrap transition cursor-pointer">🕌 คอนสแตนติโนเปิล (1453)</button>
+          <button onclick="flyToCity('wittenberg')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand hover:text-white font-medium whitespace-nowrap transition cursor-pointer">📜 วิทเทนแบร์ก (1517)</button>
+          <button onclick="flyToCity('suez')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand hover:text-white font-medium whitespace-nowrap transition cursor-pointer">🚢 คลองสุเอซ (1956)</button>
+          <button onclick="flyToCity('berlin')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand hover:text-white font-medium whitespace-nowrap transition cursor-pointer">🧱 กำแพงเบอร์ลิน (1989)</button>
+        </div>
+
+        <!-- The Map -->
+        <div id="leaflet-map" class="w-full h-[520px] rounded-xl border border-slate-300 dark:border-slate-700 z-10 vintage-map-container"></div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- OPTION 3: DYNAMIC EMPIRE TERRITORIAL OVERLAY (SVG BORDERS) -->
+    <!-- ==================================================================== -->
+    <section id="view-opt-3" class="hidden space-y-4">
+      <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white">Option 3: Dynamic Empire Territorial Overlay (แผนที่ขอบเขตมหาจักรวรรดิตามยุค)</h2>
+          <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+            แผนที่เวกเตอร์ประวัติศาสตร์ แสดงสีอาณาเขตของมหาอำนาจในยุคสมัยนั้น พร้อมเส้นลูกศรการเดินทัพและขอบเขตพรมแดนที่เปลี่ยนแปลงตามกาลเวลา
+          </p>
+        </div>
+        <span class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 border border-purple-200 text-xs font-bold shrink-0">
+          👑 เหมาะสำหรับอธิบายดุลอำนาจ & การขยายจักรวรรดิ
+        </span>
+      </div>
+
+      <!-- Era Switcher for Empire Overlay -->
+      <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs font-bold text-slate-600 dark:text-slate-300">เลือกดูขอบเขตจักรวรรดิตามยุค:</span>
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <button onclick="setEmpireEra(1)" id="emp-btn-1" class="px-3 py-1.5 rounded-lg text-xs font-bold border bg-brand text-white border-brand transition cursor-pointer">ยุค 1: เปอร์เซีย vs กรีก (~500 BC)</button>
+            <button onclick="setEmpireEra(2)" id="emp-btn-2" class="px-3 py-1.5 rounded-lg text-xs font-bold border bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 transition cursor-pointer">ยุค 2: จักรวรรดิโรมันสูงสุด (ค.ศ. 117)</button>
+            <button onclick="setEmpireEra(9)" id="emp-btn-9" class="px-3 py-1.5 rounded-lg text-xs font-bold border bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 transition cursor-pointer">ยุค 9: สงครามเย็น & ม่านเหล็ก (ค.ศ. 1962)</button>
+          </div>
+        </div>
+
+        <!-- SVG Visual Canvas -->
+        <div class="relative w-full aspect-[16/9] max-h-[480px] bg-slate-950 rounded-xl overflow-hidden border border-slate-700 shadow-inner flex items-center justify-center p-4">
+          <svg id="empire-svg" viewBox="0 0 1000 560" class="w-full h-full">
+            <!-- Background Map Base Grids -->
+            <rect width="1000" height="560" fill="#0f172a" />
+            
+            <!-- Simplified Continental Outlines (Europe, Med, Middle East) -->
+            <path d="M 120 180 Q 200 160, 250 220 T 380 230 T 480 180 T 600 200 T 750 220 T 900 260 L 920 540 L 80 540 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+            <!-- Mediterranean Sea -->
+            <path d="M 220 320 Q 350 300, 480 340 T 680 330 T 820 380 L 800 440 Q 600 400, 400 420 T 200 400 Z" fill="#0369a1" fill-opacity="0.35" stroke="#0284c7" stroke-width="1" />
+            <!-- Black Sea -->
+            <path d="M 640 240 Q 720 220, 780 250 T 730 290 T 630 270 Z" fill="#0369a1" fill-opacity="0.4" stroke="#0284c7" stroke-width="1" />
+
+            <!-- Dynamic Empire Zones & Arrows Group (Controlled by JS) -->
+            <g id="dynamic-empire-layers"></g>
+          </svg>
+
+          <!-- Floating Legend -->
+          <div id="empire-legend" class="absolute bottom-4 left-4 p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-xs backdrop-blur-md space-y-1.5 max-w-xs shadow-lg"></div>
+        </div>
+
+        <!-- Historical Geopolitical Insight Box -->
+        <div id="empire-insight" class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 text-xs space-y-1"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // -------------------------------------------------------------
+    // OPTION SWITCHER CONTROLLER
+    // -------------------------------------------------------------
+    var currentOption = 1;
+    var mapInitialized = false;
+    var leafletMap = null;
+
+    function switchOption(optNum) {
+      currentOption = optNum;
+      for (var i = 1; i <= 3; i++) {
+        var view = document.getElementById('view-opt-' + i);
+        var tab = document.getElementById('tab-opt-' + i);
+        if (i === optNum) {
+          view.classList.remove('hidden');
+          tab.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-brand text-white shadow-xs whitespace-nowrap';
+        } else {
+          view.classList.add('hidden');
+          tab.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white whitespace-nowrap';
+        }
+      }
+
+      if (optNum === 2 && !mapInitialized) {
+        setTimeout(initLeafletMap, 100);
+      }
+      if (optNum === 3) {
+        setEmpireEra(1);
+      }
+    }
+
+    // -------------------------------------------------------------
+    // OPTION 1: CHOKEPOINT RADAR DATA & CONTROLLER
+    // -------------------------------------------------------------
+    var radarData = {
+      troy: {
+        title: "สงครามกรุงทรอย & การค้าช่องแคบดาร์ดาเนลส์ (~1184 BC)",
+        mapImg: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop&q=80",
+        pinLabel: "TROY / DARDANELLES",
+        coords: "39.957° N, 26.238° E",
+        region: "ช่องแคบดาร์ดาเนลส์ (Hellespont)",
+        ancientName: "กรุงทรอย (Troia / Ilium) • แคว้นโทรอัส",
+        modernName: "เนินเขาฮิซาร์ลิก (Hisarlik), จังหวัดชานักกาเล, ประเทศตุรกี",
+        chokepoint: "ช่องแคบดาร์ดาเนลส์กว้างเพียง 1.2 – 6 กม. เป็นประตูบังคับเดียวเชื่อมระหว่างทะเลอีเจียนกับทะเลดำ เรือสินค้าในยุคสำริดไม่มีเครื่องยนต์ ต้องอาศัยแรงลมและกระแสน้ำ ทำให้ต้องทอดสมอรอทิศทางลมที่อ่าวเมืองทรอย ทรอยจึงผูกขาดการเก็บค่าธรรมเนียมและส่วยจนมั่งคั่งมหาศาล กลายเป็นเป้าหมายที่พันธมิตรไมซีเนียนต้องทำสงครามเข้ายึดครอง",
+        terrainType: "ช่องแคบทางทะเล (Maritime Strait) & เนินผาสูงข่มอ่าว",
+        strategicImpact: "ควบคุมห่วงโซ่อุปทานข้าวสาลีและดีบุกระหว่างทะเลดำกับเมดิเตอร์เรเนียน"
+      },
+      salamis: {
+        title: "ยุทธการช่องแคบซาลามิส (480 BC)",
+        mapImg: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&auto=format&fit=crop&q=80",
+        pinLabel: "SALAMIS STRAIT",
+        coords: "37.950° N, 23.550° E",
+        region: "อ่าวซารอนิก (Saronic Gulf)",
+        ancientName: "ช่องแคบซาลามิส (Strait of Salamis)",
+        modernName: "เกาะซาลามินา (Salamina), แคว้นแอตติกา, ประเทศกรีซ",
+        chokepoint: "เทมิสโทคลีส (Themistocles) วางอุบายลวงให้กองทัพเรือเปอร์เซียที่มีเรือขนาดใหญ่หลายร้อยลำแล่นเข้าสู่ช่องแคบที่มีความกว้างไม่ถึง 2 กิโลเมตร เรือเปอร์เซียที่แออัดไม่สามารถกลับลำหรือแปรขบวนได้ ทำให้เรือรบไตรรีม (Trireme) ของกรีกที่คล่องตัวกว่าสามารถพุ่งชนจมเรือข้าศึกได้ทีละลำจนแตกพ่าย",
+        terrainType: "ช่องแคบระหว่างเกาะกับแผ่นดินใหญ่ (Narrow Sound)",
+        strategicImpact: "ทำลายกองเรือหลักของกษัตริย์เซอร์ซีส ปกป้องประชาธิปไตยและอารยธรรมกรีกโบราณ"
+      },
+      constantinople: {
+        title: "การเสียกรุงคอนสแตนติโนเปิล (1453)",
+        mapImg: "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=800&auto=format&fit=crop&q=80",
+        pinLabel: "BOSPHORUS / ISTANBUL",
+        coords: "41.008° N, 28.978° E",
+        region: "ช่องแคบบอสฟอรัส & อ่าวโกลเดนฮอร์น",
+        ancientName: "คอนสแตนติโนเปิล (Constantinople) / บิแซนเทียม",
+        modernName: "นครอิสตันบูล (Istanbul), ประเทศตุรกี",
+        chokepoint: "จุดบรรจบของ 2 ทวีป (ยุโรป-เอเชีย) และคุมทางเข้า-ออกเดียวระหว่างทะเลดำกับทะเลมาร์มะรา ป้อมปราการกำแพงธีโอโดเซียนล้อมรอบด้วยน้ำ 3 ด้าน เมื่อตกเป็นของจักรวรรดิออตโตมัน ทำให้ชาวเติร์กผูกขาดเส้นทางสายไหม บีบให้ชาวยุโรปต้องออกค้นหาเส้นทางเดินเรือทางทะเลสู่อินเดีย",
+        terrainType: "คาบสมุทรคอคอด & ช่องแคบข้ามทวีป",
+        strategicImpact: "จุดจบจักรวรรดิไบแซนไทน์ และเป็นตัวเร่งสำคัญให้เกิดยุคแห่งการสำรวจโลก (Age of Discovery)"
+      },
+      wittenberg: {
+        title: "การปฏิรูปศาสนาแห่งวิทเทนแบร์ก (1517)",
+        mapImg: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop&q=80",
+        pinLabel: "WITTENBERG / ELBE",
+        coords: "51.866° N, 12.643° E",
+        region: "ลุ่มแม่น้ำเอลเบอ (Elbe Basin)",
+        ancientName: "วิทเทนแบร์ก (Wittenberg), รัฐผู้คัดเลือกแซกโซนี",
+        modernName: "ลูเทอร์ชตัดท์ วิทเทนแบร์ก, รัฐซัคเซิน-อันฮัลท์, เยอรมนี",
+        chokepoint: "เมืองหลวงของดยุกฟรีดริชที่ 3 แห่งแซกโซนี ซึ่งอยู่ห่างไกลจากศูนย์กลางอำนาจของพระสันตะปาปาในกรุงโรม และจักรพรรดิแห่งฮับส์บูร์ก แม่น้ำเอลเบอเป็นเส้นทางกระจายสื่อสิ่งพิมพ์แท่นพิมพ์กูเทนแบร์ก ทำให้แนวคิด 95 Theses แพร่ระบาดไปทั่วเยอรมนีในเวลาเพียง 2 สัปดาห์",
+        terrainType: "ชุมทางแม่น้ำการค้าในที่ราบยุโรปเหนือ",
+        strategicImpact: "จุดกำเนิดนิกายโปรเตสแตนต์ และการกระจายอำนาจทางการเมืองในจักรวรรดิโรมันอันศักดิ์สิทธิ์"
+      },
+      suez: {
+        title: "วิกฤตการณ์คลองสุเอซ (1956)",
+        mapImg: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&auto=format&fit=crop&q=80",
+        pinLabel: "SUEZ CANAL",
+        coords: "30.585° N, 32.265° E",
+        region: "คอคอดสุเอซ เชื่อมเมดิเตอร์เรเนียน-ทะเลแดง",
+        ancientName: "คอคอดสุเอซ (Isthmus of Suez)",
+        modernName: "คลองสุเอซ, สาธารณรัฐอาหรับอียิปต์",
+        chokepoint: "คลองขุดระยะทาง 193 กม. ย่นระยะทางเดินเรือระหว่างยุโรปกับอินเดีย/เอเชียได้ถึง 7,000 กิโลเมตร เมื่ออียิปต์ประกาศโอนคลองเป็นของรัฐ อังกฤษ-ฝรั่งเศสพยายามบุกยึดคืน แต่ถูกสหรัฐอเมริกากดดันให้ถอนทหาร พิสูจน์ว่าอังกฤษหมดสิ้นความเป็นมหาอำนาจโลก",
+        terrainType: "คลองขุดยุทธศาสตร์ระดับโลก (Artificial Maritime Canal)",
+        strategicImpact: "ปิดฉากจักรวรรดินิยมยุโรป และสถาปนาระเบียบโลกสงครามเย็นสองขั้วอำนาจ (สหรัฐฯ-โซเวียต)"
+      },
+      cuba: {
+        title: "วิกฤตการณ์ขีปนาวุธคิวบา (1962)",
+        mapImg: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80",
+        pinLabel: "SAN CRISTÓBAL / CUBA",
+        coords: "22.716° N, -83.050° E",
+        region: "ทะเลแคริบเบียน (ห่างฟลอริดา 140 กม.)",
+        ancientName: "เกาะคิวบา (Colonial Cuba)",
+        modernName: "จังหวัดปีนาร์เดลรีโอ, สาธารณรัฐคิวบา",
+        chokepoint: "สหภาพโซเวียตติดตั้งขีปนาวุธนิวเคลียร์พิสัยกลาง (MRBM) ห่างจากแผ่นดินใหญ่สหรัฐฯ เพียง 90 ไมล์ทะเล ขีปนาวุธสามารถยิงถึงกรุงวอชิงตัน ดี.ซี. ภายใน 10 นาที ทำลายข้อได้เปรียบทางภูมิศาสตร์ของสหรัฐฯ ที่เคยมีมหาสมุทรเป็นปราการธรรมชาติ",
+        terrainType: "เกาะยุทธศาสตร์ในน่านน้ำชายฝั่ง (Offshore Island Base)",
+        strategicImpact: "จุดเฉียดสงครามนิวเคลียร์ล้างโลกมากที่สุด นำไปสู่การตั้งสายด่วน Hotline มอสโก-วอชิงตัน"
+      }
+    };
+
+    function openRadar(key) {
+      var d = radarData[key];
+      if (!d) return;
+
+      document.getElementById('radar-event-title').textContent = d.title;
+      document.getElementById('radar-map-img').src = d.mapImg;
+      document.getElementById('radar-pin-label').textContent = d.pinLabel;
+      document.getElementById('radar-coordinates').textContent = d.coords;
+      document.getElementById('radar-region-badge').textContent = d.region;
+      document.getElementById('radar-ancient-name').textContent = d.ancientName;
+      document.getElementById('radar-modern-name').textContent = d.modernName;
+      document.getElementById('radar-chokepoint-text').textContent = d.chokepoint;
+      document.getElementById('radar-terrain-type').textContent = d.terrainType;
+      document.getElementById('radar-strategic-impact').textContent = d.strategicImpact;
+
+      var drawer = document.getElementById('radar-drawer');
+      var backdrop = document.getElementById('radar-drawer-backdrop');
+      backdrop.classList.remove('hidden');
+      drawer.classList.remove('translate-x-full');
+    }
+
+    function closeRadar() {
+      var drawer = document.getElementById('radar-drawer');
+      var backdrop = document.getElementById('radar-drawer-backdrop');
+      drawer.classList.add('translate-x-full');
+      backdrop.classList.add('hidden');
+    }
+
+    // -------------------------------------------------------------
+    // OPTION 2: LEAFLET.JS ANTIQUE MAP CONTROLLER
+    // -------------------------------------------------------------
+    var cities = {
+      troy: { lat: 39.957, lng: 26.238, zoom: 9, name: "กรุงทรอย (Troy)", year: "~1184 BC", desc: "คุมช่องแคบดาร์ดาเนลส์ ปัจจุบันคือฮิซาร์ลิก ประเทศตุรกี" },
+      rome: { lat: 41.902, lng: 12.496, zoom: 8, name: "กรุงโรม (Rome)", year: "753 BC", desc: "ศูนย์กลางมหาจักรวรรดิโรมัน กฎหมาย และถนนสายยุทธศาสตร์" },
+      constantinople: { lat: 41.008, lng: 28.978, zoom: 9, name: "คอนสแตนติโนเปิล (Istanbul)", year: "1453", desc: "จุดตัด 2 ทวีป ช่องแคบบอสฟอรัส การล่มสลายของไบแซนไทน์" },
+      wittenberg: { lat: 51.866, lng: 12.643, zoom: 8, name: "วิทเทนแบร์ก (Wittenberg)", year: "1517", desc: "จุดเริ่มต้นการปฏิรูปศาสนาของมาร์ติน ลูเธอร์ แคว้นแซกโซนี เยอรมนี" },
+      suez: { lat: 30.585, lng: 32.265, zoom: 8, name: "คลองสุเอซ (Suez Canal)", year: "1956", desc: "คอขวดเดินเรือระดับโลก วิกฤตการณ์ปิดฉากจักรวรรดิอังกฤษ" },
+      berlin: { lat: 52.520, lng: 13.405, zoom: 9, name: "กำแพงเบอร์ลิน (Berlin)", year: "1989", desc: "สัญลักษณ์ม่านเหล็กสงครามเย็น การพังทลายนำสู่การรวมชาติเยอรมนี" }
+    };
+
+    function initLeafletMap() {
+      mapInitialized = true;
+      leafletMap = L.map('leaflet-map').setView([39.957, 26.238], 5);
+
+      // CartoDB Voyager Tile Layer (Clean & Historic appearance)
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        maxZoom: 18
+      }).addTo(leafletMap);
+
+      // Add markers
+      Object.keys(cities).forEach(function(k) {
+        var c = cities[k];
+        var marker = L.marker([c.lat, c.lng]).addTo(leafletMap);
+        marker.bindPopup(
+          '<div style="font-family: Sarabun, sans-serif; min-width: 180px;">' +
+          '<span style="font-size: 10px; font-weight: bold; color: #d97706;">' + c.year + '</span>' +
+          '<h4 style="margin: 2px 0; font-size: 13px; font-weight: bold;">' + c.name + '</h4>' +
+          '<p style="margin: 4px 0 0 0; font-size: 11px; color: #4b5563; line-height: 1.4;">' + c.desc + '</p>' +
+          '</div>'
+        );
+      });
+    }
+
+    function flyToCity(key) {
+      if (!leafletMap) return;
+      var c = cities[key];
+      if (!c) return;
+      leafletMap.flyTo([c.lat, c.lng], c.zoom, { duration: 1.5 });
+    }
+
+    // -------------------------------------------------------------
+    // OPTION 3: EMPIRE SVG OVERLAY CONTROLLER
+    // -------------------------------------------------------------
+    var empireData = {
+      1: {
+        title: "ยุค 1: การปะทะระหว่างจักรวรรดิเปอร์เซีย vs นครรัฐกรีก (~500 BC – 330 BC)",
+        legend: '<div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-amber-500"></div><span>จักรวรรดิเปอร์เซีย (Achaemenid Empire)</span></div>' +
+                '<div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-blue-500"></div><span>พันธมิตรนครรัฐกรีก (Delian League)</span></div>' +
+                '<div class="flex items-center gap-2"><div class="w-4 h-0.5 bg-rose-500"></div><span>เส้นทางเดินทัพอเล็กซานเดอร์มหาราช</span></div>',
+        insight: '<strong>วิเคราะห์ภูมิรัฐศาสตร์ ยุค 1:</strong> สปาร์ตาและเอเธนส์ใช้ประโยชน์จากความได้เปรียบทางภูมิประเทศ (ช่องแคบภูเขาเทอร์โมไพลี และช่องแคบทางทะเลซาลามิส) บดขยี้กองทัพเปอร์เซียที่มีกำลังพลเหนือกว่าหลายเท่า ก่อนที่อเล็กซานเดอร์จะใช้กลยุทธ์หัวหอกทะลวงฟันพิชิตเอเชียข้าม 3 ทวีป',
+        svgContent: `
+          <!-- Persian Empire Zone (Orange) -->
+          <polygon points="560,200 950,220 960,500 680,480 620,380 580,280" fill="#f59e0b" fill-opacity="0.35" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2" />
+          <text x="750" y="320" fill="#fcd34d" font-family="Space Grotesk" font-weight="bold" font-size="16" letter-spacing="3">PERSIA (ACHAEMENID)</text>
+
+          <!-- Greek Polis Zone (Blue) -->
+          <circle cx="480" cy="330" r="45" fill="#0284c7" fill-opacity="0.5" stroke="#38bdf8" stroke-width="2" />
+          <text x="450" y="335" fill="#bae6fd" font-family="Space Grotesk" font-weight="bold" font-size="12">GREECE</text>
+
+          <!-- Alexander's Campaign Arrow (Red vector) -->
+          <path d="M 480 330 Q 600 280, 720 340 T 920 400" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="6 3" />
+          <text x="640" y="370" fill="#f87171" font-size="11" font-family="Sarabun" font-weight="bold">เส้นทางพิชิตของอเล็กซานเดอร์มหาราช &rarr;</text>
+        `
+      },
+      2: {
+        title: "ยุค 2: จักรวรรดิโรมันสูงสุด (Pax Romana ยุคจักรพรรดิทราจัน ค.ศ. 117)",
+        legend: '<div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-rose-600"></div><span>ขอบเขตจักรวรรดิโรมัน (Imperium Romanum)</span></div>' +
+                '<div class="flex items-center gap-2"><div class="w-4 h-0.5 bg-amber-400"></div><span>แนวค่ายกลาโหมชายแดน (Limes Germanicus)</span></div>',
+        insight: '<strong>วิเคราะห์ภูมิรัฐศาสตร์ ยุค 2:</strong> ทะเลเมดิเตอร์เรเนียนกลายเป็น "ทะเลสาบในบ้านของชาวโรมัน" (Mare Nostrum) โดยมีถนนโรมันกว่า 80,000 กม. ค้ำจุนการค้าและกองทัพ โดยโรมันใช้แม่น้ำไรน์และดานูบเป็นพรมแดนธรรมชาติสกัดอนารยชน',
+        svgContent: `
+          <!-- Roman Empire Peak (Red) -->
+          <polygon points="180,240 380,180 580,200 750,260 880,340 850,480 500,440 220,400 160,300" fill="#dc2626" fill-opacity="0.3" stroke="#ef4444" stroke-width="2.5" />
+          <text x="380" y="360" fill="#fca5a5" font-family="Space Grotesk" font-weight="bold" font-size="22" letter-spacing="4">IMPERIUM ROMANUM</text>
+          
+          <!-- Limes Border -->
+          <path d="M 380 180 Q 480 200, 580 200" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="4 2" />
+          <text x="420" y="170" fill="#fde68a" font-size="10" font-family="Sarabun">แนวชายแดนไรน์-ดานูบ</text>
+        `
+      },
+      9: {
+        title: "ยุค 9: สงครามเย็น & ม่านเหล็ก (The Iron Curtain ค.ศ. 1945 – 1989)",
+        legend: '<div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-blue-600"></div><span>พันธมิตรนาโต (NATO: ฝ่ายเสรีนิยม)</span></div>' +
+                '<div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-red-600"></div><span>สนธิสัญญาวอร์ซอ (Warsaw Pact: ฝ่ายคอมมิวนิสต์)</span></div>' +
+                '<div class="flex items-center gap-2"><div class="w-4 h-1 bg-yellow-400"></div><span>แนวม่านเหล็ก (The Iron Curtain)</span></div>',
+        insight: '<strong>วิเคราะห์ภูมิรัฐศาสตร์ ยุค 9:</strong> ยุโรปถูกผ่าครึ่งด้วยแนวม่านเหล็ก (Iron Curtain) โดยเยอรมนีและกรุงเบอร์ลินเป็นแนวรบทางอุดมการณ์ที่ประจันหน้ากันโดยตรง ทั้งสองฝ่ายถูกเหนี่ยวรั้งด้วยหลักนิยม MAD (Mutually Assured Destruction)',
+        svgContent: `
+          <!-- NATO West Europe (Blue) -->
+          <polygon points="140,200 360,180 380,360 200,420 120,320" fill="#2563eb" fill-opacity="0.35" stroke="#3b82f6" stroke-width="2" />
+          <text x="220" y="280" fill="#93c5fd" font-family="Space Grotesk" font-weight="bold" font-size="18">NATO ALLIANCE</text>
+
+          <!-- Warsaw Pact East Europe & USSR (Red) -->
+          <polygon points="400,160 940,180 950,520 620,440 420,380 390,260" fill="#dc2626" fill-opacity="0.4" stroke="#ef4444" stroke-width="2" />
+          <text x="600" y="260" fill="#fca5a5" font-family="Space Grotesk" font-weight="bold" font-size="20">WARSAW PACT / USSR</text>
+
+          <!-- The Iron Curtain Line (Dotted Yellow) -->
+          <path d="M 380 160 L 390 280 L 410 380" fill="none" stroke="#facc15" stroke-width="4" stroke-dasharray="6 3" />
+          <circle cx="390" cy="220" r="5" fill="#facc15" />
+          <text x="340" y="210" fill="#fef08a" font-size="11" font-weight="bold" font-family="Sarabun">เบอร์ลิน (แบ่งออกเป็น 2 ฝั่ง)</text>
+        `
+      }
+    };
+
+    function setEmpireEra(eraNum) {
+      var d = empireData[eraNum];
+      if (!d) return;
+
+      // Update buttons
+      [1, 2, 9].forEach(function(n) {
+        var btn = document.getElementById('emp-btn-' + n);
+        if (btn) {
+          if (n === eraNum) {
+            btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold border bg-brand text-white border-brand transition cursor-pointer';
+          } else {
+            btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold border bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 transition cursor-pointer';
+          }
+        }
+      });
+
+      document.getElementById('empire-legend').innerHTML = d.legend;
+      document.getElementById('empire-insight').innerHTML = d.insight;
+      document.getElementById('dynamic-empire-layers').innerHTML = d.svgContent;
+    }
+  </script>
+</body>
+</html>

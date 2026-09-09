@@ -871,7 +871,7 @@
         </div>
         
         <!-- 6 NAV TABS (NEVER WRAP, TIGHT FIT) -->
-        <nav class="hidden md:flex items-center gap-1 shrink-0">
+        <nav class="hidden md:flex items-center gap-1 shrink-0 overflow-x-auto">
           <!-- 3 CORE PRESENTATION MODES (Same Content, 3 Distinct Modalities) -->
           <div class="core-view-group flex items-center p-1 rounded-xl border gap-1 shrink-0" title="Historical Exploration Modes (Slides / Timeline / Metro / Map)">
             <button id="tab-slides" onclick="switchView('slides')" class="px-2.5 py-1.5 rounded-lg text-xs sm:text-[13px] font-sans font-medium bg-[#107895] text-white transition-all shadow-sm flex items-center gap-1 whitespace-nowrap shrink-0 cursor-pointer">
@@ -9372,7 +9372,7 @@
     </div>
 
     <!-- ==================== TEACHING TOOLS: 20-SLIDE JUMP GRID MODAL ==================== -->
-    <div id="slide-grid-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 select-none" onclick="if(event.target === this) closeSlideGridModal()">
+    <div id="slide-grid-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-200 flex items-center justify-center p-4 sm:p-6 select-none" onclick="if(event.target === this) closeSlideGridModal()">
       <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-5xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800 font-sans overflow-hidden animate-in fade-in zoom-in-95 duration-150">
         <!-- Header -->
         <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-800/40">
@@ -9434,7 +9434,7 @@
 
     <!-- ==================== VIRTUAL LASER POINTER & SPOTLIGHT ELEMENTS ==================== -->
     <div id="virtual-laser-dot" class="hidden fixed pointer-events-none z-[9999] w-4 h-4 rounded-full bg-red-600 shadow-[0_0_12px_4px_rgba(239,68,68,0.9)] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"></div>
-    <div id="virtual-spotlight-mask" class="hidden fixed inset-0 pointer-events-none z-[9998] transition-opacity duration-200"></div>
+    <div id="virtual-spotlight-mask" class="hidden fixed inset-0 pointer-events-none z-[100000] transition-opacity duration-200"></div>
 
     <!-- ==================== TOAST NOTIFICATION ==================== -->
     <div id="v6-toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-slate-900/90 text-white dark:bg-white/90 dark:text-slate-900 px-4 py-2 rounded-xl text-xs font-sans font-medium shadow-xl backdrop-blur-sm flex items-center gap-2">
@@ -9442,7 +9442,7 @@
     </div>
 
     <!-- ==================== FLOATING TEACHER TOOLS & LIVE QR DOCK ==================== -->
-    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-30 flex flex-col items-center gap-2 select-none pointer-events-auto">
+    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-[99999] flex flex-col items-center gap-2 select-none pointer-events-auto">
       
       <!-- Top Group: Teaching Tools (Map M, Timer, Laser, Spotlight) -->
       <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl flex flex-col gap-1.5 w-[96px] text-center">
