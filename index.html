@@ -934,7 +934,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -988,7 +988,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('troy')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -1056,6 +1056,69 @@
             ★ 9.0/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div onclick="openDeepDive('greek-trojan-war', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ม้าไม้เมืองทรอย & มหากาพย์อีเลียด</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">1184 ปีก่อน ค.ศ.</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> มหากาพย์อีเลียดของโฮเมอร์เล่าเรื่องม้าไม้จนจบสงคราม และกรุงทรอยเป็นเพียงนิทานปรัมปราที่ไม่มีจริง</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ในอีเลียดไม่มีฉากม้าไม้เลย (จบที่งานศพเฮกเตอร์) และการขุดค้นของไฮน์ริช ชลีมานน์ (1870s) พิสูจน์แล้วว่ากรุงทรอยและสงครามเผาเมืองมีอยู่จริง (ชั้นหิน Troy VIIa)</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('greek-persian-wars', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การวิ่งของฟีดิพพิดีส ณ ทุ่งมาราธอน</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">490 ปีก่อน ค.ศ.</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ฟีดิพพิดีสวิ่ง 42 กม. จากมาราธอนมาเอเธนส์ ตะโกนว่า 'ชนะแล้ว' แล้วล้มลงขาดใจตายทันที</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เฮโรโดตุสบันทึกว่า ฟีดิพพิดีสเป็นคนส่งสารที่วิ่งจากเอเธนส์ไปสปาร์ตา (ระยะทางกว่า 240 กม. ใน 2 วัน) เพื่อขอกำลังเสริมก่อนรบ เรื่องวิ่งมาราธอนแล้วตายเป็นบทกวียุคหลัง</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('greek-persian-wars', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 สปาร์ตา 300 นายสู้เพียงลำพังที่เทอร์โมพิลี?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">480 ปีก่อน ค.ศ.</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> กษัตริย์ลีโอไนดัสและ 300 สปาร์ตัน ยืนหยัดสู้รบและตายที่ช่องเขาเพียงลำพัง 300 คนโดยไม่มีใครช่วย</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> มีกองทัพพันธมิตรกรีกกว่า 7,000 นายร่วมรบ และในวันสุดท้ายยังมีชาวเธสเปีย (Thespians) ราว 700 นาย สมัครใจอยู่สู้จนตัวตายเคียงบ่าเคียงไหล่กับสปาร์ตัน</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('greek-golden-age-peloponnesian', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ประชาธิปไตยทางตรงแห่งเอเธนส์</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">~461–429 ปีก่อน ค.ศ.</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ประชาธิปไตยเอเธนส์ให้สิทธิ เสรีภาพ และความเสมอภาคแก่ทุกคนในสังคมอย่างแท้จริง</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> สงวนสิทธิ์เฉพาะ 'ชายเอเธนส์เสรีชนแท้' เพียง 10–15% ของประชากรเท่านั้น สตรี ทาส (1 ใน 3 ของเมือง) และคนต่างด้าว (Metics) ไม่มีสิทธิออกเสียงใดๆ</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('greek-alexander-hellenistic', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การหยุดเดินทัพของอเล็กซานเดอร์มหาราช</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">326 ปีก่อน ค.ศ.</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> อเล็กซานเดอร์หยุดขยายอาณาจักรไปทางตะวันออกเพราะรบแพ้กองทัพช้างศึกของอินเดีย</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> อเล็กซานเดอร์ชนะที่แม่น้ำไฮดาสเปส แต่ต้องยอมยกทัพกลับเพราะทหารของตนเองก่อหวอดประท้วงหยุดรบ (Mutiny at Hyphasis) หลังกรำศึกหนัก 8 ปี ไกลบ้าน 17,000 ไมล์</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1204,7 +1267,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -1258,7 +1321,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('gladiator')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -1326,6 +1389,69 @@
             ★ 8.5/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div onclick="openDeepDive('rome-republic-fall', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 คำพูดสุดท้ายของจูเลียส ซีซาร์</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">44 ปีก่อน ค.ศ.</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> คำพูดสุดท้ายของซีซาร์ก่อนสิ้นใจคือ 'Et tu, Brute?' (เจ้าด้วยหรือ บรูตุส?)</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> วลีนี้เป็นบทละครของเชกสเปียร์ (1599) ซูเอโทเนียสบันทึกว่าซีซาร์ไม่ได้พูดอะไรเลย หรืออาจอุทานภาษากรีกสั้นๆ ว่า 'Kai su, teknon?' (เจ้าด้วยหรือ ลูกข้า?) ก่อนดึงผ้าคลุมหน้า</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('rome-pax-romana-emperors', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การคว่ำนิ้วโป้งในสังเวียนกลาดิเอเตอร์</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 80</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ในสังเวียนโคลอสเซียม การคว่ำนิ้วโป้งลงแปลว่าสั่งประหาร และนักสู้ทุกคนต้องสู้กันจนตัวตาย</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ท่าทางโบราณ (pollice verso) การชักนิ้วโป้งแทงไปข้างหน้าคือสั่งฆ่า ส่วนการซ่อนนิ้วโป้งในกำมือคือไว้ชีวิต และกลาดิเอเตอร์มีค่าตัวแพงมาก ส่วนใหญ่สู้จนยอมจำนน มีเพียง 10–20% ที่เสียชีวิต</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('rome-pax-romana-emperors', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 จักรพรรดิเนโรสีไวโอลินตอนโรมไฟไหม้?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 64</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> เนโรยืนดีดไวโอลินร้องเพลงอย่างสำราญใจบนหอคอยขณะมองกรุงโรมถูกเพลิงเผาผลาญ</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ไวโอลินยังไม่ถูกประดิษฐ์ขึ้นจนถึงศตวรรษที่ 16 และขณะเกิดเพลิงไหม้เนโรอยู่ที่เมืองแอนเทียม (ห่างไป 50 กม.) เมื่อกลับมาก็เปิดพระราชวังให้ผู้ประสบภัยพักพิงและแจกจ่ายอาหาร</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('rome-christianity-state-fall', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การล่มสลายของจักรวรรดิโรมัน</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 476</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> จักรวรรดิโรมันอันยิ่งใหญ่ทั้งหมดล่มสลายและหายสาบสูญไปในชั่วข้ามคืนในปี ค.ศ. 476</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ล่มเฉพาะ 'โรมันตะวันตก' เท่านั้น แต่ 'โรมันตะวันออก (ไบแซนไทน์)' ที่มีศูนย์กลางที่คอนสแตนติโนเปิล ยังคงเจริญรุ่งเรือง สืบทอดกฎหมายและอารยธรรมโรมันต่อไปอีกเกือบ 1,000 ปี จนถึงปี 1453</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('rome-republic-fall', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ที่มาของการผ่าคลอด (Caesarean Section)</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ศตวรรษที่ 1 ก่อน ค.ศ.</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> การทำคลอดด้วยการผ่าหน้าท้องมีชื่อนี้เพราะจูเลียส ซีซาร์ เกิดด้วยวิธีผ่าท้องคลอด</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> กฎหมายโรมัน (Lex Caesarea) อนุญาตให้ผ่าท้องเฉพาะมารดาที่เสียชีวิตขณะตั้งครรภ์เพื่อช่วยทารก แต่มารดาของซีซาร์มีชีวิตอยู่ต่อมาอีกหลายสิบปี ชื่อนี้มาจากคำละติน caedere (ตัด)</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1474,7 +1600,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -1528,7 +1654,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('kingdom-of-heaven')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -1585,6 +1711,69 @@
             ★ 8.0/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ความเชื่อเรื่องโลกแบนในยุคกลาง</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ยุคกลาง (ศตวรรษที่ 5–15)</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> คนยุคกลางและศาสนจักรเชื่อว่าโลกแบน หากเดินเรือออกไปไกลจะตกขอบโลก</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ปัญญาชน นักคิด และนักเดินเรือยุคกลางรู้กันมาตลอดว่าโลกกลม (สืบทอดจากดาราศาสตร์กรีก) ตำนานโลกแบนถูกแต่งขึ้นในศตวรรษที่ 19 เพื่อใช้ล้อเลียนยุคกลาง</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('crusades-jerusalem', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 สงครามครูเสด: คริสต์ vs มุสลิม ล้วนๆ?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1204</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> สงครามครูเสดคือสงครามระหว่างสองขั้วศาสนาที่ต่อสู้กันอย่างชัดเจนตลอด 200 ปี</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ในครูเสดครั้งที่ 4 (ค.ศ. 1204) กองทัพครูเสดยุโรปหันไปบุกปล้นสะดมและเผาทำลายกรุงคอนสแตนติโนเปิลของชาวคริสต์ด้วยกันเองเพื่อล้างหนี้สินกับพ่อค้าชาวเวนิส</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('middle-ages-feudalism-inquisition', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 เข็มขัดพรหมจรรย์ของอัศวิน (Chastity Belts)</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ยุคอัศวิน (ศตวรรษที่ 12–14)</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> อัศวินยุคกลางบังคับให้ภรรยาสวมเข็มขัดเหล็กใส่กุญแจก่อนออกไปรบในสงครามครูเสด</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ไม่มีหลักฐานการใช้งานจริงในยุคกลาง เข็มขัดพรหมจรรย์เป็นสิ่งประดิษฐ์ล้อเลียนและของทำเทียมในศตวรรษที่ 18–19 เพื่อขายให้นักสะสมของแปลก</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('black-death-impact', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 คนยุคกลางไม่เคยอาบน้ำและสกปรกโสมม?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1347–1351</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ชาวยุคกลางไม่เคยอาบน้ำเลยตลอดชีวิต และทิ้งสิ่งปฏิกูลเกลื่อนกลาดไร้สุขอนามัย</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ยุโรปยุคกลางมีโรงอาบน้ำสาธารณะ (Bathhouses) แพร่หลายแทบทุกเมือง การอาบน้ำเพิ่งมาลดลงในยุคเรเนซองส์เพราะกลัวว่ารูขุมขนเปิดจะรับเชื้อกาฬโรคและซิฟิลิส</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('middle-ages-feudalism-inquisition', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 เครื่องทรมาน 'สตรีเหล็กแห่งนูเรมเบิร์ก' (Iron Maiden)</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ยุคศาลศาสนา</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ศาลศาสนายินควิซิชันใช้ตู้เหล็กรูปสตรีมีหนามแหลมด้านในขังทรมานคนนอกรีต</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ไม่มีบันทึกการใช้ในยุคกลางเลย ตู้ Iron Maiden ถูกประดิษฐ์ขึ้นในศตวรรษที่ 19 โดยนักสะสมเพื่อนำมาจัดแสดงในพิพิธภัณฑ์สร้างความตื่นเต้นเชิงพาณิชย์</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1733,7 +1922,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -1787,7 +1976,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('medici')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -1855,6 +2044,69 @@
             ★ 7.5/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div onclick="openDeepDive('reformation-martin-luther', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การตอกตะปูประกาศ 95 ข้อของมาร์ติน ลูเธอร์</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">31 ตุลาคม ค.ศ. 1517</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> มาร์ติน ลูเธอร์ แอบเอาค้อนไปตอกตะปูประกาศ 95 ข้อเพื่อเปิดศึกก่อกบฏและตั้งนิกายใหม่ทันที</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ประตูโบสถ์วิทเทินแบร์คทำหน้าที่เสมือนบอร์ดประกาศของมหาวิทยาลัย ลูเธอร์เขียนภาษาละตินเชิญอาจารย์มาเสวนาทางวิชาการตามธรรมเนียม โดยยังจงรักภักดีต่อพระสันตะปาปา</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('scientific-revolution', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การทดลองที่หอเอนปิซาของกาลิเลโอ</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1589</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> กาลิเลโอปีนขึ้นไปโยนลูกเหล็กน้ำหนักต่างกันจากหอเอนปิซาโชว์ต่อหน้าคนทั้งเมือง</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เป็นเรื่องเล่าที่ลูกศิษย์แต่งขึ้นหลังกาลิเลโอเสียชีวิต การทดลองจริงทำในห้องแล็บโดยการ 'กลิ้งลูกบอลบนรางไม้เอียง' เพื่อให้นาฬิกาน้ำจับเวลาความเร่งได้อย่างแม่นยำ</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('scientific-revolution', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 แอปเปิลตกใส่หัวนิวตัน</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1666</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> แอปเปิลหล่นใส่ศีรษะนิวตันจนปิ๊งแวบคิดทฤษฎีแรงโน้มถ่วงได้ในทันที</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> นิวตันเพียงแค่นั่งมองแอปเปิลร่วงลงสู่พื้นในสวนที่บ้านเกิด และต้องใช้เวลาค้นคว้าคำนวณแคลคูลัสนานกว่า 20 ปีกว่าจะสรุปเป็นทฤษฎีในหนังสือ Principia (1687)</div>
+            </div>
+          </div>
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การเผาแม่มดทั้งเป็นที่เมืองซาเลม</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1692</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> หญิงที่ถูกกล่าวหาว่าเป็นแม่มดที่เมืองซาเลมถูกมัดติดเสาแล้วเผาทั้งเป็นทุกคน</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ไม่มีใครถูกเผาทั้งเป็นในซาเลม ผู้ถูกตัดสิน 19 คนถูกประหารชีวิตด้วยการ 'แขวนคอ' และ 1 คนถูกหินทับตาย (การเผาเสาเกิดขึ้นในยุโรป ไม่ใช่อเมริกา)</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('colonialism-voc-stock', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 โคลัมบัสค้นพบทวีปอเมริกาเป็นคนแรก?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1492</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> โคลัมบัสคือมนุษย์กลุ่มแรกจากภายนอกที่เดินทางมาค้นพบแผ่นดินอเมริกา</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> นอกจากชนพื้นเมืองที่อยู่มานับหมื่นปี ชาวไวกิ้งนำโดย เลฟ เอริกสัน เดินทางมาตั้งถิ่นฐานที่นิวฟันด์แลนด์ (แคนาดา) ก่อนหน้าโคลัมบัสเกือบ 500 ปี (ราว ค.ศ. 1000)</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2003,7 +2255,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -2057,7 +2309,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('the-patriot')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -2125,6 +2377,69 @@
             ★ 8.0/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 คำพูด 'ให้พวกเขากินเค้กสิ' ของมารี อ็องตัวเนต</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1789</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> พระนางมารี อ็องตัวเนต ตรัสประโยคนี้เพื่อเหยียดหยามคนจนที่ไม่มีขนมปังกิน</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เป็น Fake News โฆษณาชวนเชื่อ ประโยคนี้ปรากฏในหนังสือของรูสโซตั้งแต่ปี 1765 ขณะนั้นมารี อ็องตัวเนต มีอายุเพียง 9–10 ขวบ และยังไม่ได้แต่งงานมาฝรั่งเศส</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('boston-tea-party-deep', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การลงนามคำประกาศอิสรภาพสหรัฐฯ</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">4 กรกฎาคม ค.ศ. 1776</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> บิดาผู้สร้างชาติทุกคนนั่งร่วมลงนามในคำประกาศอิสรภาพพร้อมกันในวันที่ 4 กรกฎาคม 1776</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> วันที่ 4 กรกฎาคม คือวันอนุมัติถ้อยคำ พิธีลงนามบนแผ่นหนังอย่างเป็นทางการจัดขึ้นในวันที่ 2 สิงหาคม 1776 และสมาชิกบางคนทยอยลงนามตลอดฤดูใบไม้ร่วง</div>
+            </div>
+          </div>
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ความสูงของนโปเลียน (Napoleon Complex)</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ยุคนโปเลียน (1799–1815)</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> นโปเลียน โบนาปาร์ต เป็นคนแคระเตี้ยที่มีปมด้อย จึงมักทำสงครามรุกรานเพื่อชดเชย</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> นโปเลียนสูงประมาณ 168–170 ซม. ซึ่งถือเป็นความสูงเฉลี่ยของชายฝรั่งเศสยุคนั้น ความเข้าใจผิดเกิดจากการแปลงหน่วยนิ้วฝรั่งเศส และภาพการ์ตูนล้อเลียนของอังกฤษ</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('civil-war-slavery-lincoln', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ชนวนเหตุสงครามกลางเมืองอเมริกา: สิทธิของมลรัฐ?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1861</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> สงครามกลางเมืองเกิดจากเรื่อง 'สิทธิของมลรัฐ' (States' Rights) และภาษี ไม่เกี่ยวกับเรื่องทาส</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เป็นเรื่องเล่าล้างบาป 'Lost Cause' ของฝ่ายใต้ เอกสารประกาศแยกตัวของรัฐฝ่ายใต้ระบุชัดเจนตั้งแต่ย่อหน้าแรกว่าแยกตัวเพื่อ 'ปกป้องสถาบันทาสผิวดำ'</div>
+            </div>
+          </div>
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การทลายคุกบาสตีย์ปลดปล่อยนักโทษนับพัน?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">14 กรกฎาคม ค.ศ. 1789</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> มวลชนบุกทลายคุกบาสตีย์เพื่อช่วยเหลือนักโทษการเมืองที่ถูกขังทรมานนับร้อยนับพันคน</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ในวันที่บุกทลายคุก มีนักโทษถูกคุมขังอยู่จริงเพียง 7 คนเท่านั้น เป้าหมายแท้จริงของการบุกคือเพื่อแย่งชิง 'ดินปืน 250 ถัง' มาติดอาวุธให้กองกำลังราษฎร</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2273,7 +2588,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -2327,7 +2642,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('modern-times')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -2395,6 +2710,69 @@
             ★ 8.5/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div onclick="openDeepDive('industrial-steam-factory', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 เจมส์ วัตต์ คือผู้ประดิษฐ์เครื่องจักรไอน้ำคนแรก?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1769</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> เจมส์ วัตต์ เป็นผู้คิดค้นและประดิษฐ์เครื่องจักรไอน้ำขึ้นเป็นคนแรกของโลก</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> โทมัส นิวโคเมน สร้างเครื่องจักรไอน้ำใช้งานในเหมืองสำเร็จก่อนหน้านั้นกว่า 50 ปี (1712) เจมส์ วัตต์เป็นผู้พัฒนาห้องควบแน่นแยกส่วนที่ประหยัดเชื้อเพลิงจนใช้งานได้จริงในโรงงาน</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('industrial-second-electricity', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 โทมัส เอดิสัน ประดิษฐ์หลอดไฟคนแรก?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1879</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> เอดิสันเป็นผู้คิดค้นหลอดไฟส่องสว่างขึ้นเป็นคนแรกของโลก</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> นักประดิษฐ์หลายคน (เช่น ฮัมฟรี เดวี, โจเซฟ สวอน) ทำหลอดไฟได้ก่อนเอดิสันหลายสิบปี แต่ขาดความทนทาน สิ่งที่เอดิสันทำคือคิดค้นไส้หลอดคาร์บอนที่เปิดได้ยาวนานและระบบจ่ายไฟเชิงพาณิชย์</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('scramble-for-africa-imperialism', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การยึดครองแอฟริกาไร้ซึ่งการต่อต้าน?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1884–1896</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ชาวยุโรปยึดครองทวีปแอฟริกาได้อย่างง่ายดายโดยไม่มีการต่อต้านจากชนพื้นเมือง</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> มีการต่อต้านอย่างดุเดือด เช่น กองทัพเอธิโอเปียของจักรพรรดิเมเนลิกที่ 2 รบชนะกองทัพอิตาลีในยุทธการแอดวา (Adwa, 1896) จนรักษาเอกราชไว้ได้ และสงครามแองโกล-ซูลู (1879)</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('industrial-labor-capitalism-marx', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ชาวลัดไดท์ (Luddites) ต่อต้านเพราะเกลียดเทคโนโลยี?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1811</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> กลุ่มลัดไดท์เป็นพวกหัวโบราณที่กลัวและเกลียดเครื่องจักรเทคโนโลยีสมัยใหม่</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> พวกเขาไม่ได้เกลียดเครื่องจักร แต่ประท้วงเจ้าของโรงงานที่ใช้เครื่องจักรมากดค่าแรง ใช้แรงงานเด็ก และทำลายมาตรฐานฝีมือแรงงานช่างทอผ้า</div>
+            </div>
+          </div>
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การปฏิรูปเมจิโยนทิ้งวัฒนธรรมดั้งเดิมทั้งหมด?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1868</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ญี่ปุ่นยุคเมจิทิ้งความเป็นญี่ปุ่นและเปลี่ยนไปรับตะวันตกแบบ 100%</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ยึดหลัก 'Wakokoro Yosai' (จิตวิญญาณญี่ปุ่น วิทยาการตะวันตก) นำเทคโนโลยีและระบบทหารตะวันตกมาใช้ แต่เชิดชูชินโตแห่งรัฐ บูชาจักรพรรดิ และชาตินิยมเข้มข้นยิ่งกว่าเดิม</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2543,7 +2921,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -2606,7 +2984,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('1917')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -2674,6 +3052,69 @@
             ★ 10.0/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div onclick="openDeepDive('ww1-causes-assassination', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 กัฟรีโล ปรินซีป ยืนกินแซนวิชก่อนลอบสังหาร?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">28 มิถุนายน ค.ศ. 1914</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> พรินซีปสบโอกาสยิงอาร์ชดยุกเพราะบังเอิญเดินออกมากินแซนวิชที่ร้านอาหาร</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เป็นเรื่องแต่งในสารคดีช่วงทศวรรษ 2000 พรินซีปยืนรอหน้าร้านชำของ Schiller บังเอิญรถอาร์ชดยุกเลี้ยวผิดทางและเครื่องยนต์ดับขวางหน้าพอดี</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww1-trench-warfare', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 'สงครามจะจบลงก่อนคริสต์มาส' (Home by Christmas)</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">สิงหาคม ค.ศ. 1914</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ทุกฝ่ายรู้ล่วงหน้าอยู่แล้วว่าสงครามโลกครั้งที่ 1 จะกลายเป็นสงครามสนามเพลาะที่ยืดเยื้อ 4 ปี</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ทั้งสองฝ่ายต่างปลุกระดมด้วยความมั่นใจว่าสงครามจะจบลงก่อนคริสต์มาส 1914 แต่เทคโนโลยีปืนกลและปืนใหญ่ทำให้ทั้งสองฝ่ายต้องขุดสนามเพลาะตรึงแนวนานถึง 4 ปี</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('versailles-league-of-nations', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 แวร์ซายส์ทำให้เกิดเงินเฟ้อรุนแรงทันที?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1919–1923</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> สนธิสัญญาแวร์ซายส์บีบให้เยอรมนีจ่ายเงินจนเกิดภาวะเงินเฟ้อรุนแรง (Hyperinflation) ในทันที</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เงินเฟ้อปี 1923 เกิดจากเยอรมนีพิมพ์เงินทำสงครามมาตั้งแต่ปี 1914 และพิมพ์เงินอุ้มคนงานประท้วงในแคว้นรูห์ร และเยอรมนีจ่ายจริงเพียงราว 1 ใน 6 ของยอดที่กำหนด</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('russian-revolution-czar', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การปฏิวัติเดือนตุลาคมคือการโค่นล้มพระเจ้าซาร์?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ตุลาคม ค.ศ. 1917</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> เลนินและพรรคบอลเชวิคทำรัฐประหารโค่นล้มราชบัลลังก์ของซาร์นิโคลัสที่ 2 ในเดือนตุลาคม 1917</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ซาร์นิโคลัสที่ 2 สละราชสมบัติตั้งแต่การปฏิวัติเดือนกุมภาพันธ์ 1917 สิ่งที่เลนินโค่นล้มในเดือนตุลาคมคือ 'รัฐบาลเฉพาะกาลประชาธิปไตย' ของเคเรนสกี</div>
+            </div>
+          </div>
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ไข้หวัดใหญ่สเปน (Spanish Flu) เริ่มต้นที่สเปน?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1918</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> โรคระบาดครั้งใหญ่ปี 1918 มีต้นกำเนิดและเริ่มระบาดมาจากประเทศสเปน</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เริ่มระบาดในค่ายทหารสหรัฐฯ (แคนซัส) และยุโรป แต่ประเทศคู่สงครามสั่งเซ็นเซอร์ข่าว มีเพียงสเปนที่เป็นกลางและไม่เซ็นเซอร์ข่าว จึงรายงานข่าวอย่างเปิดเผยจนได้ชื่อนี้</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2822,7 +3263,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -2894,7 +3335,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('dunkirk')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -3017,6 +3458,69 @@
             ★ 9.1/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div onclick="openDeepDive('ww2-blitzkrieg-dunkirk', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ทหารม้าโปแลนด์ถือหอกแทงรถถังเยอรมัน?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">1 กันยายน ค.ศ. 1939</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ทหารม้าโปแลนด์ขี่ม้าถือหอกชาร์จใส่รถถังเยอรมันอย่างสิ้นคิดในวันเปิดสงคราม</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เป็นโฆษณาชวนเชื่อของนาซี ทหารม้าโปแลนด์ใช้ปืนต่อสู้รถถังเข้าตีทหารราบเยอรมันจนแตกพ่าย ก่อนจะเจอยานเกราะเยอรมันเข้ามาช่วยหนุนจนต้องถอยร่น ไม่เคยใช้หอกแทงรถถัง</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww2-stalingrad-turning-point', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 เยอรมนีแพ้สตาลินกราดเพราะ 'นายพลฤดูหนาว' เท่านั้น?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1942–1943</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> กองทัพเยอรมันพ่ายแพ้ในรัสเซียเพราะสภาพอากาศหนาวจัดเพียงอย่างเดียว โซเวียตไม่ได้มีฝีมืออะไร</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ความหนาวส่งผลต่อทั้งสองฝ่าย แต่จุดชี้ขาดคือยุทธศาสตร์ปฏิบัติการยูเรนัสของโซเวียต การระดมรถถัง T-34 นับพันคันตีโอบปีก และสายส่งกำลังบำรุงที่ขาดแคลนของเยอรมนี</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww2-dday-manhattan', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 สัมพันธมิตรตะวันตกชนะสงครามในยุโรปเกือบทั้งหมด?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1944–1945</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> วันดีเดย์ (D-Day) และการบุกของสหรัฐฯ-อังกฤษเป็นผู้เอาชนะกองทัพนาซีเยอรมันเกือบทั้งหมด</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> ทหารเยอรมันกว่า 75–80% ที่เสียชีวิตในสงคราม เสียชีวิตในแนวรบด้านตะวันออก การรบที่สตาลินกราดและเคิร์สก์ของโซเวียตคือผู้หักกระดูกสันหลังของนาซีเยอรมัน</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('nanking-massacre-1937', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การสังหารหมู่นานกิงเป็นเรื่องแต่งขึ้นหลังสงคราม?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1937–1938</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> เหตุการณ์สังหารหมู่ที่นานกิงเป็นเรื่องโกหกที่ฝ่ายจีนกุขึ้นมาเองเพื่อเรียกร้องความเห็นใจ</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> พยานหลักฐานชิ้นเอกมาจากคนกลางชาวตะวันตกในนานกิง เช่น ยอห์น ราเบ (คนเยอรมัน สมาชิกพรรคนาซี), มินนี่ วอทริน, ฟิล์มภาพยนตร์ของจอห์น แมกกี และโทรเลขทางการทูตในเวลานั้น</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('ww2-holocaust-pianist', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ชาวเยอรมันทั่วไปไม่รู้เรื่องการกวาดล้างชาวยิว?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1939–1945</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ประชาชนชาวเยอรมันไม่เคยรับรู้เรื่องการกวาดต้อนและค่ายกักกันชาวยิวเลยจนสงครามสิ้นสุด</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> แม้รายละเอียดห้องแก๊สในโปแลนด์จะถูกปิดลับ แต่กฎหมายนูเรมเบิร์ก คืนกระจกแตก (1938) การกวาดต้อนเพื่อนบ้านขึ้นรถไฟ และค่ายกักกันในเยอรมนีเป็นสิ่งที่เห็นตำตามาตลอด</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3165,7 +3669,7 @@
     </div>
 
     <!-- Two-Column Academic Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
       <!-- Left: Research Articles -->
       <div class="flex flex-col">
         <div class="flex items-center gap-1.5 mb-2">
@@ -3228,7 +3732,7 @@
           <span class="w-2 h-2 rounded-full bg-[#9a2515] dark:text-[#f87171]"></span>
           <span class="font-mono text-xs uppercase font-bold text-slate-600 dark:text-slate-300">ภาพยนตร์ประวัติศาสตร์ศึกษา</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-y-auto pr-1">
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
           
         <div onclick="showMovieDetail('chernobyl')" class="group p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-[#107895] dark:hover:border-[#38bdf8] rounded-lg transition-all cursor-pointer shadow-xs flex items-center justify-between gap-2">
           <div class="min-w-0 flex-1">
@@ -3263,6 +3767,69 @@
             ★ 9.3/10
           </span>
         </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Historical Myths (Compact) -->
+      <div class="flex flex-col min-w-0">
+        <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="font-mono text-xs uppercase font-bold text-slate-700 dark:text-slate-300">มายาคติ &amp; Fake News</span>
+          </div>
+          <span class="text-[10px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 font-bold shrink-0">5 เรื่องจริง</span>
+        </div>
+        <div class="space-y-1.5 overflow-y-auto pr-1 flex-1">
+          <div onclick="openDeepDive('soviet-collapse-1991', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 กำแพงเบอร์ลินสร้างเพื่อป้องกันการรุกรานจากฟาสซิสต์?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">13 สิงหาคม ค.ศ. 1961</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> เยอรมนีตะวันออกสร้างกำแพงเพื่อป้องกันสายลับและการรุกรานจากชาติตะวันตก</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> แท้จริงสร้างขึ้นเพื่อ 'ขังคนของตนเองไม่ให้หนี' เพราะคนเยอรมันตะวันออกกว่า 2.7 ล้านคนอพยพหนีไปฝั่งตะวันตกจนเศรษฐกิจตะวันออกเสี่ยงล่มสลาย</div>
+            </div>
+          </div>
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 วิกฤตขีปนาวุธคิวบาจบลงด้วยการยอมจำนนของโซเวียตฝ่ายเดียว?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ตุลาคม ค.ศ. 1962</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> สหรัฐฯ ยื่นคำขาดกดดันจนโซเวียตต้องยอมถอนขีปนาวุธจากคิวบาแต่ฝ่ายเดียวอย่างอัปยศ</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เป็นการเจรจาแลกเปลี่ยนลับ โดยสหรัฐฯ ยินยอมที่จะถอนขีปนาวุธนิวเคลียร์ 'จูปิเตอร์ (Jupiter)' ของตนออกจากตุรกีและอิตาลีเป็นการแลกเปลี่ยน</div>
+            </div>
+          </div>
+          <div  class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 ทหารอเมริกันในสงครามเวียดนามเป็นทหารเกณฑ์ทั้งหมด?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1965–1973</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> ทหารสหรัฐฯ ในสงครามเวียดนามเกือบทั้งหมดคือทหารเกณฑ์ที่ถูกบังคับไปรบ</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> สถิติระบุว่า ทหารอเมริกันในเวียดนามกว่าสองในสาม (ราว 65–70%) เป็น 'อาสาสมัคร' มีเพียงราวหนึ่งในสามเท่านั้นที่เป็นทหารเกณฑ์</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('soviet-collapse-1991', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 การพังทลายของกำแพงเบอร์ลินเกิดจากความผิดพลาดของโฆษก?</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">9 พฤศจิกายน ค.ศ. 1989</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> การเปิดกำแพงเบอร์ลินได้รับการวางแผนและกำหนดเวลาอย่างเป็นทางการล่วงหน้าโดยรัฐบาล</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เกิดจากความผิดพลาดในการแถลงข่าวสดของ กึนเธอร์ ชาบอฟสกี โฆษกพรรค ที่อ่านบันทึกผิดและตอบว่าการเดินทางมีผล 'ทันทีโดยไม่รีรอ' ทำให้ฝูงชนเรือนแสนแห่ไปจนด่านต้องเปิด</div>
+            </div>
+          </div>
+          <div onclick="openDeepDive('israel-founding-1948', '.historical-mythbuster-callout')" class="group p-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500 rounded-lg transition-all cursor-pointer shadow-xs">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="font-sans text-xs font-semibold text-[#131516] dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 truncate">💡 สนธิสัญญาไซก์ส-พิโกต์ (Sykes-Picot) ขีดเส้นแดนตะวันออกกลาง</span>
+              <span class="font-mono text-[9.5px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 px-1 rounded border border-amber-200 dark:border-amber-800 shrink-0">ค.ศ. 1916–1948</span>
+            </div>
+            <div class="text-[10px] leading-tight space-y-0.5 font-sans">
+              <div class="text-rose-600 dark:text-rose-400 line-clamp-1"><span class="font-bold">❌ ลือ:</span> พรมแดนของประเทศในตะวันออกกลางถูกแบ่งตามความต้องการของชนชาติต่างๆ ในพื้นที่</div>
+              <div class="text-emerald-700 dark:text-emerald-400 line-clamp-1"><span class="font-bold">✅ จริง:</span> เกิดจากข้อตกลงลับระหว่างอังกฤษและฝรั่งเศสที่ใช้ไม้บรรทัดลากเส้นแบ่งเขตอิทธิพลบนแผนที่ โดยไม่สนใจความแตกต่างทางชาติพันธุ์หรือศาสนา กลายเป็นรากเหง้าความขัดแย้งเรื้อรัง</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
