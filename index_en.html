@@ -9299,7 +9299,148 @@
 
   </script>
 
-  <!-- ==================== HYBRID GEOPOLITICAL MAP DRAWER (OPTION 4 - ENGLISH) ==================== -->
+  
+    <!-- ==================== TEACHING TOOLS: FLOATING LECTURE TIMER ==================== -->
+    <div id="lecture-timer-widget" class="hidden fixed z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-64 font-sans select-none touch-none" style="top: 48%; right: 1rem; transform: translateY(-50%);">
+      <!-- Draggable Header -->
+      <div id="lecture-timer-drag-header" class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 cursor-grab active:cursor-grabbing hover:bg-slate-50/50 dark:hover:bg-slate-800/50 -mx-2 px-2 rounded-t-xl transition-colors" title="Drag to reposition anywhere on screen">
+        <div class="flex items-center gap-1.5 font-bold text-xs text-slate-800 dark:text-slate-200 pointer-events-none">
+          <span>⏱️ Lecture Stopwatch</span>
+          <span class="text-[10px] text-slate-400 font-normal">(Drag ✥)</span>
+        </div>
+        <button type="button" onclick="toggleLectureTimerWidget()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm cursor-pointer p-1" title="Close">&times;</button>
+      </div>
+
+      <!-- Count-up Stopwatch Clock Display -->
+      <div class="py-3 text-center">
+        <div id="lecture-timer-clock" class="text-4xl font-bold font-mono tracking-tight text-slate-900 dark:text-white">00:00</div>
+      </div>
+
+      <!-- Control Buttons (Start/Pause, Reset) -->
+      <div class="flex items-center gap-2 pt-1">
+        <button id="lecture-timer-btn" type="button" onclick="startStopLectureTimer()" class="flex-1 py-2 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1">
+          <span>▶️</span>
+          <span id="lecture-timer-btn-text">Start Timer</span>
+        </button>
+        <button type="button" onclick="resetLectureTimer()" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition cursor-pointer border border-slate-200 dark:border-slate-700" title="Reset to 00:00">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================== TEACHING TOOLS: 20-SLIDE JUMP GRID MODAL ==================== -->
+    <div id="slide-grid-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 select-none" onclick="if(event.target === this) closeSlideGridModal()">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-5xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800 font-sans overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <!-- Header -->
+        <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0 bg-slate-50/50 dark:bg-slate-800/40">
+          <div class="flex items-center gap-2">
+            <span class="text-[#107895] dark:text-[#38bdf8] text-lg font-bold">⊞</span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">Slide Navigation Grid (20 Slides)</h3>
+          </div>
+          <button type="button" onclick="closeSlideGridModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xl cursor-pointer p-1" title="Close">&times;</button>
+        </div>
+
+        <!-- Grid Cards Container -->
+        <div id="slide-grid-cards-container" class="p-4 sm:p-6 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 flex-1">
+          <!-- Dynamically populated by openSlideGridModal() -->
+        </div>
+
+        <!-- Footer -->
+        <div class="px-5 py-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 shrink-0">
+          <span>💡 Click any slide to jump directly (Press G to toggle)</span>
+          <button type="button" onclick="closeSlideGridModal()" class="px-4 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TEACHING TOOLS: INSTANT SLIDE QR MODAL ==================== -->
+    <div id="slide-qr-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 text-center shadow-2xl border border-slate-200 dark:border-slate-800 font-sans">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-base font-bold text-slate-900 dark:text-white">📱 Scan QR Code for Mobile Reading</h3>
+          <button onclick="closeSlideQRModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg cursor-pointer">&times;</button>
+        </div>
+        <div class="bg-white p-4 rounded-xl inline-block border border-slate-200 shadow-xs mb-3">
+          <img id="slide-qr-img" src="" alt="QR Code" class="w-48 h-48 mx-auto" />
+        </div>
+        <p id="slide-qr-caption" class="text-xs text-slate-600 dark:text-slate-400 font-medium mb-1">Scan to read on mobile</p>
+        <p id="slide-qr-url" class="text-[11px] font-mono text-slate-400 truncate max-w-xs mx-auto mb-4"></p>
+        <button onclick="closeSlideQRModal()" class="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 transition cursor-pointer">
+          Close Window
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================== STUDENT BOOKMARKS DRAWER MODAL ==================== -->
+    <div id="bookmarks-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800 font-sans overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-500 text-lg">⭐</span>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">My Saved Bookmarks (Saved for Review)</h3>
+          </div>
+          <button onclick="closeBookmarksModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg cursor-pointer">&times;</button>
+        </div>
+        <div id="bookmarks-list-content" class="p-6 overflow-y-auto space-y-3">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIRTUAL LASER POINTER & SPOTLIGHT ELEMENTS ==================== -->
+    <div id="virtual-laser-dot" class="hidden fixed pointer-events-none z-[9999] w-4 h-4 rounded-full bg-red-600 shadow-[0_0_12px_4px_rgba(239,68,68,0.9)] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"></div>
+    <div id="virtual-spotlight-mask" class="hidden fixed inset-0 pointer-events-none z-[9998] transition-opacity duration-200"></div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="v6-toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-slate-900/90 text-white dark:bg-white/90 dark:text-slate-900 px-4 py-2 rounded-xl text-xs font-sans font-medium shadow-xl backdrop-blur-sm flex items-center gap-2">
+      <span id="v6-toast-msg">Copied successfully</span>
+    </div>
+
+    <!-- ==================== FLOATING TEACHER TOOLS & LIVE QR DOCK ==================== -->
+    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-30 flex flex-col items-center gap-2 select-none pointer-events-auto">
+      
+      <!-- Top Group: Teaching Tools (Map M, Timer, Laser, Spotlight) -->
+      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl flex flex-col gap-1.5 w-[96px] text-center">
+        <button id="btn-screen-map" type="button" onclick="toggleHybridMapFromDock()" class="w-full px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs" title="Toggle Geopolitical Map (Press M)">
+          <span>🗺️</span>
+          <span class="text-[11px] font-semibold">Map (M)</span>
+        </button>
+
+        <button id="btn-screen-timer" onclick="toggleLectureTimerWidget()" class="w-full px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs" title="Toggle Stopwatch Timer (T)">
+          <span>⏱️</span>
+          <span class="text-[11px] font-semibold">Timer</span>
+        </button>
+
+        <button id="btn-screen-laser" onclick="toggleLaserPointer()" class="w-full px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs" title="Toggle Laser Pointer (L)">
+          <span>🔴</span>
+          <span class="text-[11px] font-semibold">Laser</span>
+        </button>
+
+        <button id="btn-screen-spotlight" onclick="toggleSpotlight()" class="w-full px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs" title="Toggle Spotlight Focus (S)">
+          <span>🔦</span>
+          <span class="text-[11px] font-semibold">Spotlight</span>
+        </button>
+      </div>
+
+      <!-- Bottom Group: Floating Live QR Code for Mobile -->
+      <div id="screen-pinned-qr" class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-2 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl text-center font-sans transition-all hover:scale-105 group cursor-pointer w-[96px]" onclick="openSlideQRModal()" title="Click to enlarge QR Code">
+        <div class="bg-white p-1 rounded-xl border border-slate-200 inline-block shadow-2xs">
+          <img id="live-screen-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fnattcharoen-beep.github.io%2Fchronoscope%2Findex_en.html" alt="Scan QR Code" class="w-18 h-18 block rounded-lg mx-auto" />
+        </div>
+        <div class="text-[9.5px] font-bold text-slate-800 dark:text-slate-200 mt-1 flex items-center justify-center gap-0.5 leading-tight">
+          <span>📱 Mobile QR</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Hybrid Map Drawer Backdrop -->
+    <div id="hybrid-map-backdrop" onclick="closeHybridMap()" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs transition-opacity duration-300"></div>
+
+
+    <!-- ==================== HYBRID GEOPOLITICAL MAP DRAWER (OPTION 4 - ENGLISH) ==================== -->
   <div id="hybrid-map-backdrop" onclick="closeHybridMap()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-xs hidden transition-opacity"></div>
 
   <div id="hybrid-map-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full sm:max-w-xl md:max-w-2xl bg-white dark:bg-slate-900 shadow-2xl border-l border-slate-200 dark:border-slate-800 transform translate-x-full transition-transform duration-300 flex flex-col font-sans select-none">
@@ -9429,6 +9570,301 @@
 
 
   <script>
+    
+    // =============================================================
+    // TEACHING TOOLS: LECTURE STOPWATCH & INTERACTION CONTROLS
+    // =============================================================
+    var lectureTimer = {
+      elapsedSeconds: 0,
+      interval: null,
+      isRunning: false
+    };
+
+    function toggleLectureTimerWidget() {
+      var widget = document.getElementById('lecture-timer-widget');
+      if (!widget) return;
+      var isOpening = widget.classList.contains('hidden');
+      widget.classList.toggle('hidden');
+      if (isOpening && !widget.dataset.userMoved) {
+        widget.style.top = '48%';
+        widget.style.right = '1rem';
+        widget.style.left = 'auto';
+        widget.style.bottom = 'auto';
+        widget.style.transform = 'translateY(-50%)';
+      }
+    }
+
+    function updateLectureTimerClock() {
+      var h = Math.floor(lectureTimer.elapsedSeconds / 3600);
+      var m = Math.floor((lectureTimer.elapsedSeconds % 3600) / 60);
+      var s = lectureTimer.elapsedSeconds % 60;
+
+      var display = '';
+      if (h > 0) {
+        display = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      } else {
+        display = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      }
+
+      var clockEl = document.getElementById('lecture-timer-clock');
+      if (clockEl) clockEl.textContent = display;
+    }
+
+    function startStopLectureTimer() {
+      var btnText = document.getElementById('lecture-timer-btn-text');
+      var btn = document.getElementById('lecture-timer-btn');
+
+      if (lectureTimer.isRunning) {
+        clearInterval(lectureTimer.interval);
+        lectureTimer.isRunning = false;
+        if (btnText) btnText.textContent = 'Resume';
+        if (btn) btn.className = 'flex-1 py-2 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1';
+      } else {
+        lectureTimer.isRunning = true;
+        lectureTimer.interval = setInterval(function() {
+          lectureTimer.elapsedSeconds++;
+          updateLectureTimerClock();
+        }, 1000);
+        if (btnText) btnText.textContent = 'Pause';
+        if (btn) btn.className = 'flex-1 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1';
+      }
+    }
+
+    function resetLectureTimer() {
+      clearInterval(lectureTimer.interval);
+      lectureTimer.isRunning = false;
+      lectureTimer.elapsedSeconds = 0;
+      updateLectureTimerClock();
+      var btnText = document.getElementById('lecture-timer-btn-text');
+      var btn = document.getElementById('lecture-timer-btn');
+      if (btnText) btnText.textContent = 'Start Timer';
+      if (btn) btn.className = 'flex-1 py-2 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1';
+    }
+
+    function setupDraggableTimer() {
+      var widget = document.getElementById('lecture-timer-widget');
+      var header = document.getElementById('lecture-timer-drag-header');
+      if (!widget || !header) return;
+
+      var isDragging = false;
+      var startX, startY, origX, origY;
+
+      header.addEventListener('pointerdown', function(e) {
+        isDragging = true;
+        widget.dataset.userMoved = 'true';
+        header.setPointerCapture(e.pointerId);
+        var rect = widget.getBoundingClientRect();
+        startX = e.clientX;
+        startY = e.clientY;
+        origX = rect.left;
+        origY = rect.top;
+        widget.style.transform = 'none';
+        widget.style.left = origX + 'px';
+        widget.style.top = origY + 'px';
+        widget.style.right = 'auto';
+        widget.style.bottom = 'auto';
+      });
+
+      header.addEventListener('pointermove', function(e) {
+        if (!isDragging) return;
+        var dx = e.clientX - startX;
+        var dy = e.clientY - startY;
+        var newLeft = origX + dx;
+        var newTop = origY + dy;
+        newLeft = Math.max(10, Math.min(window.innerWidth - widget.offsetWidth - 10, newLeft));
+        newTop = Math.max(10, Math.min(window.innerHeight - widget.offsetHeight - 10, newTop));
+        widget.style.left = newLeft + 'px';
+        widget.style.top = newTop + 'px';
+      });
+
+      header.addEventListener('pointerup', function(e) {
+        isDragging = false;
+        try { header.releasePointerCapture(e.pointerId); } catch(err) {}
+      });
+    }
+
+    // Laser Pointer & Spotlight
+    var isLaserActive = false;
+    var isSpotlightActive = false;
+
+    function toggleLaserPointer() {
+      isLaserActive = !isLaserActive;
+      var laser = document.getElementById('virtual-laser-dot');
+      if (isLaserActive) {
+        if (laser) laser.classList.remove('hidden');
+        showToast('🔴 Virtual Laser Pointer Enabled (Press L to toggle)');
+      } else {
+        if (laser) laser.classList.add('hidden');
+        showToast('Laser pointer disabled');
+      }
+    }
+
+    function toggleSpotlight() {
+      isSpotlightActive = !isSpotlightActive;
+      var spot = document.getElementById('virtual-spotlight-mask');
+      if (isSpotlightActive) {
+        if (spot) spot.classList.remove('hidden');
+        showToast('🔦 Spotlight Focus Enabled (Press S to toggle)');
+      } else {
+        if (spot) spot.classList.add('hidden');
+        showToast('Spotlight disabled');
+      }
+    }
+
+    window.addEventListener('mousemove', function(e) {
+      if (isLaserActive) {
+        var laser = document.getElementById('virtual-laser-dot');
+        if (laser) {
+          laser.style.left = e.clientX + 'px';
+          laser.style.top = e.clientY + 'px';
+        }
+      }
+      if (isSpotlightActive) {
+        var spot = document.getElementById('virtual-spotlight-mask');
+        if (spot) {
+          spot.style.background = 'radial-gradient(circle 140px at ' + e.clientX + 'px ' + e.clientY + 'px, transparent 0%, rgba(0, 0, 0, 0.78) 100%)';
+        }
+      }
+    });
+
+    // Keyboard Shortcuts (L: Laser, S: Spotlight, T: Timer, M: Map, G: Slide Grid)
+    window.addEventListener('keydown', function(e) {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      var key = e.key.toLowerCase();
+      if (key === 'l') toggleLaserPointer();
+      if (key === 's') toggleSpotlight();
+      if (key === 't') toggleLectureTimerWidget();
+      if (key === 'm') toggleHybridMapFromDock();
+      if (key === 'g') {
+        var modal = document.getElementById('slide-grid-modal');
+        if (modal && !modal.classList.contains('hidden')) {
+          closeSlideGridModal();
+        } else {
+          openSlideGridModal();
+        }
+      }
+    });
+
+    // QR Modal
+    function openSlideQRModal() {
+      var modal = document.getElementById('slide-qr-modal');
+      var img = document.getElementById('slide-qr-img');
+      var caption = document.getElementById('slide-qr-caption');
+      var urlEl = document.getElementById('slide-qr-url');
+      if (!modal || !img) return;
+
+      var currentUrl = window.location.href.split('#')[0] + '#slide=' + (typeof currentSlide !== 'undefined' ? currentSlide : 0);
+      var qrApiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(currentUrl);
+
+      img.src = qrApiUrl;
+      if (caption) caption.textContent = 'Scan to read on mobile';
+      if (urlEl) urlEl.textContent = currentUrl;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeSlideQRModal() {
+      var modal = document.getElementById('slide-qr-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Bookmarks Modal
+    function openBookmarksModal() {
+      var modal = document.getElementById('bookmarks-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeBookmarksModal() {
+      var modal = document.getElementById('bookmarks-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Slide Grid Modal
+    function openSlideGridModal() {
+      var modal = document.getElementById('slide-grid-modal');
+      var container = document.getElementById('slide-grid-cards-container');
+      if (!modal || !container) return;
+
+      var slides = document.querySelectorAll('.slide-item');
+      var html = '';
+      slides.forEach(function(s, idx) {
+        var isCurrent = (typeof currentSlide !== 'undefined' && currentSlide === idx);
+        var cardClass = isCurrent 
+          ? 'border-[#107895] ring-2 ring-[#107895]/30 bg-[#107895]/5 dark:bg-[#107895]/20' 
+          : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/80 hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md';
+
+        var titleEl = s.querySelector('h2, h3, h1');
+        var titleText = titleEl ? titleEl.textContent.trim() : 'Slide ' + (idx + 1);
+        if (titleText.length > 40) titleText = titleText.substring(0, 38) + '…';
+
+        html += '<button onclick="goToSlideAndCloseGrid(' + idx + ')" class="p-3 rounded-xl border text-left flex flex-col justify-between transition-all cursor-pointer ' + cardClass + '">';
+        html += '  <div>';
+        html += '    <div class="flex items-center justify-between mb-1.5">';
+        html += '      <span class="font-mono font-bold text-xs ' + (isCurrent ? 'text-[#107895] dark:text-[#38bdf8]' : 'text-slate-500 dark:text-slate-400') + '">Slide ' + (idx < 9 ? '0' + (idx + 1) : (idx + 1)) + '</span>';
+        html += '      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 uppercase">' + (s.getAttribute('data-era') || 'Course') + '</span>';
+        html += '    </div>';
+        html += '    <div class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug">' + titleText + '</div>';
+        html += '  </div>';
+        html += '</button>';
+      });
+
+      container.innerHTML = html;
+      modal.classList.remove('hidden');
+    }
+
+    function closeSlideGridModal() {
+      var modal = document.getElementById('slide-grid-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function goToSlideAndCloseGrid(idx) {
+      closeSlideGridModal();
+      if (typeof goToSlide === 'function') {
+        goToSlide(idx);
+      }
+    }
+
+    function showToast(msg) {
+      var toast = document.getElementById('v6-toast');
+      var text = document.getElementById('v6-toast-msg');
+      if (!toast) return;
+      if (text) text.textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window._toastTimeout);
+      window._toastTimeout = setTimeout(function() {
+        toast.classList.add('hidden');
+      }, 2400);
+    }
+
+    // Toggle Map from Dock
+    function toggleHybridMapFromDock() {
+      var drawer = document.getElementById('hybrid-map-drawer');
+      if (drawer && !drawer.classList.contains('translate-x-full')) {
+        closeHybridMap();
+      } else {
+        var era = getCurrentEraFromActiveSlide();
+        openEraMap(era);
+      }
+    }
+
+    function getCurrentEraFromActiveSlide() {
+      var slides = document.querySelectorAll('.slide-item');
+      if (typeof currentSlide !== 'undefined' && slides[currentSlide]) {
+        return slides[currentSlide].getAttribute('data-era') || 'greece';
+      }
+      var activeSlide = document.querySelector('.slide-item.active');
+      if (activeSlide && activeSlide.getAttribute('data-era')) {
+        return activeSlide.getAttribute('data-era');
+      }
+      return 'greece';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      setupDraggableTimer();
+    });
+    setTimeout(setupDraggableTimer, 500);
+
+
     // ==================== GEOPOLITICAL MAP LAB (ENGLISH EDITION) ====================
     var geopoliticalMapData = {
   "greek-trojan-war": {
@@ -10138,10 +10574,35 @@
     }
 
     function openEraMap(eraId, defaultLocKey) {
+      if (eraId === 'overview' || !eraId) {
+        openLocationMap('world_overview');
+        return;
+      }
+      function normE(e) {
+        if (!e) return '';
+        if (e === 'middle_ages') return 'middleages';
+        if (e === 'cold_war') return 'coldwar';
+        if (e === 'revolutions') return 'enlightenment';
+        return e;
+      }
+      var targetEra = normE(eraId);
+
+      // Find all locations belonging to this era
       var locKeys = Object.keys(geopoliticalMapData).filter(function(k) {
-        return geopoliticalMapData[k].era === eraId;
+        var item = geopoliticalMapData[k];
+        return item.era === eraId || item.era === targetEra || normE(item.era) === targetEra;
       });
-      var targetKey = defaultLocKey || (locKeys.length > 0 ? locKeys[0] : 'greek-trojan-war');
+
+      var targetKey = defaultLocKey;
+      if (!targetKey || !geopoliticalMapData[targetKey]) {
+        if (targetKey && typeof mapAliases !== 'undefined' && mapAliases[targetKey]) {
+          targetKey = mapAliases[targetKey];
+        } else if (targetKey && geopoliticalMapData[targetKey.replace(/-/g, '_')]) {
+          targetKey = targetKey.replace(/-/g, '_');
+        } else {
+          targetKey = (locKeys.length > 0) ? locKeys[0] : 'greek-trojan-war';
+        }
+      }
       openLocationMap(targetKey);
     }
 
@@ -10724,7 +11185,7 @@
       if (listContainer) {
         var items = listContainer.querySelectorAll('[id^="full-map-item-"]');
         items.forEach(function(el) {
-          el.className = el.className.replace(/bg-rose-50|dark:bg-rose-950/30|border-rose-300|dark:border-rose-700/g, 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700');
+          el.className = el.className.replace(/bg-rose-50|dark:bg-rose-950\/30|border-rose-300|dark:border-rose-700/g, 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700');
         });
         var activeItem = document.getElementById('full-map-item-' + locKey);
         if (activeItem) {
