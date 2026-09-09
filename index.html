@@ -656,60 +656,107 @@
     }
 
   
-    /* Split-Screen Dual Pane Mode: Article on Left + Map on Right */
+        /* ==========================================================================
+       SPLIT-SCREEN DUAL PANE MODE (SYMMETRICAL FLOATING TWIN CARDS)
+       Left Card (Article Modal) 50% + Right Card (Map Drawer) 50%
+       ========================================================================== */
     #articleModal.split-mode {
-      justify-content: flex-start !important;
-      padding: 8px !important;
-      background-color: rgba(0, 0, 0, 0.45) !important;
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background-color: rgba(0, 0, 0, 0.65) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      z-index: 99998 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block !important;
+      overflow: hidden !important;
     }
-    @media (min-width: 768px) {
+
+    @media (max-width: 767px) {
       #articleModal.split-mode {
-        width: 50% !important;
-        right: auto !important;
-        z-index: 99998 !important;
-        padding: 2vh 6px 2vh 12px !important;
-      }
-      #articleModal.split-mode #articleModalCard {
-        max-width: 100% !important;
-        width: 100% !important;
-        height: 96vh !important;
-        max-height: 96vh !important;
-        border-radius: 1rem !important; /* rounded-2xl */
-        overflow: hidden !important;
-      }
-      #hybrid-map-drawer.split-mode {
-        width: calc(50% - 18px) !important;
-        max-width: calc(50% - 18px) !important;
-        top: 2vh !important;
-        bottom: 2vh !important;
-        right: 12px !important;
-        height: 96vh !important;
-        max-height: 96vh !important;
-        border-radius: 1rem !important; /* rounded-2xl exactly like article */
-        overflow: hidden !important;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-        border: 1px solid rgba(226, 232, 240, 0.9) !important;
-        z-index: 99999 !important;
-      }
-      .dark #hybrid-map-drawer.split-mode {
-        border-color: rgba(51, 65, 85, 0.9) !important;
+        display: none !important;
       }
     }
 
-    /* Floating Rounded Map Drawer for Single Mode */
+    @media (min-width: 768px) {
+      /* Left Card: Article Modal Floating Card */
+      #articleModal.split-mode #articleModalCard,
+      #articleModal.split-mode > div:first-child {
+        position: fixed !important;
+        top: 16px !important;
+        bottom: 16px !important;
+        left: 16px !important;
+        right: auto !important;
+        width: calc(50% - 24px) !important;
+        max-width: calc(50% - 24px) !important;
+        height: calc(100vh - 32px) !important;
+        max-height: calc(100vh - 32px) !important;
+        margin: 0 !important;
+        border-radius: 1rem !important; /* rounded-2xl */
+        border: 1px solid rgba(226, 232, 240, 0.9) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+        overflow: hidden !important;
+        z-index: 99999 !important;
+      }
+
+      /* Right Card: Hybrid Map Drawer Floating Card */
+      #hybrid-map-drawer.split-mode {
+        position: fixed !important;
+        top: 16px !important;
+        bottom: 16px !important;
+        right: 16px !important;
+        left: auto !important;
+        width: calc(50% - 24px) !important;
+        max-width: calc(50% - 24px) !important;
+        height: calc(100vh - 32px) !important;
+        max-height: calc(100vh - 32px) !important;
+        margin: 0 !important;
+        border-radius: 1rem !important; /* rounded-2xl identical twin */
+        border: 1px solid rgba(226, 232, 240, 0.9) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+        overflow: hidden !important;
+        z-index: 99999 !important;
+      }
+
+      .dark #articleModal.split-mode #articleModalCard,
+      .dark #articleModal.split-mode > div:first-child,
+      .dark #hybrid-map-drawer.split-mode {
+        border-color: rgba(51, 65, 85, 0.9) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+      }
+    }
+
+    /* Floating Rounded Map Drawer for Single Mode (Opened from Navigation / Cards) */
     @media (min-width: 640px) {
       #hybrid-map-drawer:not(.split-mode) {
-        top: 12px !important;
-        bottom: 12px !important;
-        right: 12px !important;
-        height: calc(100vh - 24px) !important;
+        top: 16px !important;
+        bottom: 16px !important;
+        right: 16px !important;
+        height: calc(100vh - 32px) !important;
         border-radius: 1rem !important; /* rounded-2xl */
         overflow: hidden !important;
         border: 1px solid rgba(226, 232, 240, 0.9) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
       }
       .dark #hybrid-map-drawer:not(.split-mode) {
         border-color: rgba(51, 65, 85, 0.9) !important;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
       }
+    }
+
+    /* Theme Harmonization: Cream Mode styling for Map Drawer */
+    .cream #hybrid-map-drawer {
+      background-color: #f7f4ee !important;
+      border-color: #e4decb !important;
+    }
+    .cream #hybrid-map-drawer .bg-slate-50\/80,
+    .cream #hybrid-map-drawer .bg-slate-50,
+    .cream #hybrid-map-drawer .bg-slate-100 {
+      background-color: #f0ebe1 !important;
+      border-color: #e4decb !important;
     }
   </style>
 
