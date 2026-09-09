@@ -14217,21 +14217,29 @@ function closeMythMiniQuizModal() {
         openLocationMap('world_overview');
         return;
       }
-      if (eraId === 'revolutions') eraId = 'enlightenment';
+      function normE(e) {
+        if (!e) return '';
+        if (e === 'middle_ages') return 'middleages';
+        if (e === 'cold_war') return 'coldwar';
+        if (e === 'revolutions') return 'enlightenment';
+        return e;
+      }
+      var targetEra = normE(eraId);
 
       // Find all locations belonging to this era
       var locKeys = Object.keys(geopoliticalMapData).filter(function(k) {
         var item = geopoliticalMapData[k];
-        return item.era === eraId || (eraId === 'enlightenment' && item.era === 'revolutions');
+        return item.era === eraId || item.era === targetEra || normE(item.era) === targetEra;
       });
 
       var targetKey = defaultLocKey;
       if (!targetKey || !geopoliticalMapData[targetKey]) {
-        // try normalized
-        if (targetKey && geopoliticalMapData[targetKey.replace(/-/g, '_')]) {
+        if (targetKey && typeof mapAliases !== 'undefined' && mapAliases[targetKey]) {
+          targetKey = mapAliases[targetKey];
+        } else if (targetKey && geopoliticalMapData[targetKey.replace(/-/g, '_')]) {
           targetKey = targetKey.replace(/-/g, '_');
         } else {
-          targetKey = (locKeys.length > 0) ? locKeys[0] : 'troy';
+          targetKey = (locKeys.length > 0) ? locKeys[0] : 'greek-trojan-war';
         }
       }
       openLocationMap(targetKey);
@@ -14915,7 +14923,7 @@ function closeMythMiniQuizModal() {
       if (listContainer) {
         var items = listContainer.querySelectorAll('[id^="full-map-item-"]');
         items.forEach(function(el) {
-          el.className = el.className.replace(/bg-rose-50|dark:bg-rose-950/30|border-rose-300|dark:border-rose-700/g, 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700');
+          el.className = el.className.replace(/bg-rose-50|dark:bg-rose-950\/30|border-rose-300|dark:border-rose-700/g, 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700');
         });
         var activeItem = document.getElementById('full-map-item-' + locKey);
         if (activeItem) {
