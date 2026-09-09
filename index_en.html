@@ -6857,8 +6857,8 @@
     <div class="border-b border-slate-200 dark:border-slate-800 pb-6 mb-8 space-y-4">
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#131516] dark:text-white serif-title">📖 Historical Research Articles Archive (38 Topics)</h2>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 font-sans">In-depth historical essays, geopolitical analyses, and pedagogical cinema links</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#131516] dark:text-white serif-title">📖 In-Depth Historical Articles (38)</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 font-sans">Academic essays, geopolitical analysis, and pedagogical seminar guides</p>
         </div>
         
         <!-- Controls: Era Select Dropdown + Search Box -->
@@ -6866,16 +6866,16 @@
           <!-- 1. เลือกยุคสมัย (Era Dropdown) -->
           <div class="relative flex-1 sm:flex-none">
             <select id="article-era-filter" onchange="filterArticles()" class="w-full sm:w-64 px-3.5 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm text-slate-800 dark:text-slate-100 font-sans focus:outline-none focus:border-[#107895] dark:focus:border-[#38bdf8] shadow-sm cursor-pointer">
-              <option value="">🏛️ Select Era: All Eras (38 Topics)</option>
-              <option value="greece">Era 1: Ancient Greece & Hellenism (4 Topics)</option>
+              <option value="">🏛️ Select Era: All Topics (38)</option>
+              <option value="greece">Era 1: Ancient Greece (4 Topics)</option>
               <option value="rome">Era 2: Roman Empire & Early Christianity (4 Topics)</option>
-              <option value="middle-ages">Era 3: The Middle Ages & Crusades (4 Topics)</option>
-              <option value="renaissance">Era 4: Renaissance, Reformation & VOC (4 Topics)</option>
-              <option value="america">Era 5: Atlantic Revolutions & Birth of America (4 Topics)</option>
-              <option value="industrial">Era 6: Industrial Revolution & New Imperialism (4 Topics)</option>
-              <option value="ww1">Era 7: World War I & Fall of the Qing (5 Topics)</option>
-              <option value="ww2">Era 8: World War II, Holocaust & Pacific (7 Topics)</option>
-              <option value="coldwar">Era 9: Cold War & Modern China (2 Topics)</option>
+              <option value="middle-ages">Era 3: The Middle Ages (4 Topics)</option>
+              <option value="renaissance">Era 4: Renaissance & Discovery (4 Topics)</option>
+              <option value="america">Era 5: Atlantic Revolutions (4 Topics)</option>
+              <option value="industrial">Era 6: Industrial Revolution (4 Topics)</option>
+              <option value="ww1">Era 7: World War I (5 Topics)</option>
+              <option value="ww2">Era 8: World War II (7 Topics)</option>
+              <option value="coldwar">Era 9: Cold War (2 Topics)</option>
             </select>
           </div>
 
@@ -6898,13 +6898,13 @@
         <!-- แถวล่าง: 9 ยุคสมัย (1. กรีกโบราณ - 9. สงครามเย็น) -->
         <div class="flex flex-wrap items-center gap-1.5">
           <button onclick="selectArticleEra('greece')" data-era-val="greece" class="article-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#107895] dark:hover:border-[#38bdf8] shadow-xs">
-            1. Ancient Greece (4)
+            1. Greece (4)
           </button>
           <button onclick="selectArticleEra('rome')" data-era-val="rome" class="article-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#107895] dark:hover:border-[#38bdf8] shadow-xs">
-            2. Roman Empire (4)
+            2. Rome (4)
           </button>
           <button onclick="selectArticleEra('middle-ages')" data-era-val="middle-ages" class="article-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#107895] dark:hover:border-[#38bdf8] shadow-xs">
-            3. The Middle Ages (4)
+            3. Middle Ages (4)
           </button>
           <button onclick="selectArticleEra('renaissance')" data-era-val="renaissance" class="article-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#107895] dark:hover:border-[#38bdf8] shadow-xs">
             4. Renaissance (4)
@@ -6916,10 +6916,10 @@
             6. Industrial (4)
           </button>
           <button onclick="selectArticleEra('ww1')" data-era-val="ww1" class="article-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#107895] dark:hover:border-[#38bdf8] shadow-xs">
-            7. World War I (5)
+            7. WW1 (5)
           </button>
           <button onclick="selectArticleEra('ww2')" data-era-val="ww2" class="article-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#107895] dark:hover:border-[#38bdf8] shadow-xs">
-            8. World War II (6)
+            8. WW2 (6)
           </button>
           <button onclick="selectArticleEra('coldwar')" data-era-val="coldwar" class="article-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#107895] dark:hover:border-[#38bdf8] shadow-xs">
             9. Cold War (3)
@@ -6940,8 +6940,8 @@
     <div class="border-b border-slate-200 dark:border-slate-800 pb-6 mb-8 space-y-4">
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-[#131516] dark:text-white serif-title">🎬 Historical Cinema Pedagogical Archive (56 Films)</h2>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 font-sans">3-Act narrative breakdowns, rigorous fact-checks, and pedagogical university seminar guides</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#131516] dark:text-white serif-title">🎬 Historical Cinema Archive (56 Films)</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 font-sans">3-Act narrative breakdowns, fact-checks, and pedagogical seminar guides</p>
         </div>
         
         <!-- Controls: Era Select Dropdown + Search Box -->
@@ -6981,13 +6981,13 @@
         <!-- แถวล่าง: 9 ยุคสมัย (1. กรีกโบราณ - 9. สงครามเย็น) -->
         <div class="flex flex-wrap items-center gap-1.5">
           <button onclick="selectMovieEra('greece')" data-era-val="greece" class="movie-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            1. Ancient Greece (6)
+            1. Greece (6)
           </button>
           <button onclick="selectMovieEra('rome')" data-era-val="rome" class="movie-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            2. Roman Empire (6)
+            2. Rome (6)
           </button>
           <button onclick="selectMovieEra('middle-ages')" data-era-val="middle-ages" class="movie-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            3. The Middle Ages (6)
+            3. Middle Ages (6)
           </button>
           <button onclick="selectMovieEra('renaissance')" data-era-val="renaissance" class="movie-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
             4. Renaissance (6)
@@ -6999,10 +6999,10 @@
             6. Industrial (6)
           </button>
           <button onclick="selectMovieEra('ww1')" data-era-val="ww1" class="movie-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            7. World War I (7)
+            7. WW1 (7)
           </button>
           <button onclick="selectMovieEra('ww2')" data-era-val="ww2" class="movie-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            8. World War II (9)
+            8. WW2 (9)
           </button>
           <button onclick="selectMovieEra('coldwar')" data-era-val="coldwar" class="movie-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
             9. Cold War (4)
@@ -7069,13 +7069,13 @@
         <!-- แถวล่าง: 9 ยุคสมัย -->
         <div class="flex flex-wrap items-center gap-1.5">
           <button onclick="selectLiteratureEra('greece')" data-lit-era="greece" class="lit-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            1. Ancient Greece (5)
+            1. Greece (5)
           </button>
           <button onclick="selectLiteratureEra('rome')" data-lit-era="rome" class="lit-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            2. Roman Empire (5)
+            2. Rome (5)
           </button>
           <button onclick="selectLiteratureEra('middle-ages')" data-lit-era="middle-ages" class="lit-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            3. The Middle Ages (5)
+            3. Middle Ages (5)
           </button>
           <button onclick="selectLiteratureEra('renaissance')" data-lit-era="renaissance" class="lit-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
             4. Renaissance (5)
@@ -7087,10 +7087,10 @@
             6. Industrial (5)
           </button>
           <button onclick="selectLiteratureEra('ww1')" data-lit-era="ww1" class="lit-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            7. World War I (5)
+            7. WW1 (5)
           </button>
           <button onclick="selectLiteratureEra('ww2')" data-lit-era="ww2" class="lit-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
-            8. World War II (5)
+            8. WW2 (5)
           </button>
           <button onclick="selectLiteratureEra('cold-war')" data-lit-era="cold-war" class="lit-era-pill px-3 py-1.5 rounded-lg text-xs font-sans font-medium whitespace-nowrap transition-all border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-[#9a2515] dark:hover:border-[#f87171] shadow-xs">
             9. Cold War (5)
