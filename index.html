@@ -8262,9 +8262,11 @@
       } else if (viewName === 'map') {
         if (typeof initFullPageMap === 'function') initFullPageMap();
         setTimeout(function() {
+          if (typeof initFullPageMap === 'function') initFullPageMap();
           if (typeof fullPageLeafletMap !== 'undefined' && fullPageLeafletMap) fullPageLeafletMap.invalidateSize();
         }, 100);
         setTimeout(function() {
+          if (typeof initFullPageMap === 'function') initFullPageMap();
           if (typeof fullPageLeafletMap !== 'undefined' && fullPageLeafletMap) fullPageLeafletMap.invalidateSize();
         }, 350);
       } else if (viewName === 'articles') {
@@ -12142,7 +12144,7 @@ window.MYTHS_DATA = {
     "cardNum": 1,
     "title": "ความเชื่อเรื่องโลกแบนในยุคกลาง",
     "year": "500–1500 AD",
-    "rumor": ":",
+    "rumor": "คนยุคกลางและศาสนจักรเชื่อว่าโลกแบน หากเดินเรือออกไปไกลจะตกขอบโลก",
     "fact": "ปัญญาชน นักคิด และนักเดินเรือยุคกลางรู้กันมาตลอดว่าโลกกลม (จากตำรากรีกและอริสโตเติล) เรื่องเชื่อว่าโลกแบนเป็นตำนานที่นักเขียนศตวรรษที่ 19 แต่งขึ้นใส่ร้ายยุคกลาง",
     "articleKey": "crusades-saladin-jerusalem"
   },
@@ -12222,7 +12224,7 @@ window.MYTHS_DATA = {
     "cardNum": 4,
     "title": "การเผาแม่มดทั้งเป็นที่เมืองซาเลม",
     "year": "1692 AD",
-    "rumor": ":",
+    "rumor": "หญิงที่ถูกกล่าวหาว่าเป็นแม่มดที่เมืองซาเลมถูกมัดติดเสาแล้วเผาทั้งเป็นทุกคน",
     "fact": "ไม่มีใครถูกเผาทั้งเป็นในซาเลม ผู้ถูกตัดสิน 19 คนถูกประหารด้วยการแขวนคอ และ 1 คนถูกหินทับตาย การเผาแม่มดส่วนใหญ่เกิดขึ้นในยุโรป ไม่ใช่ในอเมริกา",
     "articleKey": "reformation-martin-luther"
   },
@@ -12242,7 +12244,7 @@ window.MYTHS_DATA = {
     "cardNum": 1,
     "title": "คำพูด 'ให้พวกเขากินเค้กสิ' ของมารี อ็องตัวเนต",
     "year": "1789 AD",
-    "rumor": ":",
+    "rumor": "พระนางมารี อ็องตัวเนต ตรัสประโยคนี้เพื่อเหยียดหยามคนจนที่ไม่มีขนมปังกิน",
     "fact": "เป็น Fake News โฆษณาชวนเชื่อ ประโยค \"Qu'ils mangent de la brioche\" ปรากฏในบันทึกของรุสโซตั้งแต่ปี 1765 ขณะที่พระนางมีพระชนมายุเพียง 9 ชันษาและยังประทับอยู่ออสเตรีย",
     "articleKey": "french-revolution-bastille"
   },
@@ -12262,7 +12264,7 @@ window.MYTHS_DATA = {
     "cardNum": 3,
     "title": "ความสูงของนโปเลียน (Napoleon Complex)",
     "year": "1799–1815 AD",
-    "rumor": ":",
+    "rumor": "นโปเลียน โบนาปาร์ต เป็นคนแคระเตี้ยที่มีปมด้อย จึงมักทำสงครามรุกรานเพื่อชดเชย",
     "fact": "นโปเลียนสูงประมาณ 168–170 ซม. ซึ่งสูงกว่าเกณฑ์เฉลี่ยของชายฝรั่งเศสยุคนั้น (164 ซม.) แต่ถูกการ์ตูนล้อเลียนอังกฤษวาดให้ตัวเล็ก และหน่วยวัดนิ้วฝรั่งเศสยาวกว่านิ้วอังกฤษ",
     "articleKey": "french-revolution-bastille"
   },
@@ -12273,7 +12275,7 @@ window.MYTHS_DATA = {
     "title": "ชนวนเหตุสงครามกลางเมืองอเมริกา: สิทธิของมลรัฐ?",
     "year": "1861 AD",
     "rumor": "สงครามกลางเมืองเกิดจากเรื่อง 'สิทธิของมลรัฐ' (States' Rights) และภาษี ไม่เกี่ยวกับเรื่องทาส",
-    "fact": "เป็นเรื่องเล่าล้างบาป 'Lost Cause' ของฝ่ายใต้ เอกสารประกาศแยกตัวของรัฐฝ่ายใต้ระบุชัดเจนตั้งแต่ย่อหน้าแรกว่าแยกตัวเพื่อ 'ปกป้องสถาบันทาสผิวดำ\\",
+    "fact": "เป็นเรื่องเล่าล้างบาป 'Lost Cause' ของฝ่ายใต้ เอกสารประกาศแยกตัวของรัฐฝ่ายใต้ระบุชัดเจนตั้งแต่ย่อหน้าแรกว่าแยกตัวเพื่อ 'ปกป้องสถาบันทาสผิวดำ'",
     "articleKey": "civil-war-slavery-lincoln"
   },
   "revolutions-5": {
@@ -12282,7 +12284,7 @@ window.MYTHS_DATA = {
     "cardNum": 5,
     "title": "การทลายคุกบาสตีย์ปลดปล่อยนักโทษนับพัน?",
     "year": "1789 AD",
-    "rumor": ":",
+    "rumor": "มวลชนบุกทลายคุกบาสตีย์เพื่อช่วยเหลือนักโทษการเมืองที่ถูกขังทรมานนับร้อยนับพันคน",
     "fact": "ในวันที่บุกทลายคุก มีนักโทษถูกคุมขังอยู่เพียง 7 คนเท่านั้น (นักปลอมแปลงเอกสาร 4 คน, วิกลจริต 2 คน, และฆาตกร 1 คน) เป้าหมายแท้จริงของการบุกคือยึดดินปืน 250 ถัง",
     "articleKey": "french-revolution-bastille"
   },
@@ -12332,7 +12334,7 @@ window.MYTHS_DATA = {
     "cardNum": 5,
     "title": "การปฏิรูปเมจิโยนทิ้งวัฒนธรรมดั้งเดิมทั้งหมด?",
     "year": "1868 AD",
-    "rumor": ":",
+    "rumor": "ญี่ปุ่นยุคเมจิทิ้งความเป็นญี่ปุ่นและเปลี่ยนไปรับตะวันตกแบบ 100%",
     "fact": "ยึดหลัก \"Wakokoro Yosai\" (จิตวิญญาณญี่ปุ่น วิทยาการตะวันตก) นำเทคโนโลยีและกฎหมายตะวันตกมาใช้ แต่ยังคงรักษาและเชิดชูสถาบันจักรพรรดิและลัทธิชินโตอย่างเหนียวแน่น",
     "articleKey": "meiji-restoration-japan"
   },
@@ -12382,7 +12384,7 @@ window.MYTHS_DATA = {
     "cardNum": 5,
     "title": "ไข้หวัดใหญ่สเปน (Spanish Flu) เริ่มต้นที่สเปน?",
     "year": "1918 AD",
-    "rumor": ":",
+    "rumor": "โรคระบาดครั้งใหญ่ปี 1918 มีต้นกำเนิดและเริ่มระบาดมาจากประเทศสเปน",
     "fact": "เริ่มระบาดในค่ายทหารสหรัฐฯ (แคนซัส) และยุโรป แต่ประเทศคู่สงครามเซ็นเซอร์ข่าว มีเพียงสเปนซึ่งเป็นกลางที่รายงานข่าวอย่างตรงไปตรงมา จึงถูกตั้งชื่อตามสเปนอย่างไม่เป็นธรรม",
     "articleKey": "ww1-trenches-tannenberg"
   },
@@ -12452,7 +12454,7 @@ window.MYTHS_DATA = {
     "cardNum": 2,
     "title": "วิกฤตขีปนาวุธคิวบาจบลงด้วยการยอมจำนนของโซเวียตฝ่ายเดียว?",
     "year": "1962 AD",
-    "rumor": ":",
+    "rumor": "สหรัฐฯ ยื่นคำขาดกดดันจนโซเวียตต้องยอมถอนขีปนาวุธจากคิวบาแต่ฝ่ายเดียวอย่างอัปยศ",
     "fact": "เป็นการเจรจาแลกเปลี่ยนลับ โดยสหรัฐฯ ตกลงยินยอมถอนขีปนาวุธ Jupiter ออกจากตุรกีและอิตาลีเป็นการตอบแทน และสัญญาจะไม่บุกคิวบาอีก",
     "articleKey": "cuban-missile-crisis"
   },
@@ -12462,7 +12464,7 @@ window.MYTHS_DATA = {
     "cardNum": 3,
     "title": "ทหารอเมริกันในสงครามเวียดนามเป็นทหารเกณฑ์ทั้งหมด?",
     "year": "1965–1973 AD",
-    "rumor": ":",
+    "rumor": "ทหารสหรัฐฯ ในสงครามเวียดนามเกือบทั้งหมดคือทหารเกณฑ์ที่ถูกบังคับไปรบ",
     "fact": "สถิติระบุว่า ทหารอเมริกันในเวียดนามกว่า 70% เป็นทหารอาสาสมัคร (Volunteers) ซึ่งแตกต่างจากสงครามโลกครั้งที่ 2 ที่มีสัดส่วนทหารเกณฑ์สูงถึง 66%",
     "articleKey": "vietnam-war-tet"
   },
@@ -14597,7 +14599,7 @@ function closeMythMiniQuizModal() {
     // ====================================================
     var fullPageLeafletMap = null;
     var fullPageMarkersGroup = null;
-    var fullPageActiveLocKey = null;
+    var fullPageActiveLocationKey = null;
     var fullPageActiveEra = 'all';
     var fullPageSearchQuery = '';
     var fullPageMarkersMap = {};
@@ -14618,7 +14620,7 @@ function closeMythMiniQuizModal() {
     function getFullMapCanonicalKeys() {
       return Object.keys(geopoliticalMapData).filter(function(k) {
         var item = geopoliticalMapData[k];
-        return k !== 'world_overview' && typeof item.lat === 'number' && typeof item.lng === 'number';
+        return k !== 'world_overview' && !mapAliases[k] && typeof item.lat === 'number' && typeof item.lng === 'number';
       });
     }
 
@@ -14857,6 +14859,9 @@ function closeMythMiniQuizModal() {
     }
 
     function selectFullMapLocation(locKey, flyTo) {
+      if (typeof mapAliases !== 'undefined' && mapAliases[locKey]) {
+        locKey = mapAliases[locKey];
+      }
       fullPageActiveLocationKey = locKey;
       var d = geopoliticalMapData[locKey];
       if (!d) return;
@@ -14865,43 +14870,44 @@ function closeMythMiniQuizModal() {
       renderFullMapEventPills();
 
       // Update Dossier Card
-      var card = document.getElementById('full-map-active-card');
+      var card = document.getElementById('full-map-dossier');
       if (card) card.classList.remove('hidden');
 
-      var eraEl = document.getElementById('full-map-card-era');
+      var eraEl = document.getElementById('full-map-dossier-era-badge');
       if (eraEl) eraEl.textContent = d.eraName || d.era;
 
-      var coordsEl = document.getElementById('full-map-card-coords');
+      var coordsEl = document.getElementById('full-map-dossier-coords');
       if (coordsEl) coordsEl.textContent = d.coords || (d.lat + '° N, ' + d.lng + '° E');
 
-      var titleEl = document.getElementById('full-map-card-title');
+      var titleEl = document.getElementById('full-map-dossier-title');
       if (titleEl) titleEl.textContent = d.title;
 
-      var ancientEl = document.getElementById('full-map-card-ancient');
+      var ancientEl = document.getElementById('full-map-dossier-ancient');
       if (ancientEl) ancientEl.textContent = d.ancientName;
 
-      var modernEl = document.getElementById('full-map-card-modern');
+      var modernEl = document.getElementById('full-map-dossier-modern');
       if (modernEl) modernEl.textContent = d.modernName;
 
-      var terrainEl = document.getElementById('full-map-card-terrain');
+      var terrainEl = document.getElementById('full-map-dossier-terrain');
       if (terrainEl) terrainEl.textContent = d.terrainType || '-';
 
-      var chokepointEl = document.getElementById('full-map-card-chokepoint');
+      var chokepointEl = document.getElementById('full-map-dossier-chokepoint');
       if (chokepointEl) chokepointEl.textContent = d.chokepoint;
 
-      var impactEl = document.getElementById('full-map-card-impact');
+      var impactEl = document.getElementById('full-map-dossier-impact');
       if (impactEl) impactEl.textContent = d.strategicImpact || '-';
 
       // Article button
-      var artBtn = document.getElementById('full-map-card-article-btn');
-      if (artBtn) {
+      var artBtn = document.getElementById('full-map-dossier-art-btn');
+      var artContainer = document.getElementById('full-map-dossier-art-container');
+      if (artBtn && artContainer) {
         if (d.articleKey) {
-          artBtn.classList.remove('hidden');
+          artContainer.classList.remove('hidden');
           artBtn.onclick = function() {
-            openArticleModal(d.articleKey);
+            if (typeof openArticleModal === 'function') openArticleModal(d.articleKey);
           };
         } else {
-          artBtn.classList.add('hidden');
+          artContainer.classList.add('hidden');
         }
       }
 
@@ -14971,6 +14977,22 @@ function closeMythMiniQuizModal() {
         content.classList.add('hidden');
         btn.textContent = '➕';
       }
+    }
+
+    // Auto-init full map if view-map is visible or loaded directly
+    if (typeof window !== 'undefined') {
+      function checkAndInitFullMap() {
+        var mapEl = document.getElementById('view-map');
+        if (mapEl && !mapEl.classList.contains('hidden')) {
+          initFullPageMap();
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkAndInitFullMap);
+      } else {
+        setTimeout(checkAndInitFullMap, 50);
+      }
+      window.addEventListener('load', checkAndInitFullMap);
     }
   </script>
 </body>

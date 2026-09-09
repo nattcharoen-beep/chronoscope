@@ -7739,9 +7739,11 @@
       } else if (viewName === 'map') {
         if (typeof initFullPageMap === 'function') initFullPageMap();
         setTimeout(function() {
+          if (typeof initFullPageMap === 'function') initFullPageMap();
           if (typeof fullPageLeafletMap !== 'undefined' && fullPageLeafletMap) fullPageLeafletMap.invalidateSize();
         }, 100);
         setTimeout(function() {
+          if (typeof initFullPageMap === 'function') initFullPageMap();
           if (typeof fullPageLeafletMap !== 'undefined' && fullPageLeafletMap) fullPageLeafletMap.invalidateSize();
         }, 350);
       } else if (viewName === 'articles') {
@@ -10518,6 +10520,78 @@
   }
 };
 
+    // Aliases for landmark names and legacy article IDs
+    var mapAliases = {
+      "troy": "greek-trojan-war",
+      "marathon": "greek-persian-wars",
+      "thermopylae": "greek-persian-wars",
+      "salamis": "greek-persian-wars",
+      "alexandria": "greek-alexander-hellenistic",
+      "athens": "greek-golden-age-peloponnesian",
+      "rome": "rome-pax-romana-emperors",
+      "rubicon": "rome-republic-fall",
+      "jerusalem": "christianity-rome",
+      "ravenna": "rome-christianity-state-fall",
+      "carcassonne": "middle-ages-feudalism-inquisition",
+      "constantinople": "fall-of-constantinople-1453",
+      "caffa": "black-death-impact",
+      "florence": "renaissance-medici-art",
+      "wittenberg": "reformation-martin-luther",
+      "amsterdam": "colonialism-voc-stock",
+      "pisa": "scientific-revolution",
+      "boston": "boston-tea-party-deep",
+      "philadelphia": "us-constitution-founding",
+      "gettysburg": "civil-war-slavery-lincoln",
+      "birmingham": "industrial-steam-factory",
+      "manchester": "industrial-labor-capitalism-marx",
+      "menlo_park": "industrial-second-electricity",
+      "suez_canal": "scramble-for-africa-imperialism",
+      "sarajevo": "ww1-causes-assassination",
+      "somme": "ww1-trench-warfare",
+      "petrograd": "russian-revolution-czar",
+      "versailles": "versailles-league-of-nations",
+      "forbidden_city": "chinese-revolution-puyi-last-emperor",
+      "dunkirk": "ww2-blitzkrieg-dunkirk",
+      "nanking": "nanking-massacre-1937",
+      "pearl_harbor": "ww2-pacific-war",
+      "stalingrad": "ww2-stalingrad-turning-point",
+      "warsaw": "ww2-holocaust-pianist",
+      "normandy": "ww2-dday-manhattan",
+      "tel_aviv": "israel-founding-1948",
+      "tiananmen": "chinese-communist-revolution-1949",
+      "berlin_wall": "soviet-collapse-1991",
+      "dutch-voc-capitalism": "colonialism-voc-stock",
+      "scientific-revolution-newton": "scientific-revolution",
+      "enlightenment-social-contract": "revenant-frontier",
+      "american-revolution-independence": "boston-tea-party-deep",
+      "american-constitution-federalist": "us-constitution-founding",
+      "american-civil-war-slavery": "civil-war-slavery-lincoln",
+      "industrial-revolution-steam": "industrial-steam-factory",
+      "second-industrial-revolution": "industrial-second-electricity",
+      "marxism-capital-critique": "industrial-labor-capitalism-marx",
+      "ww1-origins-july-crisis": "ww1-causes-assassination",
+      "ww1-western-front-trench": "ww1-trench-warfare",
+      "russian-revolution-1917": "russian-revolution-czar",
+      "ww1-versailles-treaty-consequences": "versailles-league-of-nations",
+      "fall-of-qing-dynasty-1911": "chinese-revolution-puyi-last-emperor",
+      "ww2-origins-appeasement": "nanking-massacre-1937",
+      "ww2-european-theater-fall-france": "ww2-blitzkrieg-dunkirk",
+      "ww2-eastern-front-stalingrad": "ww2-stalingrad-turning-point",
+      "ww2-holocaust-auschwitz-nuremberg": "ww2-holocaust-pianist",
+      "ww2-pacific-theater-midway": "ww2-pacific-war",
+      "ww2-atomic-bomb-hiroshima": "ww2-dday-manhattan",
+      "cold-war-origins-iron-curtain": "israel-founding-1948",
+      "cold-war-cuban-missile-crisis": "soviet-collapse-1991",
+      "cold-war-vietnam-quagmire": "chinese-communist-revolution-1949",
+      "cold-war-berlin-wall-fall": "soviet-collapse-1991"
+    };
+    Object.keys(mapAliases).forEach(function(alias) {
+      var target = mapAliases[alias];
+      if (geopoliticalMapData[target]) {
+        geopoliticalMapData[alias] = geopoliticalMapData[target];
+      }
+    });
+
     var hybridLeafletMap = null;
     var hybridMapMarker = null;
     var currentActiveLocationKey = 'greek-trojan-war';
@@ -10859,7 +10933,7 @@
     // ----------------------------------------------------
     var fullPageLeafletMap = null;
     var fullPageMarkersGroup = null;
-    var fullPageActiveLocKey = null;
+    var fullPageActiveLocationKey = null;
     var fullPageActiveEra = 'all';
     var fullPageSearchQuery = '';
     var fullPageMarkersMap = {};
@@ -10880,7 +10954,7 @@
     function getFullMapCanonicalKeys() {
       return Object.keys(geopoliticalMapData).filter(function(k) {
         var item = geopoliticalMapData[k];
-        return k !== 'world_overview' && typeof item.lat === 'number' && typeof item.lng === 'number';
+        return k !== 'world_overview' && !mapAliases[k] && typeof item.lat === 'number' && typeof item.lng === 'number';
       });
     }
 
@@ -11119,6 +11193,9 @@
     }
 
     function selectFullMapLocation(locKey, flyTo) {
+      if (typeof mapAliases !== 'undefined' && mapAliases[locKey]) {
+        locKey = mapAliases[locKey];
+      }
       fullPageActiveLocationKey = locKey;
       var d = geopoliticalMapData[locKey];
       if (!d) return;
@@ -11127,43 +11204,44 @@
       renderFullMapEventPills();
 
       // Update Dossier Card
-      var card = document.getElementById('full-map-active-card');
+      var card = document.getElementById('full-map-dossier');
       if (card) card.classList.remove('hidden');
 
-      var eraEl = document.getElementById('full-map-card-era');
+      var eraEl = document.getElementById('full-map-dossier-era-badge');
       if (eraEl) eraEl.textContent = d.eraName || d.era;
 
-      var coordsEl = document.getElementById('full-map-card-coords');
+      var coordsEl = document.getElementById('full-map-dossier-coords');
       if (coordsEl) coordsEl.textContent = d.coords || (d.lat + '° N, ' + d.lng + '° E');
 
-      var titleEl = document.getElementById('full-map-card-title');
+      var titleEl = document.getElementById('full-map-dossier-title');
       if (titleEl) titleEl.textContent = d.title;
 
-      var ancientEl = document.getElementById('full-map-card-ancient');
+      var ancientEl = document.getElementById('full-map-dossier-ancient');
       if (ancientEl) ancientEl.textContent = d.ancientName;
 
-      var modernEl = document.getElementById('full-map-card-modern');
+      var modernEl = document.getElementById('full-map-dossier-modern');
       if (modernEl) modernEl.textContent = d.modernName;
 
-      var terrainEl = document.getElementById('full-map-card-terrain');
+      var terrainEl = document.getElementById('full-map-dossier-terrain');
       if (terrainEl) terrainEl.textContent = d.terrainType || '-';
 
-      var chokepointEl = document.getElementById('full-map-card-chokepoint');
+      var chokepointEl = document.getElementById('full-map-dossier-chokepoint');
       if (chokepointEl) chokepointEl.textContent = d.chokepoint;
 
-      var impactEl = document.getElementById('full-map-card-impact');
+      var impactEl = document.getElementById('full-map-dossier-impact');
       if (impactEl) impactEl.textContent = d.strategicImpact || '-';
 
       // Article button
-      var artBtn = document.getElementById('full-map-card-article-btn');
-      if (artBtn) {
+      var artBtn = document.getElementById('full-map-dossier-art-btn');
+      var artContainer = document.getElementById('full-map-dossier-art-container');
+      if (artBtn && artContainer) {
         if (d.articleKey) {
-          artBtn.classList.remove('hidden');
+          artContainer.classList.remove('hidden');
           artBtn.onclick = function() {
-            openArticleModal(d.articleKey);
+            if (typeof openArticleModal === 'function') openArticleModal(d.articleKey);
           };
         } else {
-          artBtn.classList.add('hidden');
+          artContainer.classList.add('hidden');
         }
       }
 
@@ -11235,6 +11313,21 @@
       }
     }
 
+    // Auto-init full map if view-map is visible or loaded directly
+    if (typeof window !== 'undefined') {
+      function checkAndInitFullMap() {
+        var mapEl = document.getElementById('view-map');
+        if (mapEl && !mapEl.classList.contains('hidden')) {
+          initFullPageMap();
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkAndInitFullMap);
+      } else {
+        setTimeout(checkAndInitFullMap, 50);
+      }
+      window.addEventListener('load', checkAndInitFullMap);
+    }
   </script>
 
 </body>
