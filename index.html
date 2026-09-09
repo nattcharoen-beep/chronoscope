@@ -11208,8 +11208,19 @@ function updateQuizTimerDisplay() {
   }
 }
 
+
+function initQuizView() {
+  if (typeof switchQuizSet === 'function') {
+    switchQuizSet(currentQuizSetNum || 1);
+  } else {
+    renderQuizQuestions();
+    updateQuizProgress();
+    startQuizTimer();
+  }
+}
+
 function renderQuizQuestions() {
-  var container = document.getElementById('quiz-questions-list');
+  var container = document.getElementById('quiz-questions-container') || document.getElementById('quiz-questions-list');
   if (!container) return;
 
   var html = '';
@@ -11309,7 +11320,9 @@ function updateQuizProgress() {
   }
 }
 
-function submitQuiz(isAuto) {
+function submitQuiz(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  var isAuto = (e === true);
   if (quizState.isSubmitted) return;
   quizState.isSubmitted = true;
   if (quizState.timerInterval) clearInterval(quizState.timerInterval);
@@ -11424,7 +11437,71 @@ function goToSlideAndCloseGrid(index) {
 }
 
 // -------------------------------------------------------------
-// TEACHING TOOLS: LECTURE TIMER & STOPWATCH
+// TEACHING TOOLS: LECTURE STOPWATCH (COUNT-UP ELAPSED TIME)
+// -------------------------------------------------------------
+var lectureTimer = {
+  elapsedSeconds: 0,
+  interval: null,
+  isRunning: false
+};
+
+function toggleLectureTimerWidget() {
+  var widget = document.getElementById('lecture-timer-widget');
+  if (!widget) return;
+  widget.classList.toggle('hidden');
+}
+
+function updateLectureTimerClock() {
+  var h = Math.floor(lectureTimer.elapsedSeconds / 3600);
+  var m = Math.floor((lectureTimer.elapsedSeconds % 3600) / 60);
+  var s = lectureTimer.elapsedSeconds % 60;
+
+  var display = '';
+  if (h > 0) {
+    display = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  } else {
+    display = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  var clockEl = document.getElementById('lecture-timer-clock');
+  if (clockEl) clockEl.textContent = display;
+}
+
+function startStopLectureTimer() {
+  var btnText = document.getElementById('lecture-timer-btn-text');
+  var btn = document.getElementById('lecture-timer-btn');
+
+  if (lectureTimer.isRunning) {
+    // Pause
+    clearInterval(lectureTimer.interval);
+    lectureTimer.isRunning = false;
+    if (btnText) btnText.textContent = 'เริ่มต่อ';
+    if (btn) btn.className = 'flex-1 py-2 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1';
+  } else {
+    // Start count up
+    lectureTimer.isRunning = true;
+    if (btnText) btnText.textContent = 'หยุดชั่วคราว';
+    if (btn) btn.className = 'flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1';
+    
+    lectureTimer.interval = setInterval(function() {
+      lectureTimer.elapsedSeconds++;
+      updateLectureTimerClock();
+    }, 1000);
+  }
+}
+
+function resetLectureTimer() {
+  if (lectureTimer.interval) clearInterval(lectureTimer.interval);
+  lectureTimer.isRunning = false;
+  lectureTimer.elapsedSeconds = 0;
+  updateLectureTimerClock();
+
+  var btnText = document.getElementById('lecture-timer-btn-text');
+  var btn = document.getElementById('lecture-timer-btn');
+  if (btnText) btnText.textContent = 'เริ่มจับเวลา';
+  if (btn) btn.className = 'flex-1 py-2 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1';
+}
+
 // -------------------------------------------------------------
 var lectureTimer = {
   remainingSeconds: 600,
@@ -11889,6 +11966,90 @@ function closeMythMiniQuizModal() {
   if (modal) modal.classList.add('hidden');
 }
 
+
+
+// -------------------------------------------------------------
+// DRAGGABLE LECTURE TIMER WIDGET (MOUSE & TOUCH)
+// -------------------------------------------------------------
+(function setupDraggableTimer() {
+  function init() {
+    var widget = document.getElementById('lecture-timer-widget');
+    var handle = document.getElementById('lecture-timer-drag-header') || widget;
+    if (!widget || !handle) return;
+
+    var isDragging = false;
+    var startX = 0, startY = 0;
+    var initialLeft = 0, initialTop = 0;
+
+    function onPointerDown(e) {
+      if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+
+      isDragging = true;
+      var clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0].clientX);
+      var clientY = e.clientY !== undefined ? e.clientY : (e.touches && e.touches[0].clientY);
+
+      startX = clientX;
+      startY = clientY;
+
+      var rect = widget.getBoundingClientRect();
+      initialLeft = rect.left;
+      initialTop = rect.top;
+
+      widget.style.bottom = 'auto';
+      widget.style.right = 'auto';
+      widget.style.left = initialLeft + 'px';
+      widget.style.top = initialTop + 'px';
+      widget.style.margin = '0';
+      widget.style.transition = 'none';
+
+      document.addEventListener('mousemove', onPointerMove, { passive: false });
+      document.addEventListener('mouseup', onPointerUp);
+      document.addEventListener('touchmove', onPointerMove, { passive: false });
+      document.addEventListener('touchend', onPointerUp);
+    }
+
+    function onPointerMove(e) {
+      if (!isDragging) return;
+      if (e.cancelable) e.preventDefault();
+
+      var clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0].clientX);
+      var clientY = e.clientY !== undefined ? e.clientY : (e.touches && e.touches[0].clientY);
+
+      var dx = clientX - startX;
+      var dy = clientY - startY;
+
+      var newLeft = initialLeft + dx;
+      var newTop = initialTop + dy;
+
+      var maxLeft = window.innerWidth - widget.offsetWidth - 10;
+      var maxTop = window.innerHeight - widget.offsetHeight - 10;
+      newLeft = Math.max(10, Math.min(newLeft, maxLeft));
+      newTop = Math.max(10, Math.min(newTop, maxTop));
+
+      widget.style.left = newLeft + 'px';
+      widget.style.top = newTop + 'px';
+    }
+
+    function onPointerUp() {
+      if (!isDragging) return;
+      isDragging = false;
+      document.removeEventListener('mousemove', onPointerMove);
+      document.removeEventListener('mouseup', onPointerUp);
+      document.removeEventListener('touchmove', onPointerMove);
+      document.removeEventListener('touchend', onPointerUp);
+    }
+
+    handle.addEventListener('mousedown', onPointerDown);
+    handle.addEventListener('touchstart', onPointerDown, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
 </script>
 
     <!-- ==================== VIEW: TIMED ACADEMIC QUIZ (10 QUESTIONS) ==================== -->
@@ -11958,7 +12119,7 @@ function closeMythMiniQuizModal() {
         </div>
 
         <!-- 10 Questions Container -->
-        <form id="quiz-form" onsubmit="submitQuiz(event)" class="space-y-6">
+        <div id="quiz-form" class="space-y-6">
           <div id="quiz-questions-container" class="space-y-6">
             <!-- Questions rendered by JS -->
           </div>
@@ -11974,59 +12135,42 @@ function closeMythMiniQuizModal() {
               <button type="button" onclick="resetQuiz()" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs sm:text-sm font-medium transition-all cursor-pointer">
                 ล้างคำตอบ
               </button>
-              <button type="submit" id="quiz-submit-btn" class="px-6 py-2.5 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs sm:text-sm font-semibold shadow-md transition-all cursor-pointer flex items-center gap-2">
+              <button type="button" onclick="submitQuiz(event)" id="quiz-submit-btn" class="px-6 py-2.5 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs sm:text-sm font-semibold shadow-md transition-all cursor-pointer flex items-center gap-2">
                 <span>ส่งคำตอบและดูผลการประเมิน</span>
                 <span>&rarr;</span>
               </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
 
     <!-- ==================== TEACHING TOOLS: FLOATING LECTURE TIMER ==================== -->
-    <div id="lecture-timer-widget" class="hidden fixed bottom-16 right-6 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-72 font-sans transition-all">
-      <div class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-        <div class="flex items-center gap-1.5 font-bold text-xs text-slate-800 dark:text-slate-200">
-          <span>⏱️ นาฬิกาจับเวลาผู้สอน</span>
+    <div id="lecture-timer-widget" class="hidden fixed bottom-16 right-6 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-64 font-sans select-none touch-none">
+      <!-- Draggable Header -->
+      <div id="lecture-timer-drag-header" class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 cursor-grab active:cursor-grabbing hover:bg-slate-50/50 dark:hover:bg-slate-800/50 -mx-2 px-2 rounded-t-xl transition-colors" title="คลิกค้างแล้วลากย้ายตำแหน่งได้ทุกที่บนหน้าจอ">
+        <div class="flex items-center gap-1.5 font-bold text-xs text-slate-800 dark:text-slate-200 pointer-events-none">
+          <span>⏱️ เวลาสอนสะสม</span>
+          <span class="text-[10px] text-slate-400 font-normal">(ลากย้ายได้ ✥)</span>
         </div>
-        <button onclick="toggleLectureTimerWidget()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm cursor-pointer">&times;</button>
+        <button type="button" onclick="toggleLectureTimerWidget()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm cursor-pointer p-1" title="ปิด">&times;</button>
       </div>
-      <div class="py-3 text-center">
-        <div id="lecture-timer-clock" class="text-4xl font-bold font-mono tracking-tight text-slate-900 dark:text-white">10:00</div>
-        <div id="lecture-timer-label" class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">จับเวลากิจกรรม / บรรยาย</div>
+
+      <!-- Count-up Stopwatch Clock Display -->
+      <div class="py-3.5 text-center">
+        <div id="lecture-timer-clock" class="text-4xl font-bold font-mono tracking-tight text-slate-900 dark:text-white">00:00</div>
+        <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">เวลาที่ใช้สอนไปแล้ว (นับขึ้น)</div>
       </div>
-      <!-- Preset Buttons -->
-      <div class="grid grid-cols-4 gap-1.5 mb-3">
-        <button onclick="setLectureTimer(5)" class="py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">5 น.</button>
-        <button onclick="setLectureTimer(10)" class="py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">10 น.</button>
-        <button onclick="setLectureTimer(15)" class="py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">15 น.</button>
-        <button onclick="setLectureTimer(30)" class="py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition cursor-pointer">30 น.</button>
-      </div>
-      <!-- Controls -->
-      <div class="flex items-center gap-2">
-        <button id="lecture-timer-btn" onclick="startStopLectureTimer()" class="flex-1 py-1.5 rounded-lg bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-semibold shadow-xs transition cursor-pointer">
-          เริ่มจับเวลา
+
+      <!-- Control Buttons (Start/Pause, Reset) -->
+      <div class="flex items-center gap-2 pt-1">
+        <button id="lecture-timer-btn" type="button" onclick="startStopLectureTimer()" class="flex-1 py-2 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-bold transition cursor-pointer shadow-xs flex items-center justify-center gap-1">
+          <span>▶️</span>
+          <span id="lecture-timer-btn-text">เริ่มจับเวลา</span>
         </button>
-        <button onclick="resetLectureTimer()" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium transition cursor-pointer">
+        <button type="button" onclick="resetLectureTimer()" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium transition cursor-pointer border border-slate-200 dark:border-slate-700" title="รีเซ็ตกลับเป็น 00:00">
           รีเซ็ต
         </button>
-      </div>
-    </div>
-
-    <!-- ==================== TEACHING TOOLS: 20-SLIDE JUMP GRID MODAL ==================== -->
-    <div id="slide-grid-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-      <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-5xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden font-sans">
-        <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0">
-          <div class="flex items-center gap-2">
-            <span class="text-lg font-bold text-slate-900 dark:text-white">⊞ ผังรวมสไลด์ทั้ง 20 สไลด์ (Lecture Grid)</span>
-            <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">คลิกที่สไลด์เพื่อกระโดดข้ามทันที (กด G เพื่อเปิด/ปิด)</span>
-          </div>
-          <button onclick="closeSlideGridModal()" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer">&times;</button>
-        </div>
-        <div id="slide-grid-cards-container" class="p-6 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5">
-          <!-- Populated by JS -->
-        </div>
       </div>
     </div>
 
@@ -12075,33 +12219,33 @@ function closeMythMiniQuizModal() {
 
 
     <!-- ==================== FLOATING TEACHER TOOLS & LIVE QR DOCK ==================== -->
-    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-30 flex items-end gap-2.5 select-none pointer-events-auto">
+    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-30 flex flex-col items-center gap-2 select-none pointer-events-auto">
       
-      <!-- ก้อนที่ 1: เครื่องมือช่วยสอน (⏱️ จับเวลา, 🔴 เลเซอร์, 🔦 สปอตไลท์) -->
-      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl flex flex-col gap-1.5">
-        <button id="btn-screen-timer" onclick="toggleLectureTimerWidget()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs shrink-0" title="เปิด/ปิด นาฬิกาจับเวลา (T)">
+      <!-- ก้อนที่ 1 (อยู่ข้างบนของ QR): เครื่องมือช่วยสอน (⏱️ จับเวลา, 🔴 เลเซอร์, 🔦 สปอตไลท์) -->
+      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl flex flex-col gap-1.5 w-[96px] text-center">
+        <button id="btn-screen-timer" onclick="toggleLectureTimerWidget()" class="w-full px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs" title="เปิด/ปิด นาฬิกาจับเวลา (T)">
           <span>⏱️</span>
           <span class="text-[11px] font-semibold">จับเวลา</span>
         </button>
 
-        <button id="btn-screen-laser" onclick="toggleLaserPointer()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs shrink-0" title="เปิด/ปิด ปากกาเลเซอร์ (L)">
+        <button id="btn-screen-laser" onclick="toggleLaserPointer()" class="w-full px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs" title="เปิด/ปิด ปากกาเลเซอร์ (L)">
           <span>🔴</span>
           <span class="text-[11px] font-semibold">เลเซอร์</span>
         </button>
 
-        <button id="btn-screen-spotlight" onclick="toggleSpotlight()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs shrink-0" title="เปิด/ปิด สปอตไลท์โฟกัส (S)">
+        <button id="btn-screen-spotlight" onclick="toggleSpotlight()" class="w-full px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-center gap-1.5 text-xs font-sans font-medium transition cursor-pointer hover:shadow-xs" title="เปิด/ปิด สปอตไลท์โฟกัส (S)">
           <span>🔦</span>
           <span class="text-[11px] font-semibold">สปอตไลท์</span>
         </button>
       </div>
 
-      <!-- ก้อนที่ 2: QR Code ลอยสำหรับมือถือ (ไม่มีคำว่าสไลด์ที่ 1 ตามสั่ง) -->
-      <div id="screen-pinned-qr" class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-2 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl text-center font-sans transition-all hover:scale-105 group cursor-pointer" onclick="openSlideQRModal()" title="คลิกเพื่อขยาย QR Code">
+      <!-- ก้อนที่ 2 (อยู่ข้างล่าง): QR Code ลอยสำหรับมือถือ (ไม่มีคำว่าสไลด์ที่ 1) -->
+      <div id="screen-pinned-qr" class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-2 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl text-center font-sans transition-all hover:scale-105 group cursor-pointer w-[96px]" onclick="openSlideQRModal()" title="คลิกเพื่อขยาย QR Code">
         <div class="bg-white p-1 rounded-xl border border-slate-200 inline-block shadow-2xs">
-          <img id="live-screen-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fnattcharoen-beep.github.io%2Fchronoscope%2Fmobile.html" alt="Scan QR Code" class="w-16 h-16 sm:w-20 sm:h-20 block rounded-lg" />
+          <img id="live-screen-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fnattcharoen-beep.github.io%2Fchronoscope%2Fmobile.html" alt="Scan QR Code" class="w-18 h-18 block rounded-lg mx-auto" />
         </div>
-        <div class="text-[10px] font-bold text-slate-800 dark:text-slate-200 mt-1 flex items-center justify-center gap-1">
-          <span>📱 สแกนอ่านบนมือถือ</span>
+        <div class="text-[9.5px] font-bold text-slate-800 dark:text-slate-200 mt-1 flex items-center justify-center gap-0.5 leading-tight">
+          <span>📱 อ่านบนมือถือ</span>
         </div>
       </div>
 
