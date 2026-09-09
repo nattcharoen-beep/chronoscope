@@ -9890,8 +9890,32 @@
       if (d.articleKey) {
         artContainer.classList.remove('hidden');
         artBtn.onclick = function() {
+          var articleModal = document.getElementById('articleModal');
+          var drawer = document.getElementById('hybrid-map-drawer');
+          var backdrop = document.getElementById('hybrid-map-backdrop');
+
+          // On desktop (>= 768px), keep map open and split into dual pane (Left: Article, Right: Map)
+          if (window.innerWidth >= 768) {
+            if (articleModal) {
+              articleModal.classList.add('split-mode');
+            }
+            if (drawer) {
+              drawer.classList.add('split-mode');
+              drawer.classList.remove('translate-x-full');
+            }
+            if (backdrop) {
+              backdrop.classList.add('hidden');
+            }
+          }
+
           if (typeof openDeepDive === 'function') {
             openDeepDive(d.articleKey);
+          }
+
+          if (window.innerWidth >= 768) {
+            setTimeout(function() {
+              if (hybridLeafletMap) hybridLeafletMap.invalidateSize();
+            }, 350);
           }
         };
       } else {
