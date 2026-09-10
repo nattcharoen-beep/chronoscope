@@ -838,7 +838,32 @@
       margin: 0 !important;
       box-shadow: none !important;
     }
-  </style>
+  
+    /* ====================================================
+       SMOOTH MODAL TRANSITIONS (Universal Web Auditor Standard)
+       Fade-in & Scale (220ms ease-out)
+       ==================================================== */
+    .modal-anim-overlay {
+      opacity: 0;
+      transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+      will-change: opacity;
+    }
+    .modal-anim-overlay.active-modal {
+      opacity: 1 !important;
+    }
+
+    .modal-anim-card {
+      opacity: 0;
+      transform: scale(0.95) translateY(8px);
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), opacity 220ms ease-out !important;
+      will-change: transform, opacity;
+    }
+    .modal-anim-overlay.active-modal .modal-anim-card {
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
+    }
+
+</style>
 
 <style>
 /* V6 Classroom Presentation Styles */
@@ -900,7 +925,7 @@
         </div>
         
         <!-- NAV TABS -->
-        <nav class="hidden md:flex items-center gap-1 shrink-0 overflow-x-auto">
+        <nav class="hidden md:flex items-center gap-1 shrink-0 overflow-x-auto custom-scrollbar max-w-full">
           <!-- GROUP 1: CORE PRESENTATION MODES (เนื้อหาเดียวกัน นำเสนอ 3 รูปแบบ) -->
           <div class="core-view-group flex items-center p-1 rounded-xl border gap-1 shrink-0" title="โหมดการสำรวจประวัติศาสตร์ 9 ยุคสมัย (สไลด์ / ไทม์ไลน์ / เมโทร / แผนที่)">
             <button id="tab-slides" onclick="switchView('slides')" class="px-2.5 py-1.5 rounded-lg text-xs sm:text-[13px] font-sans font-medium bg-[#107895] text-white transition-all shadow-sm flex items-center gap-1 whitespace-nowrap shrink-0 cursor-pointer">
@@ -989,7 +1014,7 @@
       <div id="slide-stage">
         <div id="slides-container">
 <!-- SLIDE 0: TITLE SLIDE -->
-<section class="slide-item active flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="0">
+<section class="slide-item active flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="0">
   <div class="max-w-6xl w-full mx-auto flex flex-col justify-center flex-1 my-auto py-4">
     <div class="inline-flex items-center gap-2 font-mono text-xs text-[#107895] dark:text-[#38bdf8] font-semibold tracking-wider uppercase mb-3">
       <span>หลักสูตรประวัติศาสตร์โลกและภูมิรัฐศาสตร์สากล • ฉบับวิชาการ</span>
@@ -1034,7 +1059,7 @@
 </section>
 
 <!-- SLIDE 1: ยุคที่ 01 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="1" data-era="greece">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="1" data-era="greece">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -1101,7 +1126,7 @@
 </section>
 
 <!-- SLIDE 2: ยุคที่ 01 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="2" data-era="greece">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="2" data-era="greece">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -1464,7 +1489,7 @@
 </section>
 
 <!-- SLIDE 3: ยุคที่ 02 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="3" data-era="rome">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="3" data-era="rome">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -1531,7 +1556,7 @@
 </section>
 
 <!-- SLIDE 4: ยุคที่ 02 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="4" data-era="rome">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="4" data-era="rome">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -1894,7 +1919,7 @@
 </section>
 
 <!-- SLIDE 5: ยุคที่ 03 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="5" data-era="middleages">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="5" data-era="middleages">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -1961,7 +1986,7 @@
 </section>
 
 <!-- SLIDE 6: ยุคที่ 03 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="6" data-era="middleages">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="6" data-era="middleages">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -2310,7 +2335,7 @@
 </section>
 
 <!-- SLIDE 7: ยุคที่ 04 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="7" data-era="renaissance">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="7" data-era="renaissance">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -2377,7 +2402,7 @@
 </section>
 
 <!-- SLIDE 8: ยุคที่ 04 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="8" data-era="renaissance">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="8" data-era="renaissance">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -2740,7 +2765,7 @@
 </section>
 
 <!-- SLIDE 9: ยุคที่ 05 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="9" data-era="enlightenment">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="9" data-era="enlightenment">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -2807,7 +2832,7 @@
 </section>
 
 <!-- SLIDE 10: ยุคที่ 05 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="10" data-era="enlightenment">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="10" data-era="enlightenment">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -3170,7 +3195,7 @@
 </section>
 
 <!-- SLIDE 11: ยุคที่ 06 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="11" data-era="industrial">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="11" data-era="industrial">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -3237,7 +3262,7 @@
 </section>
 
 <!-- SLIDE 12: ยุคที่ 06 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="12" data-era="industrial">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="12" data-era="industrial">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -3600,7 +3625,7 @@
 </section>
 
 <!-- SLIDE 13: ยุคที่ 07 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="13" data-era="ww1">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="13" data-era="ww1">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -3667,7 +3692,7 @@
 </section>
 
 <!-- SLIDE 14: ยุคที่ 07 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="14" data-era="ww1">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="14" data-era="ww1">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -4045,7 +4070,7 @@
 </section>
 
 <!-- SLIDE 15: ยุคที่ 08 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="15" data-era="ww2">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="15" data-era="ww2">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -4112,7 +4137,7 @@
 </section>
 
 <!-- SLIDE 16: ยุคที่ 08 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="16" data-era="ww2">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="16" data-era="ww2">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -4571,7 +4596,7 @@
 </section>
 
 <!-- SLIDE 17: ยุคที่ 09 CENTRAL THESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="17" data-era="coldwar">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="17" data-era="coldwar">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -4638,7 +4663,7 @@
 </section>
 
 <!-- SLIDE 18: ยุคที่ 09 DYNAMICS & CINEMA -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="18" data-era="coldwar">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="18" data-era="coldwar">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     
     <!-- Top Header Bar (Identical locked baseline across all slides) -->
@@ -4956,7 +4981,7 @@
 </section>
 
 <!-- SLIDE 19: GLOBAL SYNTHESIS -->
-<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto" data-slide-index="19">
+<section class="slide-item flex flex-col justify-start p-6 md:py-8 md:px-12 h-full bg-[#fafafa] dark:bg-[#0f172a] overflow-y-auto custom-scrollbar" data-slide-index="19">
   <div class="max-w-6xl w-full mx-auto flex flex-col flex-1">
     <div class="font-mono text-xs text-[#107895] dark:text-[#38bdf8] font-semibold mb-1 uppercase tracking-wider">
       บทสังเคราะห์สัจธรรมและวิธีวิทยาทางประวัติศาสตร์
@@ -8820,9 +8845,7 @@
     function openGlossaryModal(focusTermId) {
       var modal = document.getElementById('glossaryModal');
       if (!modal) return;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+      openModalAnimated(modal);
 
       if (focusTermId && typeof focusTermId === 'string') {
         var searchInput = document.getElementById('glossary-search-input');
@@ -9459,9 +9482,7 @@
         document.body.appendChild(modal);
       }
 
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+      openModalAnimated(modal);
 
       if (scrollSelector) {
         setTimeout(function() {
@@ -9478,12 +9499,8 @@
     function closeArticleModal() {
       window.currentReadingArticleKey = null;
       var modal = document.getElementById('articleModal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        modal.classList.remove('split-mode');
-        document.body.style.overflow = '';
-      }
+      if (modal) modal.classList.remove('split-mode');
+      closeModalAnimated(modal);
       var drawer = document.getElementById('hybrid-map-drawer');
       if (drawer) {
         drawer.classList.remove('split-mode');
@@ -9493,6 +9510,49 @@
         history.replaceState(null, '', h);
       }
       if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
+    }
+
+    
+    // Universal Animated Modal Helpers
+    function openModalAnimated(modalEl) {
+      if (typeof modalEl === 'string') modalEl = document.getElementById(modalEl);
+      if (!modalEl) return;
+      
+      modalEl.classList.add('modal-anim-overlay');
+      var card = modalEl.querySelector('.modal-anim-card') || modalEl.firstElementChild;
+      if (card && !card.classList.contains('modal-anim-card')) {
+        card.classList.add('modal-anim-card');
+      }
+      
+      var fsTarget = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+      if (fsTarget && modalEl.parentElement !== fsTarget) {
+        fsTarget.appendChild(modalEl);
+      } else if (!fsTarget && modalEl.parentElement !== document.body) {
+        document.body.appendChild(modalEl);
+      }
+
+      modalEl.classList.remove('hidden');
+      modalEl.classList.add('flex');
+      void modalEl.offsetWidth; // force reflow for smooth start
+      requestAnimationFrame(function() {
+        modalEl.classList.add('active-modal');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModalAnimated(modalEl, onClosed) {
+      if (typeof modalEl === 'string') modalEl = document.getElementById(modalEl);
+      if (!modalEl) {
+        if (typeof onClosed === 'function') onClosed();
+        return;
+      }
+      modalEl.classList.remove('active-modal');
+      setTimeout(function() {
+        modalEl.classList.add('hidden');
+        modalEl.classList.remove('flex');
+        document.body.style.overflow = '';
+        if (typeof onClosed === 'function') onClosed();
+      }, 220);
     }
 
     function showMovieDetail(movieKey) {
@@ -9548,11 +9608,7 @@
     function closeMovieModal() {
       window.currentReadingMovieKey = null;
       var modal = document.getElementById('movieModal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }
+      closeModalAnimated(modal);
       if (window.history && window.history.replaceState) {
         var h = (currentView === 'slides') ? ('#slide-' + (typeof currentSlide !== 'undefined' ? currentSlide : 0)) : ('#' + currentView);
         history.replaceState(null, '', h);
@@ -9578,6 +9634,23 @@
 
     // 10. KEYBOARD SHORTCUTS & EVENT LISTENERS
     window.addEventListener('keydown', function(e) {
+      // Presentation Clicker / Keyboard Navigation for Slides View
+      if (typeof currentView !== 'undefined' && currentView === 'slides') {
+        var anyModalOpen = document.querySelector('.modal-anim-overlay.active-modal, #articleModal:not(.hidden), #movieModal:not(.hidden), #literatureModal:not(.hidden), #globalSearchModal:not(.hidden)');
+        if (!anyModalOpen && (!e.target || !['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName))) {
+          if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
+            e.preventDefault();
+            if (typeof nextSlide === 'function') nextSlide();
+            return;
+          }
+          if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
+            e.preventDefault();
+            if (typeof prevSlide === 'function') prevSlide();
+            return;
+          }
+        }
+      }
+
       // Global Search Shortcuts: Ctrl+K, Cmd+K, and / (outside inputs)
       if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
         e.preventDefault();
@@ -9650,6 +9723,14 @@
     document.getElementById('articleModal').addEventListener('click', function(e) {
       if (e.target === this) closeArticleModal();
     });
+    
+    var litModEl = document.getElementById('literatureModal');
+    if (litModEl) {
+      litModEl.addEventListener('click', function(e) {
+        if (e.target === this) closeLiteratureModal();
+      });
+    }
+  
     document.getElementById('movieModal').addEventListener('click', function(e) {
       if (e.target === this) closeMovieModal();
     });
@@ -10024,11 +10105,7 @@
     function closeLiteratureModal() {
       window.currentReadingLitKey = null;
       var modal = document.getElementById('literatureModal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }
+      closeModalAnimated(modal);
       if (window.history && window.history.replaceState) {
         var h = (currentView === 'slides') ? ('#slide-' + (typeof currentSlide !== 'undefined' ? currentSlide : 0)) : ('#' + currentView);
         history.replaceState(null, '', h);
@@ -13764,7 +13841,7 @@ function closeMythMiniQuizModal() {
 
     <!-- ==================== VIRTUAL LASER POINTER & SPOTLIGHT ELEMENTS ==================== -->
     <div id="virtual-laser-dot" class="hidden fixed pointer-events-none z-[9999] w-4 h-4 rounded-full bg-red-600 shadow-[0_0_12px_4px_rgba(239,68,68,0.9)] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"></div>
-    <div id="virtual-spotlight-mask" class="hidden fixed inset-0 pointer-events-none z-[100000] transition-opacity duration-200"></div>
+    <div id="virtual-spotlight-mask" class="hidden fixed inset-0 pointer-events-none z-[100002] transition-opacity duration-200"></div>
 
     <!-- ==================== TOAST NOTIFICATION ==================== -->
     <div id="v6-toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-slate-900/90 text-white dark:bg-white/90 dark:text-slate-900 px-4 py-2 rounded-xl text-xs font-sans font-medium shadow-xl backdrop-blur-sm flex items-center gap-2">
@@ -13773,7 +13850,7 @@ function closeMythMiniQuizModal() {
 
 
     <!-- ==================== FLOATING TEACHER TOOLS & LIVE QR DOCK ==================== -->
-    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-[99999] flex flex-col items-center gap-2 select-none pointer-events-auto">
+    <div id="screen-floating-dock" class="fixed bottom-14 right-4 z-[100001] flex flex-col items-center gap-2 select-none pointer-events-auto">
       
       <!-- ก้อนที่ 1 (อยู่ข้างบนของ QR): เครื่องมือช่วยสอน (⏱️ จับเวลา, 🔴 เลเซอร์, 🔦 สปอตไลท์) -->
       <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl flex flex-col gap-1.5 w-[96px] text-center">
