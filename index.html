@@ -8267,23 +8267,82 @@
       }
     }
 
-    // 3. MULTI-VIEW NAVIGATION CONTROLLER (5 VIEWS)
-    var currentView = 'slides'; // 'slides', 'timeline', 'mindmap', 'map', 'articles', 'movies'
+    // 3. MULTI-VIEW NAVIGATION & CROSS-LANGUAGE STATE CONTROLLER
+    var currentView = 'slides'; // 'slides', 'timeline', 'mindmap', 'map', 'articles', 'movies', 'literature', 'quiz'
     var viewsList = ['slides', 'timeline', 'mindmap', 'map', 'articles', 'movies', 'literature', 'quiz'];
 
-    
-    function navigateToLang(targetPage) {
-      var hash = '';
-      if (typeof currentView !== 'undefined') {
-        if (currentView === 'slides' && typeof currentSlideIndex !== 'undefined') {
-          hash = '#slide-' + currentSlideIndex;
-        } else {
-          hash = '#' + currentView;
-        }
-      } else if (window.location.hash) {
-        hash = window.location.hash;
+    function getCurrentNavState() {
+      var state = {
+        view: (typeof currentView !== 'undefined' && currentView) ? currentView : 'slides',
+        slide: (typeof currentSlide !== 'undefined' && typeof currentSlide === 'number') ? currentSlide : 0
+      };
+
+      var articleModal = document.getElementById('articleModal');
+      if (articleModal && !articleModal.classList.contains('hidden') && window.currentReadingArticleKey) {
+        state.article = window.currentReadingArticleKey;
       }
-      window.location.href = targetPage.split('#')[0] + hash;
+
+      var movieModal = document.getElementById('movieModal');
+      if (movieModal && !movieModal.classList.contains('hidden') && window.currentReadingMovieKey) {
+        state.movie = window.currentReadingMovieKey;
+      }
+
+      var litModal = document.getElementById('literatureModal');
+      if (litModal && !litModal.classList.contains('hidden') && window.currentReadingLitKey) {
+        state.literature = window.currentReadingLitKey;
+      }
+
+      var mythModal = document.getElementById('myth-mini-quiz-modal');
+      if (mythModal && !mythModal.classList.contains('hidden') && window.currentMythData && window.currentMythData.id) {
+        state.myth = window.currentMythData.id;
+      }
+
+      var glossaryModal = document.getElementById('glossaryModal');
+      if (glossaryModal && !glossaryModal.classList.contains('hidden')) {
+        state.glossary = true;
+      }
+
+      var searchModal = document.getElementById('globalSearchModal');
+      if (searchModal && !searchModal.classList.contains('hidden')) {
+        state.search = true;
+      }
+
+      return state;
+    }
+
+    function encodeStateToHash(state) {
+      if (!state) return '';
+      if (state.article) return '#article=' + encodeURIComponent(state.article);
+      if (state.movie) return '#movie=' + encodeURIComponent(state.movie);
+      if (state.literature) return '#literature=' + encodeURIComponent(state.literature);
+      if (state.myth) return '#myth=' + encodeURIComponent(state.myth);
+      if (state.glossary) return '#glossary';
+      if (state.search) return '#search';
+      if (state.view === 'slides') return '#slide-' + (typeof state.slide === 'number' ? state.slide : 0);
+      return '#' + state.view;
+    }
+
+    function updateLangSwitchBtn() {
+      var btn = document.getElementById('lang-switch-btn');
+      if (!btn) return;
+      var state = getCurrentNavState();
+      var hash = encodeStateToHash(state);
+      var currentHref = btn.getAttribute('href') || '';
+      var cleanTarget = currentHref.split('#')[0];
+      if (cleanTarget) {
+        btn.setAttribute('href', cleanTarget + hash);
+      }
+    }
+
+    function navigateToLang(targetPage) {
+      var state = getCurrentNavState();
+      try {
+        sessionStorage.setItem('chronoscope_lang_state', JSON.stringify(state));
+      } catch (e) {}
+
+      var hash = encodeStateToHash(state);
+      var cleanTarget = targetPage.split('#')[0];
+      window.location.href = cleanTarget + hash;
     }
 
     function switchView(viewName) {
@@ -8344,12 +8403,18 @@
       } else if (viewName === 'literature') {
         renderLiteratureList();
       } else if (viewName === 'quiz') {
-        initQuizView();
+        if (typeof initQuizView === 'function') initQuizView();
       }
 
       if (viewName !== 'slides') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+
+      if (window.history && window.history.replaceState) {
+        var h = (viewName === 'slides') ? ('#slide-' + (typeof currentSlide !== 'undefined' ? currentSlide : 0)) : ('#' + viewName);
+        history.replaceState(null, '', h);
+      }
+      if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
     }
 
     // ----------------------------------------------------
@@ -8630,6 +8695,10 @@
       if (index >= 0 && index < totalSlides) {
         currentSlide = index;
         updateSlide();
+        if (currentView === 'slides' && window.history && window.history.replaceState) {
+          history.replaceState(null, '', '#slide-' + index);
+        }
+        if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
       }
     }
 
@@ -8958,6 +9027,10 @@
         articleKey = articleAliases[articleKey];
       }
       window.currentReadingArticleKey = articleKey;
+      if (window.history && window.history.replaceState) {
+        history.replaceState(null, '', '#article=' + encodeURIComponent(articleKey));
+      }
+      if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
       var mapBtn = document.getElementById('reader-map-btn');
       if (mapBtn) { mapBtn.classList.remove('hidden'); }
       var art = deepDiveArticles[articleKey];
@@ -8991,6 +9064,7 @@
     }
 
     function closeArticleModal() {
+      window.currentReadingArticleKey = null;
       var modal = document.getElementById('articleModal');
       if (modal) {
         modal.classList.add('hidden');
@@ -9002,9 +9076,19 @@
       if (drawer) {
         drawer.classList.remove('split-mode');
       }
+      if (window.history && window.history.replaceState) {
+        var h = (currentView === 'slides') ? ('#slide-' + (typeof currentSlide !== 'undefined' ? currentSlide : 0)) : ('#' + currentView);
+        history.replaceState(null, '', h);
+      }
+      if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
     }
 
     function showMovieDetail(movieKey) {
+      window.currentReadingMovieKey = movieKey;
+      if (window.history && window.history.replaceState) {
+        history.replaceState(null, '', '#movie=' + encodeURIComponent(movieKey));
+      }
+      if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
       var m = movieDatabase[movieKey];
       var modal = document.getElementById('movieModal');
       var content = document.getElementById('movieModalContent');
@@ -9025,12 +9109,18 @@
     }
 
     function closeMovieModal() {
+      window.currentReadingMovieKey = null;
       var modal = document.getElementById('movieModal');
       if (modal) {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         document.body.style.overflow = '';
       }
+      if (window.history && window.history.replaceState) {
+        var h = (currentView === 'slides') ? ('#slide-' + (typeof currentSlide !== 'undefined' ? currentSlide : 0)) : ('#' + currentView);
+        history.replaceState(null, '', h);
+      }
+      if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
     }
 
     function handleFullscreenChange() {
@@ -9127,52 +9217,103 @@
       if (e.target === this) closeMovieModal();
     });
 
-    // Initialize on DOM load
-    
-    function handleHashRouting() {
-      var hash = (window.location.hash || '').replace('#', '').trim();
-      if (hash) {
-        if (['slides', 'timeline', 'mindmap', 'articles', 'movies', 'literature'].indexOf(hash) !== -1) {
-          switchView(hash);
-        } else if (hash.indexOf('slide-') === 0) {
-          var sIdx = parseInt(hash.replace('slide-', ''));
-          if (!isNaN(sIdx)) {
-            switchView('slides');
-            goToSlide(sIdx);
-          }
-        } else if (hash === 'search') {
-          openGlobalSearch();
-        } else if (hash === 'glossary') {
-          openGlossaryModal();
+    // Initialize & State Routing
+    function parseHashToState(rawHash) {
+      if (!rawHash) return null;
+      var hash = rawHash.replace(/^#/, '').trim();
+      if (!hash) return null;
+
+      if (hash.indexOf('article=') === 0 || hash.indexOf('article-') === 0) {
+        var aKey = hash.replace(/^article[=-]/, '');
+        return { view: 'articles', article: decodeURIComponent(aKey) };
+      }
+      if (hash.indexOf('movie=') === 0 || hash.indexOf('movie-') === 0) {
+        var mKey = hash.replace(/^movie[=-]/, '');
+        return { view: 'movies', movie: decodeURIComponent(mKey) };
+      }
+      if (hash.indexOf('literature=') === 0 || hash.indexOf('literature-') === 0 || hash.indexOf('lit=') === 0) {
+        var lKey = hash.replace(/^(literature[=-]|lit=)/, '');
+        return { view: 'literature', literature: decodeURIComponent(lKey) };
+      }
+      if (hash.indexOf('myth=') === 0) {
+        var mythId = hash.replace(/^myth=/, '');
+        return { view: 'slides', myth: decodeURIComponent(mythId) };
+      }
+      if (hash.indexOf('slide-') === 0 || hash.indexOf('slide=') === 0) {
+        var sIdx = parseInt(hash.replace(/^slide[-=]/, ''), 10);
+        return { view: 'slides', slide: isNaN(sIdx) ? 0 : sIdx };
+      }
+      var allViews = ['slides', 'timeline', 'mindmap', 'map', 'articles', 'movies', 'literature', 'quiz'];
+      if (allViews.indexOf(hash) !== -1) {
+        return { view: hash };
+      }
+      if (hash === 'glossary') return { glossary: true };
+      if (hash === 'search') return { search: true };
+      return null;
+    }
+
+    function restoreNavState() {
+      var state = null;
+      try {
+        var saved = sessionStorage.getItem('chronoscope_lang_state');
+        if (saved) {
+          state = JSON.parse(saved);
+          sessionStorage.removeItem('chronoscope_lang_state');
+        }
+      } catch (e) {}
+
+      var rawHash = (window.location.hash || '').replace('#', '').trim();
+      if (rawHash) {
+        var hashState = parseHashToState(rawHash);
+        if (hashState) {
+          state = Object.assign(state || {}, hashState);
         }
       }
+
+      if (!state) return;
+
+      if (state.view && viewsList.indexOf(state.view) !== -1) {
+        switchView(state.view);
+      }
+      if (state.view === 'slides' || !state.view) {
+        if (typeof state.slide === 'number' && !isNaN(state.slide)) {
+          if (typeof goToSlide === 'function') {
+            goToSlide(state.slide);
+          }
+        }
+      }
+
+      setTimeout(function() {
+        if (state.article && typeof openDeepDive === 'function') {
+          openDeepDive(state.article);
+        } else if (state.movie && typeof openMovieModal === 'function') {
+          openMovieModal(state.movie);
+        } else if (state.literature && typeof showLiteratureDetail === 'function') {
+          showLiteratureDetail(state.literature);
+        } else if (state.myth && window.MYTHS_DATA && window.MYTHS_DATA[state.myth]) {
+          var m = window.MYTHS_DATA[state.myth];
+          if (typeof openMythMiniQuiz === 'function') {
+            openMythMiniQuiz(m.title, m.year, m.rumor, m.fact, m.articleKey);
+          }
+        } else if (state.glossary && typeof openGlossaryModal === 'function') {
+          openGlossaryModal();
+        } else if (state.search && typeof openGlobalSearch === 'function') {
+          openGlobalSearch();
+        }
+      }, 80);
     }
-    window.addEventListener('hashchange', handleHashRouting);
+
+    window.addEventListener('hashchange', function() {
+      restoreNavState();
+    });
 
     window.addEventListener('DOMContentLoaded', function() {
-      handleHashRouting();
       var saved = localStorage.getItem('chronoscope_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       setTheme(saved, false);
       updateSlide();
       initMetroDrag();
-
-      // Support URL hash routing: #timeline, #mindmap, #articles, #movies, #literature, #glossary, #search, #slide-N
-      var hash = (window.location.hash || '').replace('#', '').trim();
-      if (hash) {
-        if (['slides', 'timeline', 'mindmap', 'articles', 'movies', 'literature'].indexOf(hash) !== -1) {
-          switchView(hash);
-        } else if (hash.indexOf('slide-') === 0) {
-          var sIdx = parseInt(hash.replace('slide-', ''));
-          if (!isNaN(sIdx)) {
-            switchView('slides');
-            goToSlide(sIdx);
-          }
-        } else if (hash === 'search') {
-          openGlobalSearch();
-        } else if (hash === 'glossary') {
-          openGlossaryModal();
-        }
-      }
+      restoreNavState();
+      updateLangSwitchBtn();
     });
   
     // ====================================================
@@ -9295,6 +9436,11 @@
     }
 
     function showLiteratureDetail(litId) {
+      window.currentReadingLitKey = litId;
+      if (window.history && window.history.replaceState) {
+        history.replaceState(null, '', '#literature=' + encodeURIComponent(litId));
+      }
+      if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
       var item = literatureDatabase[litId];
       var modal = document.getElementById('literatureModal');
       var content = document.getElementById('literatureModalContent');
@@ -9428,12 +9574,18 @@
     }
 
     function closeLiteratureModal() {
+      window.currentReadingLitKey = null;
       var modal = document.getElementById('literatureModal');
       if (modal) {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         document.body.style.overflow = '';
       }
+      if (window.history && window.history.replaceState) {
+        var h = (currentView === 'slides') ? ('#slide-' + (typeof currentSlide !== 'undefined' ? currentSlide : 0)) : ('#' + currentView);
+        history.replaceState(null, '', h);
+      }
+      if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
     }
 
     function changeLitFontSize(delta) {
@@ -12815,6 +12967,16 @@ var currentMythData = null;
 
 function openMythMiniQuiz(title, year, rumor, fact, articleKey) {
   currentMythData = { title: title, year: year, rumor: rumor, fact: fact, articleKey: articleKey };
+  if (window.MYTHS_DATA) {
+    var foundKey = Object.keys(window.MYTHS_DATA).find(function(k) {
+      return window.MYTHS_DATA[k].title === title;
+    });
+    if (foundKey) currentMythData.id = foundKey;
+  }
+  if (currentMythData && currentMythData.id && window.history && window.history.replaceState) {
+    history.replaceState(null, '', '#myth=' + encodeURIComponent(currentMythData.id));
+  }
+  if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
   
   var modal = document.getElementById('myth-mini-quiz-modal');
   var titleEl = document.getElementById('myth-quiz-title');
@@ -12872,8 +13034,14 @@ function answerMythQuiz(choseMyth) {
 }
 
 function closeMythMiniQuizModal() {
+  if (currentMythData) currentMythData.id = null;
   var modal = document.getElementById('myth-mini-quiz-modal');
   if (modal) modal.classList.add('hidden');
+  if (window.history && window.history.replaceState) {
+    var h = (currentView === 'slides') ? ('#slide-' + (typeof currentSlide !== 'undefined' ? currentSlide : 0)) : ('#' + currentView);
+    history.replaceState(null, '', h);
+  }
+  if (typeof updateLangSwitchBtn === 'function') updateLangSwitchBtn();
 }
 
 
