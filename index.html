@@ -284,17 +284,28 @@
     }
 
     #presentation-viewport:fullscreen,
-    #presentation-viewport:-webkit-full-screen {
+    #presentation-viewport:-webkit-full-screen,
+    #presentation-viewport.presentation-is-fullscreen {
       width: 100vw !important;
       height: 100vh !important;
       background-color: var(--body-bg) !important;
     }
+    #presentation-viewport.presentation-is-fullscreen {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 99990 !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      border-radius: 0 !important;
+    }
     .cream #presentation-viewport:fullscreen,
-    .cream #presentation-viewport:-webkit-full-screen {
+    .cream #presentation-viewport:-webkit-full-screen,
+    .cream #presentation-viewport.presentation-is-fullscreen {
       background-color: #f8f4ea !important;
     }
     .dark #presentation-viewport:fullscreen,
-    .dark #presentation-viewport:-webkit-full-screen {
+    .dark #presentation-viewport:-webkit-full-screen,
+    .dark #presentation-viewport.presentation-is-fullscreen {
       background-color: #0f172a !important;
     }
 
@@ -984,6 +995,12 @@
           <span id="theme-toggle-label" class="hidden xl:inline text-xs font-medium">ครีม</span>
         </button>
 
+        <!-- Presentation Full Screen Mode Button -->
+        <button id="header-presentation-btn" onclick="toggleFullscreen(true)" class="shrink-0 px-2 sm:px-2.5 py-1.5 rounded-md border border-sky-300/80 dark:border-sky-700/70 bg-sky-50/80 dark:bg-sky-950/40 text-sky-800 dark:text-sky-200 text-xs font-sans font-medium hover:bg-sky-100 dark:hover:bg-sky-900/60 hover:border-sky-400 dark:hover:border-sky-500 transition-all flex items-center gap-1 shadow-xs group cursor-pointer whitespace-nowrap" title="นำเสนอเต็มจอแบบ PowerPoint [คีย์ลัด: F]">
+          <span class="text-sm group-hover:scale-110 transition-transform">📺</span>
+          <span class="hidden xl:inline whitespace-nowrap font-sans font-medium text-xs">นำเสนอ</span>
+        </button>
+
         <!-- Mobile Select Menu -->
         <select onchange="switchView(this.value)" class="md:hidden text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md px-1.5 py-1 text-slate-700 dark:text-slate-200">
           <optgroup label="── 3 รูปแบบนำเสนอ ──">
@@ -1009,7 +1026,12 @@
        VIEW 1: SLIDE PRESENTATION MODE (FROM V3 QUARTO CLEAN)
        ==================================================== -->
   <main id="view-slides">
-    <div id="presentation-viewport">
+    <div id="presentation-viewport" class="relative">
+      <!-- Floating Exit Fullscreen Button (Visible in Presentation Fullscreen) -->
+      <button id="presentation-floating-exit-fs" onclick="toggleFullscreen(false)" class="hidden absolute top-3 right-4 z-50 px-3 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white text-xs font-sans font-medium backdrop-blur-md shadow-lg border border-white/20 items-center gap-1.5 transition-all cursor-pointer group" title="ออกจากโหมดนำเสนอเต็มจอ (Esc)">
+        <span class="text-sm group-hover:scale-110 transition-transform">🗗</span>
+        <span>ออกจากเต็มจอ (Esc)</span>
+      </button>
       <!-- Slide Stage -->
       <div id="slide-stage">
         <div id="slides-container">
@@ -1044,7 +1066,11 @@
     </div>
 
     <!-- Action Buttons -->
-    <div class="flex flex-wrap gap-3">
+    <div class="flex flex-wrap gap-3 items-center">
+      <button onclick="toggleFullscreen(true)" class="button cursor-pointer flex items-center gap-2 font-semibold shadow-md bg-[#107895] hover:bg-[#0b5e75] text-white" title="เปิดโหมดนำเสนอสไลด์เต็มหน้าจอเหมือน PowerPoint (F)">
+        <span>📺</span>
+        <span>นำเสนอเต็มจอ (Presentation) ⛶</span>
+      </button>
       <button onclick="nextSlide()" class="button cursor-pointer">
         เริ่มรับฟังการบรรยาย &rarr;
       </button>
@@ -5061,8 +5087,9 @@
             <span>หน้าสุดท้าย ⇥</span>
           </button>
           <span id="slide-indicator" onclick="openSlideGridModal()" class="text-slate-600 dark:text-slate-400 font-semibold font-mono text-xs whitespace-nowrap cursor-pointer hover:text-[#107895] hover:underline" title="คลิกเพื่อเปิดผังรวม 20 สไลด์">สไลด์ 01 / 20</span>
-          <button onclick="toggleFullscreen()" class="px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all shadow-xs cursor-pointer" title="เต็มจอ (F)">
-            <span>⛶</span>
+          <button id="slide-fullscreen-btn" onclick="toggleFullscreen()" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 transition-all shadow-xs font-sans cursor-pointer group" title="เปิด/ปิดโหมดนำเสนอเต็มจอแบบ PowerPoint (F)">
+            <span id="slide-fullscreen-icon" class="text-sm group-hover:scale-110 transition-transform">⛶</span>
+            <span id="slide-fullscreen-text" class="text-xs font-semibold hidden sm:inline">เต็มจอ</span>
           </button>
         </div>
       </div>
@@ -9158,18 +9185,119 @@
       }
     }
 
-    function toggleFullscreen() {
+    function updatePresentationFullscreenUI(isActive) {
+      var isEn = (typeof document.documentElement.lang !== 'undefined' && document.documentElement.lang === 'en') || (window.location.pathname.indexOf('index_en.html') !== -1);
+      
+      // 1. Floating Exit Button inside viewport
+      var floatingBtn = document.getElementById('presentation-floating-exit-fs');
+      if (floatingBtn) {
+        if (isActive) {
+          floatingBtn.classList.remove('hidden');
+          floatingBtn.classList.add('flex');
+        } else {
+          floatingBtn.classList.remove('flex');
+          floatingBtn.classList.add('hidden');
+        }
+      }
+
+      // 2. Bottom Bar Button Icon & Text
+      var fsIcon = document.getElementById('slide-fullscreen-icon');
+      var fsText = document.getElementById('slide-fullscreen-text');
+      var fsBtn = document.getElementById('slide-fullscreen-btn');
+      if (fsIcon) {
+        fsIcon.textContent = isActive ? '🗗' : '⛶';
+      }
+      if (fsText) {
+        if (isEn) {
+          fsText.textContent = isActive ? 'Exit FS' : 'Full Screen';
+        } else {
+          fsText.textContent = isActive ? 'ย่อจอ' : 'เต็มจอ';
+        }
+      }
+      if (fsBtn) {
+        if (isEn) {
+          fsBtn.title = isActive ? 'Exit Full Screen Presentation (Esc / F)' : 'Toggle PowerPoint-style Full Screen Presentation (F)';
+        } else {
+          fsBtn.title = isActive ? 'ออกจากโหมดนำเสนอเต็มจอ (Esc / F)' : 'เปิด/ปิดโหมดนำเสนอเต็มจอแบบ PowerPoint (F)';
+        }
+      }
+
+      // 3. Float Screen Dock (Laser pointer, timer, spotlight) inside presentation-viewport
+      var dock = document.getElementById('screen-floating-dock');
+      var viewport = document.getElementById('presentation-viewport');
+      if (isActive && dock && viewport && dock.parentElement !== viewport) {
+        viewport.appendChild(dock);
+      } else if (!isActive && dock && dock.parentElement !== document.body) {
+        document.body.appendChild(dock);
+      }
+
+      // 4. Clean up modals if exiting
+      if (!isActive) {
+        var articleModal = document.getElementById('articleModal');
+        var movieModal = document.getElementById('movieModal');
+        var litModal = document.getElementById('literatureModal');
+        if (articleModal && articleModal.parentElement !== document.body) {
+          document.body.appendChild(articleModal);
+        }
+        if (movieModal && movieModal.parentElement !== document.body) {
+          document.body.appendChild(movieModal);
+        }
+        if (litModal && litModal.parentElement !== document.body) {
+          document.body.appendChild(litModal);
+        }
+      }
+    }
+
+    function toggleFullscreen(forceState) {
+      // If currently not on slides view, switch to slides first
+      if (typeof currentView !== 'undefined' && currentView !== 'slides') {
+        if (typeof switchView === 'function') {
+          switchView('slides');
+        }
+      }
+
       var elem = document.getElementById('presentation-viewport');
       if (!elem) return;
-      var fs = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
-      if (!fs) {
-        if (elem.requestFullscreen) elem.requestFullscreen();
-        else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
-        else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+
+      var currentNativeFs = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+      var isCssFs = elem.classList.contains('presentation-is-fullscreen');
+      var isCurrentlyActive = !!(currentNativeFs || isCssFs);
+
+      var shouldEnter = (typeof forceState === 'boolean') ? forceState : !isCurrentlyActive;
+
+      if (shouldEnter) {
+        elem.classList.add('presentation-is-fullscreen');
+        updatePresentationFullscreenUI(true);
+
+        // Attempt browser native fullscreen
+        var req = elem.requestFullscreen || elem.webkitRequestFullscreen || elem.mozRequestFullScreen || elem.msRequestFullscreen;
+        if (req && !currentNativeFs) {
+          try {
+            var promise = req.call(elem);
+            if (promise && promise.catch) {
+              promise.catch(function(err) {
+                console.log('Native fullscreen fallback active:', err);
+              });
+            }
+          } catch (e) {
+            console.log('Native fullscreen error, fallback active:', e);
+          }
+        }
       } else {
-        if (document.exitFullscreen) document.exitFullscreen();
-        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-        else if (document.msExitFullscreen) document.msExitFullscreen();
+        elem.classList.remove('presentation-is-fullscreen');
+        updatePresentationFullscreenUI(false);
+
+        if (currentNativeFs) {
+          var exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+          if (exit) {
+            try {
+              var exitPromise = exit.call(document);
+              if (exitPromise && exitPromise.catch) {
+                exitPromise.catch(function() {});
+              }
+            } catch (e) {}
+          }
+        }
       }
     }
 
@@ -9657,15 +9785,13 @@
 
     function handleFullscreenChange() {
       var fs = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+      var elem = document.getElementById('presentation-viewport');
       if (!fs) {
-        var articleModal = document.getElementById('articleModal');
-        var movieModal = document.getElementById('movieModal');
-        if (articleModal && articleModal.parentElement !== document.body) {
-          document.body.appendChild(articleModal);
-        }
-        if (movieModal && movieModal.parentElement !== document.body) {
-          document.body.appendChild(movieModal);
-        }
+        if (elem) elem.classList.remove('presentation-is-fullscreen');
+        updatePresentationFullscreenUI(false);
+      } else if (elem && (fs === elem || elem.contains(fs))) {
+        elem.classList.add('presentation-is-fullscreen');
+        updatePresentationFullscreenUI(true);
       }
     }
     document.addEventListener('fullscreenchange', handleFullscreenChange);
@@ -9730,6 +9856,16 @@
         if (litModalOpen) {
           closeLiteratureModal();
           e.stopPropagation();
+          return;
+        }
+
+        // Exit Presentation Fullscreen if active
+        var elem = document.getElementById('presentation-viewport');
+        var isPresFs = !!(document.fullscreenElement || document.webkitFullscreenElement || (elem && elem.classList.contains('presentation-is-fullscreen')));
+        if (isPresFs) {
+          toggleFullscreen(false);
+          e.stopPropagation();
+          return;
         }
         return;
       }
