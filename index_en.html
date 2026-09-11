@@ -923,6 +923,9 @@
           <button id="tab-literature" onclick="switchView('literature')" class="px-2 py-1.5 rounded-md text-xs sm:text-[13px] font-sans font-medium text-slate-600 hover:text-[#131516] dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex items-center gap-1 whitespace-nowrap shrink-0 cursor-pointer">
             <span>📚 Literature (45)</span>
           </button>
+          <button id="tab-quiz" onclick="switchView('quiz')" class="px-2 py-1.5 rounded-md text-xs sm:text-[13px] font-sans font-medium text-slate-600 hover:text-[#131516] dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex items-center gap-1 whitespace-nowrap shrink-0 cursor-pointer" title="Knowledge Assessment Quiz (10 Qs)">
+            <span>📝 Quiz (10 Qs)</span>
+          </button>
         </nav>
       </div>
 
@@ -1047,6 +1050,9 @@
         <button onclick="switchView('timeline')" class="text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-[#107895] dark:hover:text-[#38bdf8] px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-[#107895] dark:hover:border-[#38bdf8] transition-colors flex items-center gap-1 cursor-pointer">
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
+        </button>
+        <button type="button" onclick="openEraMap('greece', 'troy')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
         </button>
       </div>
     </div>
@@ -1443,6 +1449,9 @@
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
         </button>
+        <button type="button" onclick="openEraMap('rome', 'rome')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
+        </button>
       </div>
     </div>
 
@@ -1838,6 +1847,9 @@
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
         </button>
+        <button type="button" onclick="openEraMap('middleages', 'constantinople')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
+        </button>
       </div>
     </div>
 
@@ -2218,6 +2230,9 @@
         <button onclick="switchView('timeline')" class="text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-[#107895] dark:hover:text-[#38bdf8] px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-[#107895] dark:hover:border-[#38bdf8] transition-colors flex items-center gap-1 cursor-pointer">
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
+        </button>
+        <button type="button" onclick="openEraMap('renaissance', 'florence')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
         </button>
       </div>
     </div>
@@ -2614,6 +2629,9 @@
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
         </button>
+        <button type="button" onclick="openEraMap('enlightenment', 'boston')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
+        </button>
       </div>
     </div>
 
@@ -3009,6 +3027,9 @@
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
         </button>
+        <button type="button" onclick="openEraMap('industrial', 'suez_canal')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
+        </button>
       </div>
     </div>
 
@@ -3403,6 +3424,9 @@
         <button onclick="switchView('timeline')" class="text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-[#107895] dark:hover:text-[#38bdf8] px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-[#107895] dark:hover:border-[#38bdf8] transition-colors flex items-center gap-1 cursor-pointer">
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
+        </button>
+        <button type="button" onclick="openEraMap('ww1', 'sarajevo')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
         </button>
       </div>
     </div>
@@ -3811,6 +3835,9 @@
         <button onclick="switchView('timeline')" class="text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-[#107895] dark:hover:text-[#38bdf8] px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-[#107895] dark:hover:border-[#38bdf8] transition-colors flex items-center gap-1 cursor-pointer">
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
+        </button>
+        <button type="button" onclick="openEraMap('ww2', 'normandy')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
         </button>
       </div>
     </div>
@@ -4299,6 +4326,9 @@
           <span>Explore in Timeline</span>
           <span>&nearr;</span>
         </button>
+        <button type="button" onclick="openEraMap('coldwar', 'berlin_wall')" class="text-xs font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 px-2.5 py-1 rounded border border-emerald-300 dark:border-emerald-800 transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-2xs" title="Open Geopolitical Map for this Era">
+          <span>🗺️</span> <span>Geopolitical Map</span>
+        </button>
       </div>
     </div>
 
@@ -4680,8 +4710,14 @@
 
       <!-- Slide Bottom Control Bar (Quarto Clean Style) -->
       <div class="h-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 sm:px-6 flex items-center justify-between text-xs font-sans flex-shrink-0 z-20">
-        <!-- 1. LEFT: First Slide Button -->
-        <div class="flex items-center justify-start flex-1 min-w-0">
+        <!-- 1. LEFT: Grid on far-left & First Slide -->
+        <div class="flex items-center justify-start flex-1 min-w-0 gap-1.5 sm:gap-2">
+          <!-- ⊞ Slide Grid -->
+          <button onclick="openSlideGridModal()" class="px-3 py-1.5 rounded-lg bg-[#107895]/10 hover:bg-[#107895]/20 text-[#107895] dark:text-[#38bdf8] border border-[#107895]/30 flex items-center gap-1.5 transition-all shadow-xs font-sans font-semibold cursor-pointer shrink-0" title="Open 20-Slide Overview Grid (G)">
+            <span>⊞ Slide Grid</span>
+          </button>
+
+          <!-- ⇤ First -->
           <button onclick="firstSlide()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 transition-all shadow-xs font-sans font-medium hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer" title="First Slide (Home)">
             <span>⇤ First</span>
           </button>
@@ -4703,7 +4739,7 @@
           <button onclick="lastSlide()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 transition-all shadow-xs font-sans font-medium hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer" title="Last Slide (End)">
             <span>Last ⇥</span>
           </button>
-          <span id="slide-indicator" class="text-slate-600 dark:text-slate-400 font-semibold font-mono text-xs whitespace-nowrap">SLIDE 01 / 20</span>
+          <span id="slide-indicator" onclick="openSlideGridModal()" class="text-slate-600 dark:text-slate-400 font-semibold font-mono text-xs whitespace-nowrap cursor-pointer hover:text-[#107895] hover:underline" title="Click to open 20-slide grid">SLIDE 01 / 20</span>
           <button onclick="toggleFullscreen()" class="px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all shadow-xs cursor-pointer" title="Toggle Fullscreen (F)">
             <span>⛶</span>
           </button>
@@ -7541,7 +7577,7 @@
   <!-- ====================================================
        VIEW: FULL-PAGE GEOPOLITICAL MAP LABORATORY (38 HOTSPOTS)
        ==================================================== -->
-  <section id="view-map" class="hidden flex-col gap-4 py-4 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+  <section id="view-map" class="flex-1 w-full hidden flex-col relative px-3 sm:px-6 lg:px-8 py-4 sm:py-6 max-w-[1700px] mx-auto">
     <!-- View Header & Controls -->
     <div class="flex flex-col gap-3">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800">
@@ -7551,7 +7587,7 @@
               <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
               Full Geopolitical Map
             </span>
-            <span id="full-map-counter-badge" class="text-xs font-mono text-slate-500 dark:text-slate-400">38 Strategic Hotspots</span>
+            <span id="full-map-counter-badge" class="text-xs sm:text-sm font-mono font-normal px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">39 Strategic Coordinates</span>
           </div>
           <h2 class="text-xl sm:text-2xl font-bold font-serif text-slate-900 dark:text-white tracking-tight">
             🌍 World Geopolitical Cartography & Strategic Hotspots (9 Eras)
@@ -7571,7 +7607,7 @@
             <span>🔄 Reset View</span>
           </button>
           <button onclick="toggleFullMapSidebar()" id="full-map-sidebar-toggle-btn" class="px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-xs transition flex items-center gap-1.5 cursor-pointer" title="Toggle Hotspot Index Sidebar">
-            <span>📋 Hotspot Index (38)</span>
+            <span>📋 Hotspot Index (39)</span>
           </button>
         </div>
       </div>
@@ -8337,7 +8373,7 @@
 
     // 3. MULTI-VIEW NAVIGATION & CROSS-LANGUAGE STATE CONTROLLER
     var currentView = 'slides'; // 'slides', 'timeline', 'mindmap', 'map', 'articles', 'movies', 'literature'
-    var viewsList = ['slides', 'timeline', 'mindmap', 'map', 'articles', 'movies', 'literature'];
+    var viewsList = ['slides', 'timeline', 'mindmap', 'map', 'articles', 'movies', 'literature', 'quiz'];
 
     function getCurrentNavState() {
       var state = {
@@ -8470,6 +8506,8 @@
         renderMoviesList();
       } else if (viewName === 'literature') {
         renderLiteratureList();
+      } else if (viewName === 'quiz') {
+        if (typeof initQuizView === 'function') initQuizView();
       }
 
       if (viewName !== 'slides') {
@@ -10182,7 +10220,100 @@
   </script>
 
   
-    <!-- ==================== TEACHING TOOLS: FLOATING LECTURE TIMER ==================== -->
+        <!-- ==================== VIEW: TIMED ACADEMIC QUIZ (10 QUESTIONS) ==================== -->
+    <div id="view-quiz" class="hidden flex-1 flex-col overflow-y-auto bg-slate-50 dark:bg-[#0d1117] text-slate-900 dark:text-slate-100">
+      <!-- Quiz Header Banner -->
+      <div class="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 sm:px-8 py-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800 mb-2">
+              <span>🎓 University Academic Assessment</span>
+              <span>•</span>
+              <span>Bloom's Taxonomy: Remember & Understand</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold font-sans text-slate-900 dark:text-white tracking-tight">
+              World History & Geopolitics Knowledge Assessment (10 Qs)
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+              Covering core concepts across 9 historical eras • Difficulty distribution: 2 Easy, 5 Medium, 3 Hard • Automated pedagogical evaluation & full distractor rationale
+            </p>
+          </div>
+
+          <!-- Quiz Sets Selection & Randomizer (5 Sets x 10 Questions = 50 Items) -->
+          <div class="col-span-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300 mr-1 flex items-center gap-1">
+                <span>📚</span> <span>Select Question Set:</span>
+              </span>
+              <button type="button" onclick="switchQuizSet(1)" id="quiz-set-tab-1" class="quiz-set-tab px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer border bg-[#107895] text-white border-[#107895] shadow-2xs">Set 1</button>
+              <button type="button" onclick="switchQuizSet(2)" id="quiz-set-tab-2" class="quiz-set-tab px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer border bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-[#107895]">Set 2</button>
+              <button type="button" onclick="switchQuizSet(3)" id="quiz-set-tab-3" class="quiz-set-tab px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer border bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-[#107895]">Set 3</button>
+              <button type="button" onclick="switchQuizSet(4)" id="quiz-set-tab-4" class="quiz-set-tab px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer border bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-[#107895]">Set 4</button>
+              <button type="button" onclick="switchQuizSet(5)" id="quiz-set-tab-5" class="quiz-set-tab px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer border bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-[#107895]">Set 5</button>
+            </div>
+            <button type="button" onclick="randomQuizSet()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-xs font-bold shadow-xs transition flex items-center gap-1.5 cursor-pointer active:scale-95 shrink-0" title="Randomize Question Set">
+              <span>🎲</span>
+              <span>Random Set</span>
+            </button>
+          </div>
+
+          <!-- Live Timer Widget for Quiz -->
+          <div class="shrink-0 bg-slate-50 dark:bg-slate-800/80 p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-700 text-center min-w-[170px] shadow-xs">
+            <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1 flex items-center justify-center gap-1">
+              <span>⏱️ Time Remaining</span>
+            </div>
+            <div id="quiz-timer-display" class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">15:00</div>
+            <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full mt-2 overflow-hidden">
+              <div id="quiz-timer-bar" class="bg-emerald-500 h-full w-full transition-all duration-1000"></div>
+            </div>
+            <div class="flex items-center justify-center gap-2 mt-2">
+              <button type="button" id="quiz-timer-toggle-btn" onclick="toggleQuizTimerPause()" class="text-[11px] text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 underline cursor-pointer">
+                Pause
+              </button>
+              <span class="text-slate-300 dark:text-slate-600">•</span>
+              <button type="button" onclick="restartQuizTimer(900)" class="text-[11px] text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 underline cursor-pointer">
+                Reset 15 min
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Content Area -->
+      <div class="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-8 py-8 space-y-6">
+        <!-- Pre-Quiz Instruction or Results Dashboard -->
+        <div id="quiz-results-banner" class="hidden rounded-2xl p-6 border shadow-sm transition-all">
+          <!-- Dynamically populated on submission -->
+        </div>
+
+        <!-- 10 Questions Container -->
+        <div id="quiz-form" class="space-y-6">
+          <div id="quiz-questions-container" class="space-y-6">
+            <!-- Questions rendered by JS -->
+          </div>
+
+          <!-- Bottom Submission Bar -->
+          <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+              <span id="quiz-progress-text">Answered 0 of 10 questions</span>
+              <span>•</span>
+              <span>Upon submission, each question provides comprehensive academic rationale and distractor analysis</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="resetQuiz()" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs sm:text-sm font-medium transition-all cursor-pointer">
+                Clear Answers
+              </button>
+              <button type="button" onclick="submitQuiz(event)" id="quiz-submit-btn" class="px-6 py-2.5 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs sm:text-sm font-semibold shadow-md transition-all cursor-pointer flex items-center gap-2">
+                <span>Submit & View Evaluation</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ==================== TEACHING TOOLS: FLOATING LECTURE TIMER ==================== -->
     <div id="lecture-timer-widget" class="hidden fixed z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 w-64 font-sans select-none touch-none" style="top: 48%; right: 1rem; transform: translateY(-50%);">
       <!-- Draggable Header -->
       <div id="lecture-timer-drag-header" class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 cursor-grab active:cursor-grabbing hover:bg-slate-50/50 dark:hover:bg-slate-800/50 -mx-2 px-2 rounded-t-xl transition-colors" title="Drag to reposition anywhere on screen">
@@ -10520,6 +10651,2160 @@
     // =============================================================
     // TEACHING TOOLS: LECTURE STOPWATCH & INTERACTION CONTROLS
     // =============================================================
+    
+// =========================================================================
+// WORLD HISTORY ACADEMIC QUIZ (5 SETS x 10 QUESTIONS = 50 ITEMS)
+// =========================================================================
+
+var allQuizSets = {
+  "1": [
+    {
+      "id": 1,
+      "era": "Era 1: Mycenaean & Troy (~1200 BC)",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "In geopolitical terms, what was the primary strategic motivation for the Mycenaean Greek expedition against the city of Troy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Controlling the Dardanelles Straits (Hellespont) to dominate Black Sea maritime grain trade and toll routes"
+        },
+        {
+          "id": "B",
+          "text": "A purely romantic crusade to rescue Queen Helen of Sparta from Prince Paris"
+        },
+        {
+          "id": "C",
+          "text": "Religious war to eradicate worship of the Olympic pantheon in Asia Minor"
+        },
+        {
+          "id": "D",
+          "text": "Preemptive strike against Persian expansion into the Aegean Sea"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Archaeological and historical evidence indicates Troy was situated at the mouth of the Dardanelles (Hellespont), commanding all maritime commerce and grain shipments between the Aegean and Black Seas. The Greek campaign aimed to shatter Troy's toll monopoly.",
+        "distractors": {
+          "A": "Correct: Geopolitical control of maritime choke points was the structural root of the conflict.",
+          "B": "Incorrect: Helen's abduction is Homer's epic romanticization of a trade war.",
+          "C": "Incorrect: Both Greeks and Trojans worshipped the same Olympian deities.",
+          "D": "Incorrect: The Persian Empire did not emerge until approximately 700 years after the Trojan War."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "era": "Era 2: Roman Empire (753 BC – 476 AD)",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "Which Roman phrase symbolized Rome's complete maritime hegemony over the entire Mediterranean basin following the Punic Wars?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Veni, Vidi, Vici ('I came, I saw, I conquered')"
+        },
+        {
+          "id": "B",
+          "text": "Pax Romana ('The Roman Peace')"
+        },
+        {
+          "id": "C",
+          "text": "Mare Nostrum ('Our Sea')"
+        },
+        {
+          "id": "D",
+          "text": "Alea Iacta Est ('The die is cast')"
+        }
+      ],
+      "answer": "C",
+      "explanation": {
+        "correctReason": "After defeating Carthage and conquering the Hellenistic kingdoms, Rome encircled the Mediterranean entirely, turning it into an internal lake named 'Mare Nostrum' (Our Sea).",
+        "distractors": {
+          "A": "Incorrect: Caesar's boast after his rapid victory at the Battle of Zela.",
+          "B": "Incorrect: Refers to the two centuries of internal imperial stability initiated by Augustus.",
+          "C": "Correct: 'Mare Nostrum' reflects total geopolitical control over the Mediterranean coastline.",
+          "D": "Incorrect: Caesar's famous remark upon crossing the Rubicon in 49 BC."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "era": "Era 3: Middle Ages & Feudalism (476 – 1453 AD)",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the demographic collapse caused by the Black Death (1347–1351) accelerate the dissolution of European feudalism?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It caused the Roman Catholic Church to dissolve all monastic orders and forfeit its landed estates"
+        },
+        {
+          "id": "B",
+          "text": "Severe labor scarcity empowered surviving serfs to demand cash wages and freedom of mobility, eroding manorial bondage"
+        },
+        {
+          "id": "C",
+          "text": "It enabled Viking raiders to conquer Central Europe and replace feudalism with pagan assemblies"
+        },
+        {
+          "id": "D",
+          "text": "It led European monarchs to abolish agricultural cultivation in favor of transatlantic silver mining"
+        }
+      ],
+      "answer": "B",
+      "explanation": {
+        "correctReason": "With 30–50% of the European population wiped out, the acute agricultural labor shortage shifted bargaining power to peasants. Serfs could demand higher cash wages or migrate, destroying the unfree labor foundations of the feudal manorial system.",
+        "distractors": {
+          "A": "Incorrect: The Church retained substantial landholdings, though its moral authority weakened.",
+          "B": "Correct: Economic laws of supply and demand fundamentally dismantled the traditional feudal hierarchy.",
+          "C": "Incorrect: The Viking Age ended around 1066, nearly three centuries before the Black Death.",
+          "D": "Incorrect: Transatlantic exploration did not commence until 1492."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "era": "Era 4: Protestant Reformation (1517 – 1648)",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What foundational principle of modern international relations was codified by the Peace of Westphalia (1648) ending the Thirty Years' War?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Westphalian State Sovereignty (cuius regio, eius religio): exclusive territorial jurisdiction and non-intervention in internal affairs"
+        },
+        {
+          "id": "B",
+          "text": "Universal supremacy of the Papacy over European secular monarchs"
+        },
+        {
+          "id": "C",
+          "text": "Establishment of a permanent standing United Nations peacekeeping army"
+        },
+        {
+          "id": "D",
+          "text": "Abolition of all hereditary European monarchies in favor of democratic republics"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "The Peace of Westphalia recognized sovereign statehood: every sovereign prince possesses exclusive authority over their domestic territory, faith, and laws, establishing the bedrock of international law.",
+        "distractors": {
+          "A": "Correct: Westphalian sovereignty ended the Holy Roman Emperor's dream of a unified universal Catholic empire.",
+          "B": "Incorrect: The treaty curtailed papal influence in European geopolitical affairs.",
+          "C": "Incorrect: The United Nations was established in 1945 following World War II.",
+          "D": "Incorrect: Dynastic monarchies remained the dominant political system until the late 18th century."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "era": "Era 5: Enlightenment & Revolutions (1685 – 1815)",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Which Enlightenment political concept articulated by Montesquieu in 'The Spirit of the Laws' directly shaped the constitutional architecture of modern democracies?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Divine Right of Kings to rule without legislative restraint"
+        },
+        {
+          "id": "B",
+          "text": "Separation of Powers among Legislative, Executive, and Judicial branches to establish institutional checks and balances"
+        },
+        {
+          "id": "C",
+          "text": "The Dictatorship of the Proletariat to expropriate private means of production"
+        },
+        {
+          "id": "D",
+          "text": "Totalitarian theocracy subordinate to religious inquisitors"
+        }
+      ],
+      "answer": "B",
+      "explanation": {
+        "correctReason": "Baron de Montesquieu argued that political liberty requires the separation of governmental powers into distinct legislative, executive, and judicial branches, preventing tyranny through institutional checks and balances.",
+        "distractors": {
+          "A": "Incorrect: Absolute divine right was defended by thinkers like Bossuet and challenged by Enlightenment philosophers.",
+          "B": "Correct: Montesquieu's tripartite division became the core architecture of the US and modern constitutional democracies.",
+          "C": "Incorrect: Formulated by Karl Marx in the 19th century.",
+          "D": "Incorrect: Enlightenment philosophy strongly championed secularism and civil liberty."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "era": "Era 6: Industrial Revolution (1760 – 1914)",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Why did Great Britain become the first nation to experience the Industrial Revolution in the late 18th century?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Abundant coal and iron reserves, patent-protected rule of law, capital markets, and global colonial trade networks"
+        },
+        {
+          "id": "B",
+          "text": "Complete absence of taxation and total government refusal to build infrastructure"
+        },
+        {
+          "id": "C",
+          "text": "Immediate prohibition of all international commerce in favor of agrarian autarky"
+        },
+        {
+          "id": "D",
+          "text": "Exclusive access to atomic energy and automated computational machinery"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Britain possessed a convergence of factors: abundant surface coal and iron deposits, secure property rights post-Glorious Revolution, deep financial markets (Bank of England), and vast colonial trade generating raw materials and markets.",
+        "distractors": {
+          "A": "Correct: The confluence of geography, institutional rule of law, and colonial markets launched the industrial era.",
+          "B": "Incorrect: Britain maintained structured excise taxes and invested heavily in canals and roads.",
+          "C": "Incorrect: Britain was the epicenter of global maritime commerce.",
+          "D": "Incorrect: Nuclear energy and computers emerged during the mid-20th century."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "era": "Era 7: World War I (1914 – 1918)",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Which structural factor rapidly escalated the regional assassination crisis in Sarajevo into a catastrophic continental war?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The rigid interlocking alliance system (Triple Entente vs. Triple Alliance) and irreversible railroad mobilization timetables"
+        },
+        {
+          "id": "B",
+          "text": "An unprovoked surprise nuclear attack launched by the Austro-Hungarian Empire"
+        },
+        {
+          "id": "C",
+          "text": "The immediate military intervention of the League of Nations against Serbia"
+        },
+        {
+          "id": "D",
+          "text": "A global cyberwarfare campaign that disabled communications between European capitals"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "The network of secret mutual defense pacts and rigid military mobilization timetables turned the crisis into an unstoppable chain reaction: Austria declared war on Serbia, triggering Russian mobilization, German mobilization against Russia and France, and Britain's entry when Belgium was violated.",
+        "distractors": {
+          "A": "Correct: Secret entangling alliances turned a Balkan spark into a global conflagration.",
+          "B": "Incorrect: Nuclear weapons were developed during World War II.",
+          "C": "Incorrect: The League of Nations was founded after the war in 1919.",
+          "D": "Incorrect: 20th-century warfare relied on telegraphs, couriers, and radios."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "era": "Era 8: Cold War (1947 – 1991)",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What core assumption regarding Soviet behavior underpinned George F. Kennan's 'Containment' doctrine articulated in the Long Telegram (1946)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Soviet regime viewed itself in perpetual antagonism with capitalism, yet was pragmatic and sensitive to the logic of counterforce, making patient containment effective until internal decay occurred"
+        },
+        {
+          "id": "B",
+          "text": "The Soviet Union was eager to immediately surrender Eastern Europe in exchange for American agricultural loans"
+        },
+        {
+          "id": "C",
+          "text": "Soviet leadership was irrational and suicidal, requiring an immediate preemptive American nuclear first strike"
+        },
+        {
+          "id": "D",
+          "text": "The USSR and US shared identical ideological values and would merge into a single government"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Kennan argued that Soviet expansionism was driven by ideological insecurity and Russian imperial tradition. However, the Kremlin was rational and risk-averse; sustained, firm resistance at key geopolitical choke points would contain Soviet power until its internal contradictions caused systemic collapse.",
+        "distractors": {
+          "A": "Correct: Containment accurately forecasted that Soviet internal decay would eventually end the rivalry.",
+          "B": "Incorrect: Moscow strictly consolidated the Iron Curtain over Eastern Europe.",
+          "C": "Incorrect: Kennan strongly opposed preventive nuclear war, advocating diplomatic and economic containment.",
+          "D": "Incorrect: The Cold War was an irreconcilable ideological conflict between liberal democracy and Marxism-Leninism."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "era": "Era 9: Collapse of the Soviet Union (1985 – 1991)",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What major unintended consequence resulted from Mikhail Gorbachev's policy of 'Glasnost' (Openness)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Public exposure of historical atrocities, economic failures, and Chernobyl destroyed Communist Party moral legitimacy and fueled secessionist nationalism"
+        },
+        {
+          "id": "B",
+          "text": "Immediate reunification of the Soviet Union with the British Empire"
+        },
+        {
+          "id": "C",
+          "text": "Total industrial revitalization placing the Soviet economy ahead of the United States"
+        },
+        {
+          "id": "D",
+          "text": "Outlawing of all elections and re-establishment of Stalinist totalitarianism"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Gorbachev intended Glasnost to criticize bureaucratic corruption and support Perestroika. Instead, investigative journalism revealed historical crimes (Katyn massacre, secret Molotov-Ribbentrop protocols) and state incompetence, shattering ideological legitimacy and triggering independence movements across the 15 republics.",
+        "distractors": {
+          "A": "Correct: Freedom of information dismantled the regime's monopolistic propaganda apparatus.",
+          "B": "Incorrect: Purely fictitious scenario.",
+          "C": "Incorrect: Soviet economic performance worsened throughout the late 1980s.",
+          "D": "Incorrect: Glasnost initiated the first semi-free legislative elections in Soviet history."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "era": "Parallel Context: Mongol Empire (1206 – 1368)",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the 'Pax Mongolica' across the Eurasian landmass facilitate the first true wave of pre-modern global integration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By unifying Eurasia under common administration, securing the Silk Road with the Yam relay postal system and Paiza passports, transmitting technologies (gunpowder, printing, compass) but also the Black Death"
+        },
+        {
+          "id": "B",
+          "text": "By establishing a global maritime navy that colonized North and South America"
+        },
+        {
+          "id": "C",
+          "text": "By enforcing universal conversion of all Eurasian subjects to Tibetan Buddhism"
+        },
+        {
+          "id": "D",
+          "text": "By dismantling all trade routes and permanently severing contact between East and West"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Mongol unification created unprecedented overland security across the Silk Road. The Yam postal network and Paiza passports enabled rapid transit of merchants, ambassadors, and transformative Chinese inventions (gunpowder, magnetic compass, paper), while simultaneously facilitating the spread of the plague.",
+        "distractors": {
+          "A": "Correct: Pax Mongolica bridged East and West, transforming global technology and epidemiology.",
+          "B": "Incorrect: The Mongols were pastoral nomadic horse warriors, not a transoceanic naval power.",
+          "C": "Incorrect: The Mongol Empire was famous for religious tolerance and cosmopolitan governance.",
+          "D": "Incorrect: The Mongols actively stimulated commerce and lowered trade barriers."
+        }
+      }
+    }
+  ],
+  "2": [
+    {
+      "id": 1,
+      "era": "Era 1: Ancient Greece",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "What governmental system characterized Golden Age Athens under the leadership of Pericles?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Direct Democracy where all adult male citizens possessed the right to speak and vote directly in the sovereign assembly (Ecclesia)"
+        },
+        {
+          "id": "B",
+          "text": "Hereditary absolute monarchy ruled by an autocratic sovereign"
+        },
+        {
+          "id": "C",
+          "text": "Military oligarchy governed by an aristocratic council of elders (Gerousia)"
+        },
+        {
+          "id": "D",
+          "text": "Centralized constitutional federation headed by an elected president"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Athenian democracy was direct rather than representative. Free adult male citizens assembled on the Pnyx to debate and vote directly on state policy, laws, and declarations of war.",
+        "distractors": {
+          "A": "Correct: Direct citizen participation in the Ecclesia defined Athenian democratic governance.",
+          "B": "Incorrect: The Greeks rejected oriental autocracy, organizing themselves into independent poleis.",
+          "C": "Incorrect: Military oligarchy with the Gerousia was Sparta's unique constitutional model.",
+          "D": "Incorrect: Presidential federalism is an 18th-century institutional invention."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "era": "Era 2: Roman Empire",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Which strategic reform was crucial to the longevity of the Pax Romana instituted by Augustus?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Abolition of all military legions and complete disarmament of frontiers"
+        },
+        {
+          "id": "B",
+          "text": "Creating a professional standing army loyal to the Emperor through state-funded retirement land/cash, alongside secure defensible borders (Limes)"
+        },
+        {
+          "id": "C",
+          "text": "Immediate conversion of the empire to Christianity and banning Roman pagan rituals"
+        },
+        {
+          "id": "D",
+          "text": "Abandoning all western provinces to focus exclusively on Mesopotamia"
+        }
+      ],
+      "answer": "B",
+      "explanation": {
+        "correctReason": "Augustus professionalized the Roman military, funding soldier pensions directly from the imperial treasury (Aerarium Militare) to prevent private warlordism, while stabilizing borders along the Rhine-Danube Limes.",
+        "distractors": {
+          "A": "Incorrect: Imperial security relied upon roughly 28 professional legions totaling 150,000 legionaries plus auxiliaries.",
+          "B": "Correct: Institutionalizing a professional army and natural border defenses stabilized the Pax Romana.",
+          "C": "Incorrect: Christianity was not legalized until Constantine's Edict of Milan in 313 AD.",
+          "D": "Incorrect: Rome maintained control over Gaul, Hispania, and Britannia throughout this era."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "era": "Era 3: Middle Ages & Crusades",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What major socioeconomic transformation was stimulated in Western Europe by the Crusades (1095–1291)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Revival of Mediterranean commercial trade routes, enrichment of Italian city-states (Venice, Genoa), and reintroduction of classical Greco-Arabic science and philosophy"
+        },
+        {
+          "id": "B",
+          "text": "Permanent Christian colonization and direct annexation of the entire Middle East"
+        },
+        {
+          "id": "C",
+          "text": "Total abandonment of feudal agriculture in favor of mechanized factory labor"
+        },
+        {
+          "id": "D",
+          "text": "The complete destruction of European monarchies by Islamic caliphates"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Although the Crusader states eventually collapsed, the campaigns reopened maritime trade between Western Europe and the Levant, creating astronomical wealth for Italian maritime republics and reviving Greco-Arabic science, optics, mathematics, and medicine in Europe.",
+        "distractors": {
+          "A": "Correct: Reconnecting European commerce and intellectual traditions directly prepared Europe for the Renaissance.",
+          "B": "Incorrect: Crusader presence was pushed out of Acre by 1291.",
+          "C": "Incorrect: Factory mechanization did not occur until the late 18th century.",
+          "D": "Incorrect: European nation-states grew more centralized and fiscally capable as a result."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "era": "Era 4: Renaissance & Printing",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "How did Johannes Gutenberg's movable-type printing press (~1440) revolutionize European intellectual history?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It drastically lowered book production costs, democratized knowledge dissemination, and made the rapid spread of the Protestant Reformation and Scientific Revolution unstoppable"
+        },
+        {
+          "id": "B",
+          "text": "It enabled the Catholic Church to permanently censor all dissenting literature across Europe"
+        },
+        {
+          "id": "C",
+          "text": "It eliminated the need for written languages in favor of radio broadcasting"
+        },
+        {
+          "id": "D",
+          "text": "It forced European universities to teach exclusively in cuneiform"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Before Gutenberg, copying a Bible required months of hand-lettering on vellum. Movable type made mass production feasible, breaking the clerical monopoly on information and spreading Martin Luther's theses across Germany within weeks.",
+        "distractors": {
+          "A": "Correct: The printing press was the primary technological multiplier of the modern era.",
+          "B": "Incorrect: The press actually shattered church censorship mechanisms.",
+          "C": "Incorrect: Radio broadcasting emerged in the 20th century.",
+          "D": "Incorrect: The press stimulated vernacular literature (German, English, French, Italian)."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "era": "Era 5: French Revolution",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Why was the voting structure of the Estates-General in 1789 the immediate catalyst for the French Third Estate breaking away to form the National Assembly?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Each of the three estates had one collective vote, allowing the privileged Clergy and Nobility (2% of the population) to perpetually outvote the Third Estate (98% of the population)"
+        },
+        {
+          "id": "B",
+          "text": "The Third Estate was entirely excluded from entering Versailles palace"
+        },
+        {
+          "id": "C",
+          "text": "King Louis XVI attempted to assassinate the Pope during the opening ceremony"
+        },
+        {
+          "id": "D",
+          "text": "The British Navy had already occupied Paris and appointed a military governor"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Under the ancient regime rule, voting was 'by estate' rather than 'by head'. The First (Clergy) and Second (Nobility) Estates routinely united (2 to 1) to defeat tax reform, prompting the Third Estate to declare itself the true sovereign National Assembly in the Tennis Court Oath.",
+        "distractors": {
+          "A": "Correct: Institutional disenfranchisement of the 98% majority triggered the constitutional revolution.",
+          "B": "Incorrect: The Third Estate was seated in the Menus-Plaisirs hall at Versailles.",
+          "C": "Incorrect: Louis XVI was a devout Catholic trying to solve a sovereign debt crisis.",
+          "D": "Incorrect: Britain did not occupy Paris; France was at peace with Britain in 1789."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "era": "Era 6: Industrial Capitalism",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the invention of James Watt's condenser steam engine fundamentally liberate industrial manufacturing from geographic constraints?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It severed reliance on localized watermills and animal power, allowing factories to be concentrated in urban centers with coal access and deep labor pools"
+        },
+        {
+          "id": "B",
+          "text": "It allowed ships to navigate without requiring fuel or crew"
+        },
+        {
+          "id": "C",
+          "text": "It replaced human miners completely through automated robotics in the 18th century"
+        },
+        {
+          "id": "D",
+          "text": "It caused European industry to abandon iron smelting in favor of bronze"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Early factories had to be located along rushing rivers to drive water wheels. Watt's rotary steam engine allowed factories to operate anywhere coal could be transported, sparking rapid urbanization and the modern factory system in industrial cities like Manchester and Birmingham.",
+        "distractors": {
+          "A": "Correct: Portable rotary steam power untethered industry from fast-flowing river valleys.",
+          "B": "Incorrect: Steamships required massive tonnages of coal and extensive crews.",
+          "C": "Incorrect: Coal mining remained grueling manual labor employing hundreds of thousands.",
+          "D": "Incorrect: Iron and Bessemer steel production expanded exponentially."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "era": "Era 7: Interwar Period",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Why did the League of Nations fail to deter aggression by authoritarian states during the 1930s (e.g., Japan in Manchuria, Italy in Abyssinia)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lack of an independent military enforcement mechanism, non-membership of the United States, and unanimity voting requirements that crippled decisive action"
+        },
+        {
+          "id": "B",
+          "text": "Total domination of the League Council by the Soviet Union"
+        },
+        {
+          "id": "C",
+          "text": "The League possessed excessive nuclear weapons that terrified member states from voting"
+        },
+        {
+          "id": "D",
+          "text": "All member countries had formally agreed to disarm their navies completely"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "The League of Nations lacked independent enforcement teeth: economic sanctions were voluntary, it possessed no armed forces, the US Senate refused to ratify membership, and the unanimity rule in the Council enabled aggressor states to paralyze collective security.",
+        "distractors": {
+          "A": "Correct: Structural design flaws and absence of US leadership rendered collective security impotent.",
+          "B": "Incorrect: The USSR did not join until 1934 and was expelled in 1939 over Finland.",
+          "C": "Incorrect: Nuclear weapons did not exist in the 1930s.",
+          "D": "Incorrect: While naval treaties limited capital ship tonnage, major powers maintained large navies."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "era": "Era 8: World War II",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Why is the Battle of Stalingrad (1942–1943) universally considered the definitive military turning point of the European theater in WWII?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The complete encirclement and annihilation of the German 6th Army shattered Wehrmacht invincibility, permanently shifting strategic initiative to the Red Army"
+        },
+        {
+          "id": "B",
+          "text": "It was the first naval aircraft carrier confrontation in European waters"
+        },
+        {
+          "id": "C",
+          "text": "It resulted in the immediate surrender of Nazi Germany in early 1943"
+        },
+        {
+          "id": "D",
+          "text": "It caused Japan to declare war against the Soviet Union across Siberia"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "At Stalingrad, Field Marshal Paulus's 6th Army was encircled in Operation Uranus. The catastrophic loss of over 300,000 Axis troops broke Nazi offensive capabilities in the East; thereafter, the Wehrmacht was forced into continuous retreat back to Berlin.",
+        "distractors": {
+          "A": "Correct: Stalingrad broke the strategic backbone of Nazi military power on the Eastern Front.",
+          "B": "Incorrect: Stalingrad was an urban and land siege on the Volga River, not a naval battle.",
+          "C": "Incorrect: Nazi Germany continued fighting until May 1945.",
+          "D": "Incorrect: Japan and the USSR maintained their 1941 Neutrality Pact until August 1945."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "era": "Era 9: Cold War Nuclear Strategy",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What mutual compromise resolved the Cuban Missile Crisis in October 1962, averting nuclear war between the US and USSR?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Khrushchev agreed to dismantle and remove Soviet missiles from Cuba in exchange for Kennedy's public pledge not to invade Cuba and a secret pledge to withdraw US Jupiter missiles from Turkey"
+        },
+        {
+          "id": "B",
+          "text": "The United States annexed Cuba as the 51st state with United Nations approval"
+        },
+        {
+          "id": "C",
+          "text": "Fidel Castro was arrested and extradited to the International Court of Justice"
+        },
+        {
+          "id": "D",
+          "text": "Both superpowers agreed to totally disarm all nuclear warheads within 24 hours"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "The diplomatic settlement negotiated by Kennedy and Khrushchev combined a public US non-invasion pledge with a confidential agreement that the US would remove obsolete Jupiter nuclear missiles stationed in Turkey, allowing Khrushchev to withdraw Soviet MRBMs from Cuba with dignity intact.",
+        "distractors": {
+          "A": "Correct: The public non-invasion pledge combined with the secret Turkey missile withdrawal solved the standoff.",
+          "B": "Incorrect: Cuba remained an independent sovereign communist republic aligned with Moscow.",
+          "C": "Incorrect: Castro remained Cuba's head of state until 2008.",
+          "D": "Incorrect: Superpower nuclear arsenals expanded significantly in subsequent decades."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "era": "Era 4: Renaissance Humanism",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "In Niccolò Machiavelli's 'The Prince' (1513), what revolutionary intellectual departure from medieval political thought did he pioneer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Separating political realism (la verità effettuale) from theological morality, arguing rulers must prioritize state survival and effective power over Christian virtues"
+        },
+        {
+          "id": "B",
+          "text": "Insisting that kings must obey the Pope in all judicial and economic decisions"
+        },
+        {
+          "id": "C",
+          "text": "Advocating for immediate communist abolition of all private property"
+        },
+        {
+          "id": "D",
+          "text": "Declaring that military forces should be abolished and replaced with poetic contests"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Machiavelli decoupled politics from Christian theology, introducing empirical political realism. He argued that evaluating a ruler by abstract moral ideals invites ruin; statecraft requires analyzing human nature as it actually is and using power pragmatically for political stability.",
+        "distractors": {
+          "A": "Correct: Machiavelli is the founder of modern political science and realism (Realpolitik).",
+          "B": "Incorrect: Machiavelli was deeply critical of the corrupt political machinations of the papacy.",
+          "C": "Incorrect: Communism is a 19th-century ideology formulated by Marx.",
+          "D": "Incorrect: Machiavelli placed supreme importance on domestic citizen militias over mercenary armies."
+        }
+      }
+    }
+  ],
+  "3": [
+    {
+      "id": 1,
+      "era": "Era 1: Ancient Greece",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What was the long-term historical significance of the Greek naval victory at Salamis (480 BC)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It thwarted the Persian invasion of mainland Greece, safeguarding the embryonic development of Western democracy, philosophy, and classical arts"
+        },
+        {
+          "id": "B",
+          "text": "It allowed Sparta to conquer Athens and impose an absolute monarchy across Hellas"
+        },
+        {
+          "id": "C",
+          "text": "It triggered the immediate collapse of the Roman Republic"
+        },
+        {
+          "id": "D",
+          "text": "It forced Alexander the Great to halt his eastern campaigns before reaching Asia"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Themistocles used the narrow straits of Salamis to trap and destroy the Persian fleet with agile Greek triremes. Victory secured Greek independence, ushering in the Athenian Golden Age and preserving democratic theory and philosophy for world history.",
+        "distractors": {
+          "A": "Correct: Greek victory at Salamis allowed classical civilization to flourish unimpeded.",
+          "B": "Incorrect: Sparta and Athens fought as allies against Xerxes (the Peloponnesian War happened decades later).",
+          "C": "Incorrect: Rome was still an obscure minor town in central Italy in 480 BC.",
+          "D": "Incorrect: Alexander the Great lived more than 120 years after Salamis."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "era": "Era 2: Roman Republic to Empire",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What constitutional boundary did Julius Caesar violate when crossing the Rubicon in 49 BC?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Leading a Roman army across the provincial boundary into Italy without Senate permission, an act of treason that triggered civil war and the end of the Republic"
+        },
+        {
+          "id": "B",
+          "text": "Proclaiming himself the divine Pharaoh of Egypt"
+        },
+        {
+          "id": "C",
+          "text": "Abolishing Roman citizenship for all inhabitants of the Italian peninsula"
+        },
+        {
+          "id": "D",
+          "text": "Converting Roman state religion to Judaism"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Under Roman law (Lex Cornelia de Maiestate), a proconsul commanding military forces was strictly forbidden from crossing the Rubicon river into the Italian heartland under arms. Crossing it meant treason and rebellion against the Senate.",
+        "distractors": {
+          "A": "Correct: Crossing the Rubicon was an irrevocable declaration of civil war that dismantled republican institutions.",
+          "B": "Incorrect: Caesar entered an alliance with Cleopatra in Egypt after defeating Pompey.",
+          "C": "Incorrect: Caesar expanded Roman citizenship to conquered provincials (e.g., Transalpine Gaul).",
+          "D": "Incorrect: Caesar retained the title of Pontifex Maximus within traditional Roman paganism."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "era": "Era 3: Fall of Constantinople (1453)",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "How did the Ottoman conquest of Constantinople in 1453 directly stimulate the European Age of Discovery?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ottoman control over the eastern Mediterranean and Silk Road chokepoints levied heavy tariffs, compelling Iberian kingdoms to seek oceanic routes around Africa and across the Atlantic to Asia"
+        },
+        {
+          "id": "B",
+          "text": "Sultan Mehmed II financed Columbus's expedition to the Americas"
+        },
+        {
+          "id": "C",
+          "text": "European nations permanently banned all trade and maritime navigation"
+        },
+        {
+          "id": "D",
+          "text": "The Black Sea dried up completely, preventing any merchant shipping"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "With Constantinople and the Levant under Ottoman dominion, Venetian and Genoese overland spice routes were heavily taxed. Western European powers (Portugal, Spain) turned outward to the Atlantic, funding voyages by Vasco da Gama and Columbus to reach India and the Spice Islands directly.",
+        "distractors": {
+          "A": "Correct: Bypassing the Ottoman trade monopoly was the primary economic catalyst of the Age of Discovery.",
+          "B": "Incorrect: Columbus was funded by King Ferdinand and Queen Isabella of Spain.",
+          "C": "Incorrect: Maritime exploration expanded exponentially after 1453.",
+          "D": "Incorrect: The Black Sea remained a vital Ottoman internal body of water."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "era": "Era 4: Reformation & Sovereignty",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What core tenet of Martin Luther's theology in 1517 challenged the ecclesiastical authority of the Catholic Church?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sola Fide (Justification by Faith Alone) and the Priesthood of all Believers, denying that papal indulgences or priestly intercession could purchase salvation"
+        },
+        {
+          "id": "B",
+          "text": "Demanding that Latin be the only language used on Earth"
+        },
+        {
+          "id": "C",
+          "text": "Advocating that the Holy Roman Emperor be proclaimed the supreme deity"
+        },
+        {
+          "id": "D",
+          "text": "Insisting that salvation required pilgrimage to Mecca"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Luther argued that salvation is a free gift of God's grace received through faith alone (Sola Fide), not through works or financial indulgences. His translation of the Bible into German empowered ordinary believers to access scripture without hierarchical mediation.",
+        "distractors": {
+          "A": "Correct: Sola Fide and Sola Scriptura attacked the economic and doctrinal monopoly of the papacy.",
+          "B": "Incorrect: Luther championed vernacular national languages over Latin.",
+          "C": "Incorrect: Luther was declared an outlaw by Emperor Charles V at the Diet of Worms (1521).",
+          "D": "Incorrect: Mecca is the holy site of Islam, entirely unrelated to Christian theology."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "era": "Era 5: American Revolution",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Which John Locke philosophy was woven into Thomas Jefferson's 1776 Declaration of Independence?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Natural Rights to 'Life, Liberty, and Property (pursuit of Happiness)' and the right of the governed to alter or abolish a tyrannical government"
+        },
+        {
+          "id": "B",
+          "text": "Thomas Hobbes' Leviathan justifying total submission to an absolute sovereign"
+        },
+        {
+          "id": "C",
+          "text": "Feudal vassalage requiring all citizens to swear serfdom to landlords"
+        },
+        {
+          "id": "D",
+          "text": "The Marxist doctrine of dialectical historical materialism"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Jefferson drew directly upon John Locke's 'Second Treatise of Government'. Locke posited that governments exist by consent of the governed to protect inalienable natural rights; when a regime violates this compact, citizens possess the legitimate right to revolt.",
+        "distractors": {
+          "A": "Correct: Locke's social contract and inalienable rights form the philosophical core of 1776.",
+          "B": "Incorrect: Hobbes argued against rebellion, favoring absolute authority to prevent a state of nature.",
+          "C": "Incorrect: The American founders violently rejected feudalism and aristocratic titles.",
+          "D": "Incorrect: Marx wrote a century later in the mid-19th century."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "era": "Era 6: Marxist Political Economy",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "In the Communist Manifesto (1848), how did Karl Marx and Friedrich Engels characterize human historical progression?",
+      "options": [
+        {
+          "id": "A",
+          "text": "'The history of all hitherto existing society is the history of class struggles' between owners of capital (Bourgeoisie) and exploited workers (Proletariat)"
+        },
+        {
+          "id": "B",
+          "text": "A harmonious cycle of divine religious revelations guided by kings"
+        },
+        {
+          "id": "C",
+          "text": "A purely biological struggle where military conquerors naturally enslave farmers"
+        },
+        {
+          "id": "D",
+          "text": "An idyllic golden age that should return to stone age foraging"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Marx posited historical materialism: economic production structures society. History advances through systemic clashes between the ruling class owning means of production and the oppressed class whose labor creates value.",
+        "distractors": {
+          "A": "Correct: Class struggle is the foundational thesis of Marxist historiography.",
+          "B": "Incorrect: Marx viewed religion as an ideological superstructure ('opium of the people').",
+          "C": "Incorrect: This reflects Social Darwinism, which Marx rejected in favor of economic analysis.",
+          "D": "Incorrect: Marx viewed industrial capitalism as a necessary stage toward technological abundance."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "era": "Era 7: Treaty of Versailles (1919)",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did Article 231 (the 'War Guilt Clause') of the Treaty of Versailles foster political instability in Weimar Germany?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It forced Germany to accept sole moral responsibility for the war, justifying crushing financial reparations and feeding the toxic 'Stab-in-the-Back' (Dolchstoßlegende) myth exploited by extremists"
+        },
+        {
+          "id": "B",
+          "text": "It rewarded Germany with extensive overseas colonial territories in Africa"
+        },
+        {
+          "id": "C",
+          "text": "It merged Germany and Austria into an economic federation that dominated Europe"
+        },
+        {
+          "id": "D",
+          "text": "It forced Britain and France to pay Germany for reconstruction of the Ruhr"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Article 231 assigned exclusive legal blame for WWI to Germany and her allies, legally justifying enormous reparations. German nationalist sentiment felt humiliated, viewing the democratic Weimar politicians as traitors (the 'November Criminals'), creating fertile soil for fascist revanchism.",
+        "distractors": {
+          "A": "Correct: Article 231 delegitimized the Weimar Republic and paved the political runway for Hitler's rise.",
+          "B": "Incorrect: Germany was stripped of all overseas colonies and Alsace-Lorraine.",
+          "C": "Incorrect: The treaty explicitly banned Anschluss (unification of Germany and Austria).",
+          "D": "Incorrect: Germany was forced to pay the Allies, not vice versa."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "era": "Era 8: Interwar Appeasement",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What catastrophic strategic outcome resulted from the Munich Agreement (1938) signed by Britain, France, Italy, and Germany?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ceding Czechoslovakia's fortified Sudetenland to Hitler failed to satisfy him, leading to the total annexation of Czechoslovakia in March 1939 and emboldening the invasion of Poland"
+        },
+        {
+          "id": "B",
+          "text": "It successfully created lasting European peace throughout the 20th century"
+        },
+        {
+          "id": "C",
+          "text": "It caused Hitler to resign as Chancellor and restore the Weimar democracy"
+        },
+        {
+          "id": "D",
+          "text": "It provoked the United States into declaring immediate war against Germany"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Neville Chamberlain hoped appeasement would satisfy Hitler's territorial appetites. Instead, surrendering the Sudetenland stripped Czechoslovakia of its mountain fortifications and Skoda armaments factories. Within six months Hitler absorbed the rest, proving appeasement was bankrupt.",
+        "distractors": {
+          "A": "Correct: Munich demonstrated that concessions to expansionist dictators only invite further aggression.",
+          "B": "Incorrect: World War II erupted in Europe less than one year later in September 1939.",
+          "C": "Incorrect: Hitler's popularity and military prestige soared within Germany.",
+          "D": "Incorrect: The US remained deeply isolationist until the attack on Pearl Harbor in 1941."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "era": "Era 9: Vietnam War & Geopolitics",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the 'Domino Theory' dictate American strategic intervention in the Vietnam War?",
+      "options": [
+        {
+          "id": "A",
+          "text": "US policymakers believed that if South Vietnam fell to communism, neighboring Southeast Asian states (Laos, Cambodia, Thailand, Indonesia) would sequentially collapse like falling dominoes"
+        },
+        {
+          "id": "B",
+          "text": "It posited that European countries would rapidly convert to Buddhism"
+        },
+        {
+          "id": "C",
+          "text": "It was an economic theory proving capitalism could not produce consumer electronics"
+        },
+        {
+          "id": "D",
+          "text": "It argued that nuclear weapons should be handed over to the United Nations"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "First popularized by President Eisenhower in 1954, the Domino Theory treated communism as a monolithic expansionist bloc. Washington concluded that failure to hold Vietnam would trigger a regional collapse across Southeast Asia, drawing over 500,000 US combat troops into Vietnam by 1968.",
+        "distractors": {
+          "A": "Correct: The Domino Theory locked the US into a war of attrition in Indochina.",
+          "B": "Incorrect: Fictitious option.",
+          "C": "Incorrect: Fictitious economic misinterpretation.",
+          "D": "Incorrect: The US maintained nuclear deterrence throughout the Cold War."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "era": "Era 8: Post-War Reconstruction",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What dual strategic objectives did the Marshall Plan (European Recovery Program, 1948) accomplish for the Western world?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rebuilding Western European industrial infrastructure to foster economic stability while inoculating impoverished populations against the electoral appeal of communism"
+        },
+        {
+          "id": "B",
+          "text": "Financing the construction of Soviet military bases across France and Italy"
+        },
+        {
+          "id": "C",
+          "text": "Establishing an absolute trade embargo between the United States and Western Europe"
+        },
+        {
+          "id": "D",
+          "text": "Replacing all European currencies with Soviet rubles"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "The Marshall Plan pumped over $13 billion (equivalent to over $150 billion today) into European economies. It jumpstarted industrial recovery, opened European markets for American exports, and stabilized democratic governance against communist parties in Italy and France.",
+        "distractors": {
+          "A": "Correct: Economic reconstruction served as the essential economic pillar of Western containment.",
+          "B": "Incorrect: The Soviet Union rejected the plan and forced its Eastern European satellites to decline.",
+          "C": "Incorrect: The plan stimulated massive transatlantic free trade.",
+          "D": "Incorrect: The plan laid the groundwork for Western European monetary integration."
+        }
+      }
+    }
+  ],
+  "4": [
+    {
+      "id": 1,
+      "era": "Era 1: Ancient Greece & Homer",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Beyond literary merit, what supreme institutional role did Homer's Iliad and Odyssey perform in the ancient Greek world?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They served as the foundational Pan-Hellenic ethical and cultural curriculum, establishing shared linguistic identity, civic virtue (Arete), and common religious mythology across decentralized city-states"
+        },
+        {
+          "id": "B",
+          "text": "They were legal criminal codes enforced by an all-Greek supreme court in Delphi"
+        },
+        {
+          "id": "C",
+          "text": "They were secret military cryptographic manuals used exclusively by Spartan kings"
+        },
+        {
+          "id": "D",
+          "text": "They were official Persian tribute assessment scrolls"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "In a fractured Hellas divided into hundreds of rival poleis, Homer provided the universal textbook. Greek schoolboys memorized Homeric verses to learn moral virtue (Arete), theological cosmology, heroic ethics, and linguistic standards.",
+        "distractors": {
+          "A": "Correct: Homer was the cultural and ethical bedrock binding the Greek world together.",
+          "B": "Incorrect: Law was strictly established within individual poleis (e.g., Solon in Athens, Lycurgus in Sparta).",
+          "C": "Incorrect: Homeric rhapsodes recited epics publicly at open festivals like the Panathenaia.",
+          "D": "Incorrect: Homer composed centuries before the rise of the Achaemenid Empire."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "era": "Era 2: Roman Infrastructure",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "What was the supreme geopolitical and strategic utility of the paved Roman road network (Via Publica, totaling over 80,000 km)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enabling rapid military redeployment of legions to distant frontiers to suppress revolts, alongside high-speed imperial postal courier communication (Cursus Publicus)"
+        },
+        {
+          "id": "B",
+          "text": "Designed purely as decorative ceremonial parade grounds inside the city of Rome"
+        },
+        {
+          "id": "C",
+          "text": "Constructed to prevent citizens from migrating between provinces"
+        },
+        {
+          "id": "D",
+          "text": "Built exclusively for the movement of gladiator chariots to the Colosseum"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Roman roads were engineered for military superiority. Straight stone paving with drainage ditches enabled legions to march 30–40 km a day regardless of weather, allowing a relatively small standing army (300,000 men) to police an empire of 60 million people.",
+        "distractors": {
+          "A": "Correct: Strategic mobility and imperial logistics were the lifeblood of Roman imperial governance.",
+          "B": "Incorrect: Roads spanned three continents from Hadrian's Wall in Britain to the Euphrates in Syria.",
+          "C": "Incorrect: Roads promoted unprecedented civilian migration, commerce, and urbanization.",
+          "D": "Incorrect: Roman roads were public arterial highways connecting cities, camps, and ports."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "era": "Era 3: Hundred Years' War",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the Hundred Years' War (1337–1453) between England and France revolutionize European political architecture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It undermined feudal knightly warfare through longbows and artillery, fostered distinct national identities, and accelerated the development of centralized bureaucratic monarchies with professional standing armies"
+        },
+        {
+          "id": "B",
+          "text": "It resulted in England permanently annexing the entire kingdom of France into a single realm"
+        },
+        {
+          "id": "C",
+          "text": "It abolished all standing armies across Western Europe for two centuries"
+        },
+        {
+          "id": "D",
+          "text": "It forced both crowns to adopt direct democracy inspired by classical Athens"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "The long conflict rendered armored noble cavalry obsolete before massed Welsh longbowmen (Crécy, Agincourt) and gunpowder cannons (Castillon). Kings required permanent taxes to hire professional standing armies, fostering modern French and English national identities.",
+        "distractors": {
+          "A": "Correct: The war marked the transition from medieval feudal vassalage to sovereign territorial nation-states.",
+          "B": "Incorrect: England was expelled from all continental French territories except Calais.",
+          "C": "Incorrect: The war gave birth to the first permanent state-funded standing armies (e.g., French Compagnies d'Ordonnance).",
+          "D": "Incorrect: European monarchies grew substantially more centralized and absolute."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "era": "Era 4: Social Contract Theory",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did Enlightenment 'Social Contract' theory directly demolish the ideological legitimacy of the 'Divine Right of Kings'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By postulating that political sovereignty originates from the rational consent of the governed to protect natural rights, rather than from divine ordination from God to the monarch"
+        },
+        {
+          "id": "B",
+          "text": "By demonstrating mathematically that God had appointed royal families to govern forever"
+        },
+        {
+          "id": "C",
+          "text": "By arguing that kings should serve under the direct military command of the Pope"
+        },
+        {
+          "id": "D",
+          "text": "By proving that human society operates best without any laws, police, or magistrates"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Divine Right claimed monarchs were accountable only to God. Social Contract theorists (Hobbes, Locke, Rousseau) flipped political legitimacy upside down: sovereignty originates from the people, who delegate authority on the condition that rulers secure their rights.",
+        "distractors": {
+          "A": "Correct: Shifting the source of sovereignty from Heaven to the governed catalyzed modern constitutional revolution.",
+          "B": "Incorrect: Divine Right was defended by monarchists like Sir Robert Filmer, whom Locke refuted.",
+          "C": "Incorrect: Enlightenment thought advocated separation of church and state.",
+          "D": "Incorrect: Social contract theorists argued that government is necessary to avoid a chaotic state of nature."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "era": "Era 5: Scientific Revolution",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "What paradigm shift did Nicolaus Copernicus introduce in 'De revolutionibus orbium coelestium' (1543)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Heliocentrism: the astronomical model placing the Sun, rather than the Earth, at the center of the planetary orbits"
+        },
+        {
+          "id": "B",
+          "text": "The flat-Earth cosmology supported by ancient Babylonian astronomy"
+        },
+        {
+          "id": "C",
+          "text": "The theory of general relativity and quantum mechanics"
+        },
+        {
+          "id": "D",
+          "text": "The belief that planets are living biological creatures propelled by angels"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Copernicus overthrew the 1,400-year-old Ptolemaic-Aristotelian geocentric orthodoxy. By proving the Earth orbits the Sun while rotating on its axis, he ignited the Scientific Revolution refined by Kepler, Galileo, and Newton.",
+        "distractors": {
+          "A": "Correct: The Copernican Revolution displaced humanity from the static center of the cosmos.",
+          "B": "Incorrect: Educated Europeans and ancient Greeks had known the Earth was a sphere for millennia.",
+          "C": "Incorrect: Formulated by Albert Einstein and quantum physicists in the 20th century.",
+          "D": "Incorrect: Geocentrism was a mechanical celestial sphere model, which Copernicus challenged with mathematics."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "era": "Era 6: Revolutions of 1848",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What explosive ideological combination fueled the 1848 'Spring of Nations' uprisings that swept over 50 European countries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Liberal demands for constitutional democracy and freedom of the press fused with ethnic nationalism seeking unified nation-states (e.g., Germany, Italy, Hungary)"
+        },
+        {
+          "id": "B",
+          "text": "A widespread desire to re-establish the absolute feudal authority of the Holy Roman Empire"
+        },
+        {
+          "id": "C",
+          "text": "A coordinated military invasion by the Ottoman Empire against Christian Europe"
+        },
+        {
+          "id": "D",
+          "text": "A campaign by factory owners demanding the repeal of all mechanical inventions"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "1848 was the largest revolutionary wave in European history. Middle-class liberals demanded constitutional liberties and universal suffrage, working-class radicals demanded socialist protections, and subjugated nationalities (Italians, Germans, Poles, Hungarians) sought national independence from multi-ethnic dynastic empires.",
+        "distractors": {
+          "A": "Correct: The dual engines of constitutional liberalism and ethnic nationalism shattered Metternich's conservative order.",
+          "B": "Incorrect: 1848 sought to destroy aristocratic dynastic conservatism.",
+          "C": "Incorrect: The Ottoman Empire was neutral and sheltered Hungarian and Polish political exiles.",
+          "D": "Incorrect: Industrialists supported technological progress while workers protested exploitative working conditions."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "era": "Era 7: World War I Trench Warfare",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What tactical technological asymmetry produced the horrific bloody stalemate of Trench Warfare on the Western Front?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defensive military technology (rapid-fire machine guns, heavy artillery, barbed wire, rail logistics) was vastly superior to offensive mobility, until the development of combined-arms armor, air power, and infiltration tactics"
+        },
+        {
+          "id": "B",
+          "text": "Both armies refused to fire weapons due to international humanitarian treaties"
+        },
+        {
+          "id": "C",
+          "text": "A total global shortage of ammunition forced soldiers to dig defensive ditches"
+        },
+        {
+          "id": "D",
+          "text": "The Western Front was flooded with deep sea water by artificial canal breaches"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "In 1914, defense was industrialized while offensive mobility remained at the pace of foot-marching infantry. Frontal assaults against entrenched Maxim/Vickers machine guns and pre-registered heavy artillery produced catastrophic slaughter (e.g., Somme, Verdun) until tanks and stormtrooper tactics evolved in 1917–1918.",
+        "distractors": {
+          "A": "Correct: Firepower decisively favored tactical defense, locking millions into static trench networks.",
+          "B": "Incorrect: WWI witnessed unbridled industrial violence, including poison gas and flamethrowers.",
+          "C": "Incorrect: Industrial factories produced millions of high-explosive artillery shells per month.",
+          "D": "Incorrect: Flooding was localized only to coastal Flanders (Yser river) by Belgian engineers."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "era": "Era 8: Pearl Harbor (1941)",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "What was the decisive global geopolitical consequence of Imperial Japan's attack on Pearl Harbor on December 7, 1941?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It shattered American isolationism, uniting public opinion and catapulting the colossal industrial economy of the United States directly into World War II across both theaters"
+        },
+        {
+          "id": "B",
+          "text": "It forced the United States to immediately sign an unconditional surrender to Tokyo"
+        },
+        {
+          "id": "C",
+          "text": "It caused Great Britain to withdraw from the war against Nazi Germany"
+        },
+        {
+          "id": "D",
+          "text": "It resulted in the immediate military occupation of California by Japanese ground forces"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Admiral Yamamoto's surprise raid destroyed battleships but missed US aircraft carriers, submarine bases, and fuel depots. Crucially, it eradicated the powerful US isolationist movement overnight. The US transformed into Roosevelt's 'Arsenal of Democracy', mobilizing immense industrial muscle that crushed the Axis powers.",
+        "distractors": {
+          "A": "Correct: Pearl Harbor awakened the sleeping industrial giant and created the Grand Alliance.",
+          "B": "Incorrect: The US Congress declared war on Japan the following day with only one dissenting vote.",
+          "C": "Incorrect: Churchill famously declared that with America in the war, 'We have won after all!'",
+          "D": "Incorrect: Japan lacked the logistical capacity to mount a trans-Pacific invasion of the US mainland."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "era": "Era 9: Suez Crisis (1956)",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the Suez Crisis of 1956 fundamentally signal the demise of British and French global imperial hegemony?",
+      "options": [
+        {
+          "id": "A",
+          "text": "US financial and oil embargo threats forced Britain and France to halt their military invasion of Egypt, demonstrating that European powers could no longer act independently of superpower consent"
+        },
+        {
+          "id": "B",
+          "text": "The British royal family was captured by Egyptian armed forces in Cairo"
+        },
+        {
+          "id": "C",
+          "text": "France and Britain successfully colonized the entire Arabian Peninsula"
+        },
+        {
+          "id": "D",
+          "text": "The United Nations was permanently abolished by President Gamal Abdel Nasser"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "When Britain, France, and Israel secretly conspired to seize the nationalized Suez Canal, President Eisenhower was furious. Washington threatened to dump British sterling bonds and withhold emergency oil. Humiliated, London and Paris were forced to withdraw, proving that the old imperial powers were subordinate to the US and USSR.",
+        "distractors": {
+          "A": "Correct: The Suez Crisis signaled the symbolic end of Britain and France as independent first-rank global superpowers.",
+          "B": "Incorrect: The British royal family remained in London throughout the crisis.",
+          "C": "Incorrect: The invasion was an embarrassing diplomatic and strategic fiasco for the Anglo-French coalition.",
+          "D": "Incorrect: The UN actually deployed its first armed peacekeeping force (UNEF) to supervise the withdrawal."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "era": "Era 9: Fall of the Berlin Wall (1989)",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What immense symbolic and geopolitical transformation was heralded by the fall of the Berlin Wall on November 9, 1989?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The collapse of the Iron Curtain dividing Europe, paving the way for rapid German reunification (1990) and the peaceful disintegration of the Warsaw Pact communist regimes"
+        },
+        {
+          "id": "B",
+          "text": "The start of World War III between NATO and East Germany"
+        },
+        {
+          "id": "C",
+          "text": "The immediate military annexation of West Germany into the Soviet Union"
+        },
+        {
+          "id": "D",
+          "text": "The permanent prohibition of all travel across European borders"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Erected in 1961 to halt brain drain to the West, the Berlin Wall was the physical embodiment of Cold War totalitarianism. Its breach after massive peaceful protests led within a year to German reunification and the domino-like dissolution of communist regimes across Eastern Europe without Soviet military suppression.",
+        "distractors": {
+          "A": "Correct: The fall of the wall symbolized the triumph of popular democratic revolution and the end of the Cold War order.",
+          "B": "Incorrect: The event concluded with historic non-violence; no superpower war occurred.",
+          "C": "Incorrect: East Germany was peacefully dissolved and absorbed into the democratic Federal Republic of Germany.",
+          "D": "Incorrect: It led directly to the borderless Schengen zone and expansion of the European Union."
+        }
+      }
+    }
+  ],
+  "5": [
+    {
+      "id": 1,
+      "era": "Era 1: Peloponnesian War & Thucydides",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What geopolitical mechanism does Thucydides identify in his history of the Peloponnesian War that modern political scientists term 'Thucydides's Trap'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A structural stress when a rising power (Athens) challenges an established hegemon (Sparta), creating fear and insecurity that makes systemic war almost inevitable"
+        },
+        {
+          "id": "B",
+          "text": "A tactical ambush where infantry forces hide inside wooden horses"
+        },
+        {
+          "id": "C",
+          "text": "A naval blockade strategy that cuts off trade without using armed soldiers"
+        },
+        {
+          "id": "D",
+          "text": "A treaty where all participating states agree to dissolve their governments and form an empire"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Thucydides famously wrote: 'What made war inevitable was the growth of Athenian power and the fear which this caused in Sparta.' Modern strategic studies (e.g., Graham Allison) use 'Thucydides's Trap' to analyze recurring conflicts between established ruling powers and emerging challengers.",
+        "distractors": {
+          "A": "Correct: The dynamic of a rising challenger threatening an entrenched hegemon is a central paradigm of International Relations.",
+          "B": "Incorrect: Refers to the Trojan Horse myth in Homer and Virgil.",
+          "C": "Incorrect: The Peloponnesian War involved massive land battles, naval raids, and the siege of Syracuse.",
+          "D": "Incorrect: The war ended with Sparta imposing the oppressive regime of the 'Thirty Tyrants' on Athens."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "era": "Era 2: Roman Republic Jurisprudence",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Why were the 'Twelve Tables' (~450 BC) an epochal milestone in Western legal history?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They were Rome's first written public legal code, establishing that laws must be publicly codified so patrician magistrates could not manipulate justice arbitrarily against plebeians"
+        },
+        {
+          "id": "B",
+          "text": "They proclaimed complete economic equality and abolished private property across Rome"
+        },
+        {
+          "id": "C",
+          "text": "They established the absolute rule of the Catholic Pope over Roman courts"
+        },
+        {
+          "id": "D",
+          "text": "They were the first environmental conservation treaties in European history"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Before the Twelve Tables, customary law was kept secret by patrician priests, allowing them to adjudicate disputes arbitrarily against commoners (Plebeians). Inscribing laws on bronze tablets in the Roman Forum established public statutory transparency and the foundation of civil law.",
+        "distractors": {
+          "A": "Correct: Written public codification is the foundational pillar of the Rule of Law.",
+          "B": "Incorrect: The Twelve Tables strictly protected private property rights and debt enforcement.",
+          "C": "Incorrect: The Twelve Tables were drafted nearly five centuries before the birth of Christianity.",
+          "D": "Incorrect: The code dealt with property, inheritance, civil wrongs, torts, and judicial procedure."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "era": "Era 3: Magna Carta (1215)",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What foundational constitutional principle was established when the English barons forced King John to seal the Magna Carta at Runnymede in 1215?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The King is not above the law: no free person can be imprisoned or stripped of property without lawful judgment of their peers (Due Process and Habeas Corpus)"
+        },
+        {
+          "id": "B",
+          "text": "The English monarchy was abolished and replaced by an egalitarian peasant republic"
+        },
+        {
+          "id": "C",
+          "text": "The King was granted absolute unchecked power to tax without consulting any council"
+        },
+        {
+          "id": "D",
+          "text": "England was formally surrendered to become a colony of the Holy Roman Empire"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Clause 39 of Magna Carta stated: 'No free man shall be seized or imprisoned... except by the lawful judgment of his equals or by the law of the land.' This established the principle of constitutional limitation on executive power, directly inspiring Habeas Corpus and the US Fifth and Sixth Amendments.",
+        "distractors": {
+          "A": "Correct: Subordinating the sovereign to the rule of law and due process originated at Runnymede.",
+          "B": "Incorrect: Magna Carta sought to constrain monarchical abuse, not abolish the monarchy.",
+          "C": "Incorrect: Clause 12 explicitly barred 'scutage' or aid without common counsel of the realm.",
+          "D": "Incorrect: Magna Carta was a domestic dispute between English barons and the Plantagenet crown."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "era": "Era 4: Counter-Reformation",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "What dual mandate did the Council of Trent (1545–1563) execute for the Catholic Church during the Counter-Reformation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reaffirming traditional Catholic dogmas and papal authority while reforming ecclesiastical corruption (banning the sale of indulgences, establishing standardized seminaries)"
+        },
+        {
+          "id": "B",
+          "text": "Accepting all of Martin Luther's theology and dissolving the Papacy"
+        },
+        {
+          "id": "C",
+          "text": "Forcing all European monarchs to abdicate in favor of local parish priests"
+        },
+        {
+          "id": "D",
+          "text": "Merging Catholic doctrine with Eastern Orthodox and Islamic teachings"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "The Council of Trent was the institutional backbone of the Catholic Counter-Reformation. It refused any doctrinal compromise with Protestantism (reaffirming the seven sacraments, Latin Vulgate, and apostolic succession), while rooting out financial abuse, simony, and uneducated clergy.",
+        "distractors": {
+          "A": "Correct: Dogmatic reaffirmation paired with moral and educational reform revitalized Catholicism.",
+          "B": "Incorrect: Trent explicitly anathematized Protestant doctrines like Sola Fide and Sola Scriptura.",
+          "C": "Incorrect: The Church partnered with Catholic dynastic rulers like the Habsburgs.",
+          "D": "Incorrect: Trent hardened doctrinal boundaries between Catholicism and all other faiths."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "era": "Era 5: Mercantilism & Exploration",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "Under the economic doctrine of 'Mercantilism' in the 17th and 18th centuries, how was national power and wealth measured?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Accumulation of precious bullion (gold and silver reserves) achieved through a permanent positive trade balance (maximizing exports, minimizing imports through tariffs) and colonial extraction"
+        },
+        {
+          "id": "B",
+          "text": "Equitable distribution of welfare benefits to factory laborers"
+        },
+        {
+          "id": "C",
+          "text": "Completely free, unregulated global trade without tariffs or colonies"
+        },
+        {
+          "id": "D",
+          "text": "The total volume of digital paper currency printed by central banks"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Mercantilism viewed global commerce as a zero-sum game: one nation's gain was another's loss. States sought to hoard bullion by maintaining trade surpluses, establishing state monopolies (like the East India Companies), and restricting colonies to trading exclusively with the mother country.",
+        "distractors": {
+          "A": "Correct: Bullionism and protectionist colonial extraction were the twin engines of mercantilist statecraft.",
+          "B": "Incorrect: Mercantilism prioritized the state's military treasury over working-class wages.",
+          "C": "Incorrect: Free trade (laissez-faire) was advocated by Adam Smith to dismantle mercantilism.",
+          "D": "Incorrect: Mercantilism prioritized hard gold and silver bullion over paper money."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "era": "Era 6: Classical Economics",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "In 'The Wealth of Nations' (1776), what did Adam Smith mean by the metaphor of the 'Invisible Hand'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "When individuals pursue their own rational self-interest in competitive, uncoerced markets, they unintentionally maximize the broader economic prosperity and innovation of society more effectively than state planning"
+        },
+        {
+          "id": "B",
+          "text": "A secret conspiracy of monarchs who dictate commodity prices behind closed doors"
+        },
+        {
+          "id": "C",
+          "text": "Divine supernatural intervention that physically moves merchandise across harbors"
+        },
+        {
+          "id": "D",
+          "text": "The military power of the government forcibly seizing private property"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Smith observed: 'It is not from the benevolence of the butcher, the brewer, or the baker that we expect our dinner, but from their regard to their own interest.' In a competitive market with price signals, decentralized self-interested transactions coordinate supply and demand efficiently without central government direction.",
+        "distractors": {
+          "A": "Correct: Market competition channels private ambition into collective economic efficiency and abundance.",
+          "B": "Incorrect: Smith was famously critical of merchant collusion and government-granted monopolies.",
+          "C": "Incorrect: The 'Invisible Hand' is a secular economic metaphor, not literal mysticism.",
+          "D": "Incorrect: Smith advocated for minimal state intervention (laissez-faire) restricted to defense, justice, and public works."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "era": "Era 7: Suez Canal & Imperial Chokepoints",
+      "difficulty": "Medium",
+      "difficultyColor": "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the opening of the Suez Canal in 1869 permanently reorganize global geopolitical logistics?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It slashed the maritime distance between Europe and Asia by ~7,000 kilometers by eliminating the voyage around Africa's Cape of Good Hope, turning the canal into Britain's imperial 'jugular vein' to India"
+        },
+        {
+          "id": "B",
+          "text": "It connected the Atlantic Ocean directly to the Pacific Ocean through South America"
+        },
+        {
+          "id": "C",
+          "text": "It caused European powers to completely abandon their Asian colonies"
+        },
+        {
+          "id": "D",
+          "text": "It was shallow and unusable by any commercial steam vessels"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "Constructed by Ferdinand de Lesseps, the 193 km sea-level canal linked the Mediterranean and Red Seas. It cut maritime travel times between London and Bombay from months to weeks, leading British Prime Minister Disraeli to buy the Khedive's shares in 1875 and occupy Egypt in 1882 to safeguard the route.",
+        "distractors": {
+          "A": "Correct: The Suez Canal became the most critical geopolitical choke point of the British Empire.",
+          "B": "Incorrect: That describes the Panama Canal (opened in 1914).",
+          "C": "Incorrect: The canal accelerated European colonial penetration and trade in Asia and East Africa.",
+          "D": "Incorrect: The canal was engineered specifically to accommodate modern deep-draft steamships."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "era": "Era 8: Yalta Conference (1945)",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "What major post-war territorial and geopolitical consensus was forged at the Yalta Conference (February 1945) by the 'Big Three' (Roosevelt, Churchill, Stalin)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The division of post-war Germany and Berlin into four allied occupation zones, Soviet pledge to enter the war against Japan within 90 days of Nazi surrender, and agreement on UN Security Council veto structure"
+        },
+        {
+          "id": "B",
+          "text": "Immediate declaration of war by the United States against the Soviet Union"
+        },
+        {
+          "id": "C",
+          "text": "Total restoration of the pre-1914 Austro-Hungarian and Ottoman empires"
+        },
+        {
+          "id": "D",
+          "text": "Unanimous agreement that all European countries should be governed by the League of Nations"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "At Yalta in the Crimea, the Big Three hammered out the post-war framework: four-power occupation of Germany and Berlin (US, UK, USSR, France), Polish border shifts westward (Curzon and Oder-Neisse lines), the UN charter with great power vetoes, and Soviet entry into the Pacific War.",
+        "distractors": {
+          "A": "Correct: Yalta established the de facto operational boundaries of post-war Europe that divided into Cold War blocs.",
+          "B": "Incorrect: The Big Three were still close military allies coordinating the final defeat of the Axis.",
+          "C": "Incorrect: The Central European empires were permanently dissolved after WWI.",
+          "D": "Incorrect: The League of Nations was being replaced by the United Nations Organization."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "era": "Era 9: Cold War Nuclear Deterrence",
+      "difficulty": "Easy",
+      "difficultyColor": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+      "bloom": "Remember",
+      "bloomColor": "bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300 border-sky-300 dark:border-sky-800",
+      "stem": "What is the strategic doctrine of 'MAD' in nuclear deterrence theory?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mutually Assured Destruction: the premise that both superpowers possess invulnerable second-strike nuclear arsenals, guaranteeing that any first-strike attack guarantees the total catastrophic annihilation of both attacker and defender"
+        },
+        {
+          "id": "B",
+          "text": "Military Alliance for Disarmament: a treaty to dismantle all weapons of war"
+        },
+        {
+          "id": "C",
+          "text": "Maximum Airborne Defense: reliance exclusively on fighter jets without ground radars"
+        },
+        {
+          "id": "D",
+          "text": "Maritime Anti-submarine Doctrine: the naval strategy of mining neutral sea lanes"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "MAD relies on survivable nuclear triads (ICBMs in silos, SSBN submarines, strategic bombers). Because neither side could launch a surprise first strike without absorbing a devastating second-strike counterblow, nuclear war became suicidal and rationally unviable, preserving the 'Long Peace'.",
+        "distractors": {
+          "A": "Correct: Mutually Assured Destruction made direct superpower war rationally impossible throughout the Cold War.",
+          "B": "Incorrect: Fictitious disarmament acronym.",
+          "C": "Incorrect: Fictitious air defense acronym.",
+          "D": "Incorrect: Fictitious naval acronym."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "era": "Era 9: Post-Cold War Global Order",
+      "difficulty": "Hard",
+      "difficultyColor": "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+      "bloom": "Understand",
+      "bloomColor": "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800",
+      "stem": "How did the dissolution of the Soviet Union in December 1991 fundamentally restructure the polarity of international relations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It transitioned the global system from a four-decade bipolar Cold War standoff into an unprecedented American 'Unipolar Moment' of undisputed military, economic, and ideological primacy"
+        },
+        {
+          "id": "B",
+          "text": "It immediately transferred all global nuclear weapons to the European Union"
+        },
+        {
+          "id": "C",
+          "text": "It caused the United States to immediately dissolve NATO and isolate itself from world affairs"
+        },
+        {
+          "id": "D",
+          "text": "It restored the 19th-century Austro-Hungarian Empire as the dominant European superpower"
+        }
+      ],
+      "answer": "A",
+      "explanation": {
+        "correctReason": "With the red flag lowered over the Kremlin and 15 independent republics emerging, the bipolar Cold War ended. The United States stood as the sole superpower in an unheralded unipolar international system, leading thinkers like Charles Krauthammer to term it the 'Unipolar Moment' and Francis Fukuyama to proclaim the 'End of History'.",
+        "distractors": {
+          "A": "Correct: The collapse of the USSR inaugurated the post-Cold War unipolar international order.",
+          "B": "Incorrect: Former Soviet nuclear weapons in Ukraine, Belarus, and Kazakhstan were consolidated into the Russian Federation under the Lisbon Protocol.",
+          "C": "Incorrect: NATO expanded eastward to incorporate former Warsaw Pact and Baltic states.",
+          "D": "Incorrect: Fictitious historical scenario."
+        }
+      }
+    }
+  ]
+};
+var currentQuizSetNum = 1;
+var quizQuestions = allQuizSets["1"];
+
+// -------------------------------------------------------------
+// TIMED QUIZ STATE & CONTROLLER (5 SETS)
+// -------------------------------------------------------------
+var quizState = {
+  totalSeconds: 900,
+  remainingSeconds: 900,
+  timerInterval: null,
+  isPaused: false,
+  userAnswers: {},
+  isSubmitted: false
+};
+
+function switchQuizSet(setNum, showNotice) {
+  setNum = parseInt(setNum);
+  if (!allQuizSets[setNum]) return;
+  currentQuizSetNum = setNum;
+  quizQuestions = allQuizSets[String(setNum)];
+
+  for (var i = 1; i <= 5; i++) {
+    var tab = document.getElementById('quiz-set-tab-' + i);
+    if (tab) {
+      if (i === setNum) {
+        tab.className = 'quiz-set-tab px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer border bg-[#107895] text-white border-[#107895] shadow-2xs';
+      } else {
+        tab.className = 'quiz-set-tab px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer border bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-[#107895]';
+      }
+    }
+  }
+
+  quizState.userAnswers = {};
+  quizState.isSubmitted = false;
+  quizState.remainingSeconds = quizState.totalSeconds;
+  quizState.isPaused = false;
+  if (quizState.timerInterval) clearInterval(quizState.timerInterval);
+
+  var banner = document.getElementById('quiz-results-banner');
+  if (banner) banner.classList.add('hidden');
+
+  var toggleBtn = document.getElementById('quiz-timer-toggle-btn');
+  if (toggleBtn) toggleBtn.textContent = 'Pause';
+
+  renderQuizQuestions();
+  updateQuizProgress();
+  updateQuizTimerDisplay();
+  startQuizTimer();
+
+  if (showNotice) {
+    showToast('🎲 Randomized: Question Set ' + setNum + ' (10 Items)');
+  }
+}
+
+function randomQuizSet() {
+  var available = [1, 2, 3, 4, 5].filter(function(n) { return n !== currentQuizSetNum; });
+  var nextSet = available[Math.floor(Math.random() * available.length)];
+  switchQuizSet(nextSet, true);
+}
+
+function startQuizTimer() {
+  if (quizState.timerInterval) clearInterval(quizState.timerInterval);
+  updateQuizTimerDisplay();
+
+  quizState.timerInterval = setInterval(function() {
+    if (!quizState.isPaused && quizState.remainingSeconds > 0 && !quizState.isSubmitted) {
+      quizState.remainingSeconds--;
+      updateQuizTimerDisplay();
+
+      if (quizState.remainingSeconds === 0) {
+        clearInterval(quizState.timerInterval);
+        submitQuiz(true);
+      }
+    }
+  }, 1000);
+}
+
+function toggleQuizTimer() {
+  quizState.isPaused = !quizState.isPaused;
+  var btn = document.getElementById('quiz-timer-toggle-btn');
+  if (btn) btn.textContent = quizState.isPaused ? 'Resume' : 'Pause';
+  showToast(quizState.isPaused ? '⏸️ Quiz timer paused' : '▶️ Quiz timer resumed');
+}
+
+function toggleQuizTimerPause() {
+  toggleQuizTimer();
+}
+
+function restartQuizTimer(seconds) {
+  quizState.remainingSeconds = seconds || 900;
+  quizState.isPaused = false;
+  var btn = document.getElementById('quiz-timer-toggle-btn');
+  if (btn) btn.textContent = 'Pause';
+  startQuizTimer();
+  showToast('⏱️ Timer reset to 15 minutes');
+}
+
+function updateQuizTimerDisplay() {
+  var m = Math.floor(quizState.remainingSeconds / 60);
+  var s = quizState.remainingSeconds % 60;
+  var display = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+
+  var timerEl = document.getElementById('quiz-timer-display');
+  if (timerEl) {
+    timerEl.textContent = display;
+    if (quizState.remainingSeconds < 180) {
+      timerEl.className = 'text-2xl sm:text-3xl font-mono font-bold text-rose-600 animate-pulse';
+    } else {
+      timerEl.className = 'text-2xl sm:text-3xl font-mono font-bold text-[#107895] dark:text-[#38bdf8]';
+    }
+  }
+
+  var bar = document.getElementById('quiz-timer-bar');
+  if (bar) {
+    var pct = Math.max(0, Math.min(100, (quizState.remainingSeconds / quizState.totalSeconds) * 100));
+    bar.style.width = pct + '%';
+    if (pct < 20) {
+      bar.className = 'bg-rose-500 h-full transition-all duration-1000';
+    } else {
+      bar.className = 'bg-emerald-500 h-full transition-all duration-1000';
+    }
+  }
+}
+
+function initQuizView() {
+  if (typeof switchQuizSet === 'function') {
+    switchQuizSet(currentQuizSetNum || 1);
+  } else {
+    renderQuizQuestions();
+    updateQuizProgress();
+    startQuizTimer();
+  }
+}
+
+function renderQuizQuestions() {
+  var container = document.getElementById('quiz-questions-container') || document.getElementById('quiz-questions-list');
+  if (!container) return;
+
+  var html = '';
+  quizQuestions.forEach(function(q, index) {
+    var userAnswer = quizState.userAnswers[q.id];
+    var isSubmitted = quizState.isSubmitted;
+    var isCorrect = (userAnswer === q.answer);
+
+    var cardBorder = 'border-slate-200 dark:border-slate-700';
+    if (isSubmitted) {
+      cardBorder = isCorrect ? 'border-emerald-500 bg-emerald-50/20' : 'border-rose-400 bg-rose-50/20';
+    }
+
+    html += '<div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border ' + cardBorder + ' shadow-xs space-y-3 font-sans transition-all">';
+    
+    // Header
+    html += '  <div class="flex items-center justify-between gap-2 flex-wrap text-xs">';
+    html += '    <div class="flex items-center gap-2">';
+    html += '      <span class="font-bold text-slate-900 dark:text-white text-sm">Question ' + (index + 1) + ' / 10 (Set ' + currentQuizSetNum + ')</span>';
+    html += '      <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-mono text-[10px]">' + q.era + '</span>';
+    html += '    </div>';
+    html += '    <div class="flex items-center gap-1.5 text-[11px]">';
+    html += '      <span class="px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 font-medium">' + q.difficulty + '</span>';
+    html += '      <span class="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 font-medium">Bloom: ' + q.bloom + '</span>';
+    html += '    </div>';
+    html += '  </div>';
+
+    // Stem
+    html += '  <p class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-100 leading-relaxed">' + q.stem + '</p>';
+
+    // Options
+    html += '  <div class="space-y-2 pt-1">';
+    q.options.forEach(function(opt) {
+      var checked = (userAnswer === opt.id) ? 'checked' : '';
+      var optClass = 'p-3 rounded-xl border text-xs sm:text-sm flex items-start gap-3 transition cursor-pointer ';
+
+      if (!isSubmitted) {
+        if (userAnswer === opt.id) {
+          optClass += 'border-[#107895] bg-[#107895]/10 text-[#107895] dark:text-[#38bdf8] font-medium';
+        } else {
+          optClass += 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-slate-50/50 dark:bg-slate-800/40 text-slate-700 dark:text-slate-200';
+        }
+      } else {
+        if (opt.id === q.answer) {
+          optClass += 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-200 font-bold';
+        } else if (userAnswer === opt.id) {
+          optClass += 'border-rose-500 bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-200 line-through';
+        } else {
+          optClass += 'border-slate-200 dark:border-slate-700 opacity-60 text-slate-500';
+        }
+      }
+
+      html += '    <label class="' + optClass + '">';
+      html += '      <input type="radio" name="quiz-q-' + q.id + '" value="' + opt.id + '" ' + checked + ' ' + (isSubmitted ? 'disabled' : '') + ' onchange="selectQuizOption(' + q.id + ', \'' + opt.id + '\')" class="mt-0.5 text-[#107895] focus:ring-[#107895]" />';
+      html += '      <span class="flex-1"><strong>' + opt.id + '.</strong> ' + opt.text + '</span>';
+      html += '    </label>';
+    });
+    html += '  </div>';
+
+    // Detailed Explanation Box
+    if (isSubmitted) {
+      html += '  <div class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs space-y-2 animate-in fade-in duration-150">';
+      html += '    <div class="flex items-center gap-1.5 font-bold ' + (isCorrect ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400') + '">';
+      html += '      <span>' + (isCorrect ? '✓ Correct Answer' : '✗ Correct Answer: Option ' + q.answer) + '</span>';
+      html += '    </div>';
+      html += '    <div class="text-slate-700 dark:text-slate-300 leading-relaxed">';
+      html += '      <strong>💡 Academic Rationale:</strong> ' + q.explanation.correctReason;
+      html += '    </div>';
+      html += '    <div class="pt-2 border-t border-slate-200 dark:border-slate-700/80 text-[11px] text-slate-500 dark:text-slate-400 space-y-1">';
+      html += '      <div><strong>Distractor Analysis:</strong></div>';
+      ['A', 'B', 'C', 'D'].forEach(function(k) {
+        if (q.explanation.distractors && q.explanation.distractors[k]) {
+          html += '<div>• <strong>' + k + ':</strong> ' + q.explanation.distractors[k] + '</div>';
+        }
+      });
+      html += '    </div>';
+      html += '  </div>';
+    }
+
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+function selectQuizOption(questionId, optionId) {
+  if (quizState.isSubmitted) return;
+  quizState.userAnswers[questionId] = optionId;
+  updateQuizProgress();
+}
+
+function updateQuizProgress() {
+  var answeredCount = Object.keys(quizState.userAnswers).length;
+  var progressEl = document.getElementById('quiz-progress-text');
+  if (progressEl) {
+    progressEl.textContent = 'Answered ' + answeredCount + ' of 10 questions (Set ' + currentQuizSetNum + ')';
+  }
+}
+
+function submitQuiz(e) {
+  if (e && typeof e.preventDefault === 'function') e.preventDefault();
+  var isAuto = (e === true);
+  if (quizState.isSubmitted) return;
+  quizState.isSubmitted = true;
+  if (quizState.timerInterval) clearInterval(quizState.timerInterval);
+
+  var score = 0;
+  quizQuestions.forEach(function(q) {
+    if (quizState.userAnswers[q.id] === q.answer) score++;
+  });
+
+  var percentage = Math.round((score / 10) * 100);
+  var gradeTitle = '';
+  var gradeColor = '';
+
+  if (score >= 8) {
+    gradeTitle = 'Outstanding Performance! (Distinction)';
+    gradeColor = 'text-emerald-600 dark:text-emerald-400';
+  } else if (score >= 5) {
+    gradeTitle = 'Good Pass';
+    gradeColor = 'text-blue-600 dark:text-blue-400';
+  } else {
+    gradeTitle = 'Needs Review';
+    gradeColor = 'text-amber-600 dark:text-amber-400';
+  }
+
+  var banner = document.getElementById('quiz-results-banner');
+  if (banner) {
+    banner.className = 'rounded-2xl p-6 border text-center space-y-3 ' + (score >= 7 ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800' : 'bg-amber-50 dark:bg-amber-950/30 border-amber-300 dark:border-amber-800');
+    banner.innerHTML = '<div class="text-xs uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400">Assessment Evaluation (Set ' + currentQuizSetNum + ')</div>' +
+      '<div class="text-4xl sm:text-5xl font-extrabold font-mono text-slate-900 dark:text-white">' + score + ' / 10 <span class="text-lg font-normal text-slate-500">(' + percentage + '%)</span></div>' +
+      '<div class="text-base font-bold ' + gradeColor + '">' + gradeTitle + '</div>' +
+      '<div class="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto">' + (isAuto ? 'Time expired! Answers evaluated and comprehensive academic rationale displayed below.' : 'Your quiz has been evaluated. Review detailed historiographical reasoning and distractor analysis below.') + '</div>' +
+      '<div class="pt-2 flex items-center justify-center gap-2">' +
+      '  <button type="button" onclick="randomQuizSet()" class="px-4 py-2 rounded-xl bg-[#107895] hover:bg-[#0b5e75] text-white text-xs font-semibold shadow-xs transition cursor-pointer">🎲 Try Another Random Set</button>' +
+      '  <button type="button" onclick="resetQuiz()" class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer">Retake This Set</button>' +
+      '</div>';
+    banner.classList.remove('hidden');
+    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  renderQuizQuestions();
+  if (typeof playChimeSound === 'function') playChimeSound();
+  showToast('🎉 Quiz Set ' + currentQuizSetNum + ' submitted: ' + score + '/10 score');
+}
+
+function resetQuiz() {
+  switchQuizSet(currentQuizSetNum);
+}
+
+
     var lectureTimer = {
       elapsedSeconds: 0,
       interval: null,
@@ -10714,16 +12999,90 @@
       if (modal) modal.classList.add('hidden');
     }
 
-    // Bookmarks Modal
-    function openBookmarksModal() {
-      var modal = document.getElementById('bookmarks-modal');
-      if (modal) modal.classList.remove('hidden');
-    }
+    
+function showArticle(articleKey, scrollSelector) {
+  openDeepDive(articleKey, scrollSelector);
+}
 
-    function closeBookmarksModal() {
-      var modal = document.getElementById('bookmarks-modal');
-      if (modal) modal.classList.add('hidden');
-    }
+function openArticleModal(articleKey, scrollSelector) {
+  openDeepDive(articleKey, scrollSelector);
+}
+
+function openMovieModal(movieKey) {
+  showMovieDetail(movieKey);
+}
+
+// Bookmarks System Controller
+function getBookmarks() {
+  try {
+    return JSON.parse(localStorage.getItem('chronoscope_bookmarks') || '[]');
+  } catch(e) {
+    return [];
+  }
+}
+
+function saveBookmarks(list) {
+  try {
+    localStorage.setItem('chronoscope_bookmarks', JSON.stringify(list));
+    updateBookmarkBadge();
+  } catch(e) {}
+}
+
+function toggleBookmark(type, id, title) {
+  var list = getBookmarks();
+  var idx = list.findIndex(function(x) { return x.type === type && x.id === id; });
+  if (idx >= 0) {
+    list.splice(idx, 1);
+    showToast('Removed from bookmarks');
+  } else {
+    list.push({ type: type, id: id, title: title, date: new Date().toISOString() });
+    showToast('⭐ Saved to bookmarks successfully');
+  }
+  saveBookmarks(list);
+}
+
+function updateBookmarkBadge() {
+  var list = getBookmarks();
+  var el = document.getElementById('bookmark-count');
+  if (el) el.textContent = list.length;
+}
+
+function openBookmarksModal() {
+  var modal = document.getElementById('bookmarks-modal');
+  var container = document.getElementById('bookmarks-list-content');
+  if (!modal || !container) return;
+
+  var list = getBookmarks();
+  if (list.length === 0) {
+    container.innerHTML = '<div class="text-center py-8 text-slate-400 dark:text-slate-500 text-xs">No bookmarks saved yet.<br>Click the ⭐ button in article or movie modals to bookmark for review.</div>';
+  } else {
+    var html = '';
+    list.forEach(function(item, i) {
+      html += '<div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">';
+      html += '  <div class="flex items-center gap-2 truncate">';
+      html += '    <span class="text-amber-500">⭐</span>';
+      html += '    <span class="font-semibold text-slate-800 dark:text-slate-200 truncate">' + item.title + '</span>';
+      html += '    <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 uppercase">' + item.type + '</span>';
+      html += '  </div>';
+      html += '  <div class="flex items-center gap-2 shrink-0">';
+      if (item.type === 'article') {
+        html += '    <button onclick="closeBookmarksModal(); openArticleModal(\'' + item.id + '\')" class="px-2.5 py-1 rounded bg-[#107895] text-white font-medium hover:bg-[#0b5e75] cursor-pointer">Read</button>';
+      } else if (item.type === 'movie') {
+        html += '    <button onclick="closeBookmarksModal(); openMovieModal(\'' + item.id + '\')" class="px-2.5 py-1 rounded bg-[#107895] text-white font-medium hover:bg-[#0b5e75] cursor-pointer">View</button>';
+      }
+      html += '    <button onclick="toggleBookmark(\'' + item.type + '\', \'' + item.id + '\', \'\'); openBookmarksModal();" class="text-rose-500 hover:text-rose-700 text-sm cursor-pointer" title="Remove">&times;</button>';
+      html += '  </div>';
+      html += '</div>';
+    });
+    container.innerHTML = html;
+  }
+  modal.classList.remove('hidden');
+}
+
+function closeBookmarksModal() {
+  var modal = document.getElementById('bookmarks-modal');
+  if (modal) modal.classList.add('hidden');
+}
 
     // Slide Grid Modal
     function openSlideGridModal() {
@@ -10813,6 +13172,21 @@
 
     // ==================== GEOPOLITICAL MAP LAB (ENGLISH EDITION) ====================
     var geopoliticalMapData = {
+  "world_overview": {
+    "era": "overview",
+    "eraName": "Global Historical Overview",
+    "title": "🌍 World Geopolitics: The 9-Era Journey of Human Civilization",
+    "lat": 32.0,
+    "lng": 25.0,
+    "zoom": 3,
+    "coords": "Global Geopolitics",
+    "ancientName": "9 Transformative Eras of Human Civilization (1200 BC – Present)",
+    "modernName": "39 Strategic Coordinates & Geopolitical Flashpoints",
+    "chokepoint": "Geography is the stage upon which world history unfolds. From the Dardanelles Strait in the Trojan War, Rome\'s Mediterranean Mare Nostrum, and the Suez Canal that transformed global maritime trade, to the Berlin Wall dividing Cold War superpowers—physical terrain has perpetually determined the rise and fall of great civilizations. Select an era and event from the navigation menu above to explore each strategic nexus in depth.",
+    "terrainType": "Global Geopolitical Map & Civilizational Corridors",
+    "strategicImpact": "Spatial comprehension connecting all 9 historical eras, from antiquity to the contemporary world order.",
+    "articleKey": null
+  },
   "greek-trojan-war": {
     "era": "greece",
     "eraName": "Era 1: Ancient Greece",
