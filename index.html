@@ -15344,8 +15344,8 @@ function closeMythMiniQuizModal() {
         if (!container) return;
 
         fullPageLeafletMap = L.map('full-page-leaflet-map', {
-          center: [34.0, 25.0],
-          zoom: 4,
+          center: [25.0, 15.0],
+          zoom: 2,
           minZoom: 2,
           maxZoom: 18,
           zoomControl: true,
@@ -15371,7 +15371,11 @@ function closeMythMiniQuizModal() {
 
       setTimeout(function() {
         if (fullPageLeafletMap) fullPageLeafletMap.invalidateSize();
-      }, 150);
+        var defaultKey = 'greek-trojan-war';
+        if (fullPageMarkersMap && fullPageMarkersMap[defaultKey]) {
+          fullPageMarkersMap[defaultKey].openPopup();
+        }
+      }, 200);
     }
 
     function renderFullMapEraPills() {
@@ -15669,9 +15673,19 @@ function closeMythMiniQuizModal() {
       if (searchInput) searchInput.value = '';
       renderFullMapEraPills();
       renderFullMapContent();
+      var defaultKey = 'greek-trojan-war';
       if (fullPageLeafletMap) {
-        fullPageLeafletMap.flyTo([34.0, 25.0], 4, { duration: 1.0 });
+        fullPageLeafletMap.flyTo([25.0, 15.0], 2, { duration: 1.0 });
+        setTimeout(function() {
+          if (fullPageMarkersMap && fullPageMarkersMap[defaultKey]) {
+            fullPageMarkersMap[defaultKey].openPopup();
+          }
+        }, 1050);
       }
+      if (typeof geopoliticalMapData !== 'undefined' && geopoliticalMapData[defaultKey]) {
+        selectFullMapLocation(defaultKey, false);
+      }
+      toggleFullMapSidebar(false);
     }
 
     function toggleFullMapSidebar(forceState) {
