@@ -997,10 +997,10 @@
        ==================================================== -->
   <main id="view-slides">
     <div id="presentation-viewport" class="relative">
-      <!-- Floating Exit Fullscreen Button (Visible in Presentation Fullscreen) -->
-      <button id="presentation-floating-exit-fs" onclick="toggleFullscreen(false)" class="hidden absolute top-3 right-4 z-50 px-3 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white text-xs font-sans font-medium backdrop-blur-md shadow-lg border border-white/20 items-center gap-1.5 transition-all cursor-pointer group" title="Exit Full Screen Presentation (Esc)">
-        <span class="text-sm group-hover:scale-110 transition-transform">🗗</span>
-        <span>Exit Full Screen (Esc)</span>
+      <!-- Floating Exit Fullscreen Button (Compact & Unobtrusive in Presentation Fullscreen) -->
+      <button id="presentation-floating-exit-fs" onclick="toggleFullscreen(false)" class="hidden absolute top-2 right-2 z-50 px-2 py-0.5 rounded-full bg-slate-900/60 hover:bg-slate-900/95 text-white/80 hover:text-white text-xs font-sans backdrop-blur-sm shadow-sm border border-white/20 items-center gap-1 transition-all cursor-pointer opacity-50 hover:opacity-100 group" title="Exit Full Screen Presentation (Esc)">
+        <span class="text-xs group-hover:scale-110 transition-transform leading-none">🗗</span>
+        <span class="text-[10px] font-medium tracking-tight text-slate-200">Esc</span>
       </button>
       <!-- Slide Stage -->
       <div id="slide-stage">
