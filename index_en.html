@@ -948,6 +948,12 @@
           <span class="hidden xl:inline whitespace-nowrap text-slate-700 dark:text-slate-200 font-sans font-medium text-xs">Search</span>
         </button>
 
+        <!-- Grand Collector's Book Edition Button -->
+        <a href="book.html" target="_blank" id="header-book-btn" class="shrink-0 px-2 sm:px-2.5 py-1.5 rounded-md border border-rose-300/80 dark:border-rose-700/70 bg-rose-50/80 dark:bg-rose-950/40 text-rose-800 dark:text-rose-200 text-xs font-sans font-medium hover:bg-rose-100 dark:hover:bg-rose-900/60 hover:border-rose-400 dark:hover:border-rose-500 transition-all flex items-center gap-1 shadow-xs group cursor-pointer whitespace-nowrap" title="Open Complete 900-page Hardcover Book Edition (Print/Save PDF ready)">
+          <span class="text-sm group-hover:scale-110 transition-transform">📕</span>
+          <span class="hidden xl:inline whitespace-nowrap font-sans font-medium text-xs">Book Edition</span>
+        </a>
+
         <!-- Bilingual Historical Glossary Button -->
         <button id="glossary-btn" onclick="openGlossaryModal()" class="shrink-0 px-2 sm:px-2.5 py-1.5 rounded-md border border-amber-300/80 dark:border-amber-700/70 bg-amber-50/80 dark:bg-amber-950/40 text-amber-800 dark:text-amber-200 text-xs font-sans font-medium hover:bg-amber-100 dark:hover:bg-amber-900/60 hover:border-amber-400 dark:hover:border-amber-500 transition-all flex items-center gap-1 shadow-xs group cursor-pointer whitespace-nowrap" title="Bilingual Academic Historical Glossary [Hotkey: G]">
           <span class="text-sm group-hover:scale-110 transition-transform">📖</span>
@@ -980,6 +986,7 @@
             <option value="mindmap">🗺️ Metro Map</option>
           </optgroup>
           <optgroup label="── Map & Deep-Dive Archives ──">
+            <option value="book">📕 Book Edition (900p / PDF)</option>
             <option value="map">🌍 Geopolitical Map (38)</option>
             <option value="articles">📖 Research (38)</option>
             <option value="movies">🎬 Cinema (56)</option>
@@ -8516,6 +8523,10 @@
     }
 
     function switchView(viewName) {
+      if (viewName === 'book' || viewName === 'book_edition') {
+        window.open('book.html', '_blank');
+        return;
+      }
       if (viewName === 'glossary') {
         openGlossaryModal();
         return;
