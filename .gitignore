@@ -1,2 +1,7 @@
 _archive_versions/
 scratch/
+book/
+book.html
+CHRONOSCOPE_BOOK_MANUSCRIPT.md
+*.pdf
+book_press/
